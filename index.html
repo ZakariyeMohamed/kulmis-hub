@@ -1,0 +1,2566 @@
+<!doctype html>
+<html lang="so">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KULMIS HUB</title>
+
+<meta name="description"
+content="KULMIS HUB — Waa Hoyga Fursadaha Caalamiga ah">
+
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+  box-sizing:border-box;
+  font-family:"Times New Roman",Times,serif;
+}
+
+body{
+  margin:0;
+  color:#111827;
+  background:#fff;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+button,
+input,
+textarea{
+  font-family:"Times New Roman",Times,serif;
+}
+
+
+/* =====================================================
+   HEADER / MENU
+===================================================== */
+
+header{
+  position:relative;
+  z-index:1000;
+}
+
+.nav{
+  position:relative;
+}
+
+header nav{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+header nav a{
+  text-decoration:none;
+  color:#152235;
+  font-weight:700;
+  padding:11px 12px;
+  border-radius:10px;
+  transition:.25s;
+}
+
+header nav a:hover{
+  background:#2563eb;
+  color:#fff !important;
+  transform:translateY(-2px);
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:transparent;
+  font-size:30px;
+  cursor:pointer;
+  padding:7px;
+}
+
+
+/* =====================================================
+   HOME HERO
+===================================================== */
+
+.home-redesign{
+  padding-bottom:55px;
+}
+
+.home-hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:0 0 35px 35px;
+
+  background:
+  radial-gradient(circle at 85% 10%,#ffffff2b 0 10%,transparent 28%),
+  linear-gradient(
+    135deg,
+    #061b4f 0%,
+    #0b3d91 50%,
+    #087f8c 100%
+  );
+
+  color:#fff;
+
+  min-height:520px;
+
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+
+  align-items:center;
+
+  gap:35px;
+
+  padding:60px 6%;
+
+  box-shadow:
+  0 18px 45px #071f4b22;
+}
+
+.home-hero:before{
+  content:"";
+  position:absolute;
+  width:380px;
+  height:380px;
+  border-radius:50%;
+  background:#ffd21f;
+  right:-130px;
+  top:-170px;
+  opacity:.18;
+}
+
+.home-hero:after{
+  content:"";
+  position:absolute;
+  width:330px;
+  height:330px;
+  border-radius:50%;
+  background:#21d4fd;
+  left:-150px;
+  bottom:-180px;
+  opacity:.15;
+}
+
+.home-hero-copy{
+  position:relative;
+  z-index:2;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  padding:10px 17px;
+
+  border-radius:999px;
+
+  background:#ffffff18;
+  border:1px solid #ffffff35;
+
+  font-size:16px;
+  font-weight:800;
+
+  backdrop-filter:blur(8px);
+}
+
+.home-hero h1{
+  font-size:clamp(40px,5vw,68px);
+  line-height:1.05;
+
+  margin:22px 0 18px;
+
+  font-weight:900;
+  color:#fff;
+}
+
+.home-hero h1 span{
+  color:#ffd21f;
+}
+
+.home-hero p{
+  max-width:690px;
+
+  margin:0 0 27px;
+
+  font-size:19px;
+  line-height:1.75;
+
+  color:#eef6ff;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+
+  padding:14px 20px;
+
+  border-radius:14px;
+
+  text-decoration:none;
+
+  font-weight:900;
+  font-size:16px;
+
+  border:1px solid #ffffff30;
+
+  transition:.25s;
+}
+
+.hero-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 25px #0004;
+}
+
+.hero-btn.primary{
+  background:#ffd21f;
+  color:#082454;
+}
+
+.hero-btn.secondary{
+  background:#ffffff15;
+  color:#fff;
+}
+
+
+/* =====================================================
+   HERO VISUAL
+===================================================== */
+
+.hero-visual{
+  position:relative;
+  z-index:2;
+
+  min-height:350px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.globe-card{
+  width:min(430px,100%);
+  aspect-ratio:1;
+
+  position:relative;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:35px;
+
+  background:
+  linear-gradient(
+    145deg,
+    #ffffff20,
+    #ffffff08
+  );
+
+  border:1px solid #ffffff35;
+
+  box-shadow:0 25px 60px #0003;
+
+  backdrop-filter:blur(8px);
+}
+
+.globe{
+  font-size:150px;
+
+  filter:
+  drop-shadow(0 15px 25px #0005);
+
+  animation:floatGlobe 4s ease-in-out infinite;
+}
+
+@keyframes floatGlobe{
+
+  50%{
+    transform:
+    translateY(-12px)
+    rotate(3deg);
+  }
+
+}
+
+.float-card{
+  position:absolute;
+
+  display:flex;
+  align-items:center;
+  gap:9px;
+
+  padding:13px 16px;
+
+  border-radius:16px;
+
+  background:#fff;
+  color:#0b1f3a;
+
+  box-shadow:0 15px 35px #0003;
+
+  font-weight:900;
+}
+
+.float-card small{
+  display:block;
+  margin-top:2px;
+
+  color:#667085;
+
+  font-size:11px;
+  font-weight:600;
+}
+
+.fc1{
+  top:18px;
+  left:12px;
+}
+
+.fc2{
+  right:10px;
+  top:95px;
+}
+
+.fc3{
+  left:20px;
+  bottom:35px;
+}
+
+
+/* =====================================================
+   ONGOING
+===================================================== */
+
+.home-section-title{
+  text-align:center;
+  margin:50px 0 20px;
+}
+
+.home-section-title span{
+  color:#2563eb;
+  font-weight:900;
+  letter-spacing:.5px;
+}
+
+.home-section-title h2{
+  margin:8px 0;
+
+  color:#102a56;
+
+  font-size:34px;
+}
+
+.home-section-title p{
+  margin:0;
+
+  color:#687386;
+
+  font-size:16px;
+}
+
+.ongoing-wrap{
+  padding:25px;
+
+  border-radius:28px;
+
+  background:
+  linear-gradient(
+    180deg,
+    #f7faff,
+    #fff
+  );
+
+  border:1px solid #e6edf7;
+}
+
+.ongoing-grid{
+  display:grid;
+  grid-template-columns:
+  repeat(3,1fr);
+
+  gap:17px;
+}
+
+.ongoing-card{
+  width:100%;
+
+  text-align:left;
+
+  padding:20px;
+
+  border-radius:18px;
+
+  background:#fff;
+
+  border:1px solid #e1e8f2;
+
+  cursor:pointer;
+
+  transition:.25s;
+}
+
+.ongoing-card:hover{
+  transform:translateY(-5px);
+
+  box-shadow:
+  0 15px 30px #0b1f3a14;
+
+  border-color:#2563eb;
+}
+
+.ongoing-card .tag{
+  display:inline-block;
+
+  padding:6px 10px;
+
+  border-radius:999px;
+
+  background:#eaf2ff;
+
+  color:#1d4ed8;
+
+  font-size:12px;
+
+  font-weight:900;
+
+  margin-bottom:10px;
+}
+
+.ongoing-card h3{
+  margin:0 0 8px;
+
+  color:#12315f;
+
+  font-size:20px;
+
+  line-height:1.4;
+}
+
+.ongoing-card p{
+  margin:0;
+
+  color:#687386;
+
+  font-size:14px;
+
+  line-height:1.6;
+}
+
+.ongoing-empty{
+  text-align:center;
+
+  padding:30px;
+
+  color:#667085;
+}
+
+
+/* =====================================================
+   HOME ABOUT
+===================================================== */
+
+.home-about-card{
+  max-width:900px;
+
+  margin:auto;
+
+  padding:32px;
+
+  border-radius:25px;
+
+  background:
+  linear-gradient(
+    135deg,
+    #f8fbff,
+    #eef5ff
+  );
+
+  border:1px solid #dce7f5;
+
+  box-shadow:
+  0 15px 35px #0b2d7012;
+
+  text-align:center;
+}
+
+.home-about-icon{
+  width:75px;
+  height:75px;
+
+  margin:0 auto 18px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:22px;
+
+  background:#eaf2ff;
+
+  font-size:40px;
+}
+
+.home-about-card p{
+  margin:0 0 15px;
+
+  color:#111827;
+
+  font-size:18px;
+
+  line-height:1.8;
+}
+
+
+/* =====================================================
+   SOCIAL MEDIA
+===================================================== */
+
+.social-home-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(2,1fr);
+
+  gap:15px;
+
+  max-width:900px;
+
+  margin:0 auto 35px;
+}
+
+.social-home-card{
+  display:flex;
+  align-items:center;
+
+  gap:15px;
+
+  padding:18px 20px;
+
+  border-radius:18px;
+
+  color:#fff;
+
+  text-decoration:none;
+
+  box-shadow:
+  0 10px 25px #0002;
+
+  transition:.25s;
+}
+
+.social-home-card:hover{
+  transform:translateY(-5px);
+
+  box-shadow:
+  0 18px 35px #0003;
+}
+
+.social-logo{
+  width:52px;
+  height:52px;
+
+  flex:none;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:15px;
+
+  background:#ffffff25;
+}
+
+.social-logo svg{
+  width:30px;
+  height:30px;
+
+  fill:#fff;
+}
+
+.social-home-card div{
+  flex:1;
+}
+
+.social-home-card strong{
+  display:block;
+
+  font-size:20px;
+}
+
+.social-home-card small{
+  display:block;
+
+  margin-top:4px;
+
+  opacity:.85;
+
+  font-size:13px;
+}
+
+.social-arrow{
+  font-size:25px;
+  font-weight:900;
+}
+
+.tiktok{
+  background:
+  linear-gradient(
+    135deg,
+    #000,
+    #242424
+  );
+}
+
+.youtube{
+  background:
+  linear-gradient(
+    135deg,
+    #d90000,
+    #ff3333
+  );
+}
+
+.facebook{
+  background:
+  linear-gradient(
+    135deg,
+    #1877f2,
+    #4267b2
+  );
+}
+
+.whatsapp{
+  background:
+  linear-gradient(
+    135deg,
+    #128c4a,
+    #25d366
+  );
+}
+
+.telegram{
+  background:
+  linear-gradient(
+    135deg,
+    #168acb,
+    #229ed9
+  );
+}
+
+
+/* =====================================================
+   CHOICE CARDS
+===================================================== */
+
+.choice-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(190px,1fr));
+
+  gap:18px;
+
+  margin-top:28px;
+}
+
+.choice-card{
+  border:1px solid #d9e1ea;
+
+  border-radius:18px;
+
+  padding:24px;
+
+  background:#fff;
+
+  cursor:pointer;
+
+  text-align:left;
+
+  transition:.25s;
+}
+
+.choice-card:hover{
+  transform:translateY(-4px);
+
+  border-color:#2563eb;
+
+  box-shadow:
+  0 10px 25px #00000012;
+}
+
+.choice-card span{
+  display:block;
+
+  font-size:34px;
+
+  margin-bottom:12px;
+}
+
+.choice-card b{
+  display:block;
+
+  font-size:20px;
+}
+
+.choice-card small{
+  display:block;
+
+  margin-top:7px;
+
+  color:#111827;
+
+  line-height:1.5;
+}
+
+
+/* =====================================================
+   COUNTRY / RESULT
+===================================================== */
+
+.country-list,
+.result-list{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(220px,1fr));
+
+  gap:14px;
+
+  margin-top:22px;
+}
+
+.country-btn{
+  padding:18px;
+
+  border:1px solid #d9e1ea;
+
+  border-radius:15px;
+
+  background:#fff;
+
+  cursor:pointer;
+
+  text-align:left;
+
+  font-weight:700;
+
+  font-size:16px;
+
+  transition:.2s;
+}
+
+.country-btn:hover{
+  border-color:#2563eb;
+
+  transform:translateY(-2px);
+
+  box-shadow:
+  0 8px 20px #0001;
+}
+
+.back{
+  margin-top:22px;
+
+  border:0;
+
+  background:transparent;
+
+  color:#2563eb;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  font-size:17px;
+
+  padding:8px 0;
+}
+
+
+/* =====================================================
+   POST
+===================================================== */
+
+.result-card{
+  overflow:hidden;
+
+  color:#111827;
+
+  line-height:1.85;
+
+  background:#fff;
+
+  border:1px solid #d9e1ea;
+
+  border-radius:18px;
+
+  padding:20px;
+}
+
+.post-list-item{
+  width:100%;
+
+  padding:18px 20px;
+
+  border:1px solid #d9e1ea;
+
+  border-radius:15px;
+
+  background:#fff;
+
+  cursor:pointer;
+
+  text-align:left;
+
+  color:#2563eb;
+
+  font-size:20px;
+
+  font-weight:800;
+
+  line-height:1.5;
+
+  transition:.2s;
+}
+
+.post-list-item:hover{
+  transform:translateY(-1px);
+
+  box-shadow:
+  0 8px 22px #00000010;
+
+  border-color:#2563eb;
+}
+
+.post-list-item::after{
+  content:"→";
+
+  float:right;
+
+  font-size:24px;
+}
+
+.post-image-first{
+  display:block;
+
+  width:100%;
+
+  max-height:440px;
+
+  object-fit:cover;
+
+  border-radius:12px;
+
+  margin:0 0 22px;
+}
+
+.post-view{
+  display:none;
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:9999;
+
+  background:#fff;
+
+  overflow-y:auto;
+}
+
+.post-view.active{
+  display:block;
+}
+
+.post-view-inner{
+  width:min(900px,calc(100% - 30px));
+
+  margin:auto;
+
+  padding:20px 0 60px;
+}
+
+.post-view-back{
+  border:0;
+
+  background:transparent;
+
+  color:#2563eb;
+
+  font-size:17px;
+
+  font-weight:800;
+
+  cursor:pointer;
+
+  padding:10px 0;
+
+  margin-bottom:12px;
+}
+
+.post-view-title{
+  display:block;
+
+  color:#2563eb;
+
+  font-size:30px;
+
+  line-height:1.4;
+
+  margin:15px 0 18px;
+
+  font-weight:900;
+}
+
+.post-description{
+  font-size:17px;
+
+  line-height:1.9;
+
+  color:#111827;
+}
+
+.post-description p{
+  margin:0 0 22px;
+
+  font-size:17px;
+
+  line-height:1.9;
+}
+
+.post-heading{
+  display:block;
+
+  margin:28px 0 12px;
+
+  color:#2563eb;
+
+  font-size:20px;
+
+  line-height:1.5;
+
+  font-weight:900;
+}
+
+.post-numbered{
+  margin:0 0 16px;
+
+  color:#111827;
+
+  line-height:1.85;
+}
+
+.post-meta{
+  color:#111827;
+
+  font-size:16px;
+
+  line-height:1.7;
+
+  margin:7px 0;
+}
+
+.post-view-actions{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin:20px 0 25px;
+}
+
+.post-action{
+  border:0;
+
+  border-radius:10px;
+
+  padding:11px 18px;
+
+  font-weight:800;
+
+  font-size:15px;
+
+  cursor:pointer;
+
+  background:#2563eb;
+
+  color:#fff;
+
+  text-decoration:none;
+}
+
+.post-action.secondary{
+  background:#eef4ff;
+
+  color:#2563eb;
+}
+
+
+/* =====================================================
+   COMMENTS
+===================================================== */
+
+.comments-box{
+  margin-top:35px;
+
+  padding-top:25px;
+
+  border-top:1px solid #d9e1ea;
+}
+
+.comments-title{
+  color:#2563eb;
+
+  font-size:23px;
+
+  font-weight:800;
+
+  margin-bottom:18px;
+}
+
+.comment-form{
+  display:grid;
+
+  gap:10px;
+
+  margin-bottom:25px;
+}
+
+.comment-form textarea{
+  width:100%;
+
+  min-height:120px;
+
+  resize:vertical;
+
+  border:1px solid #d9e1ea;
+
+  border-radius:10px;
+
+  padding:13px;
+
+  font-size:16px;
+}
+
+.comment-submit{
+  width:max-content;
+
+  border:0;
+
+  border-radius:10px;
+
+  background:#2563eb;
+
+  color:#fff;
+
+  padding:12px 20px;
+
+  font-weight:800;
+
+  cursor:pointer;
+}
+
+.comment-list{
+  display:grid;
+
+  gap:12px;
+}
+
+.comment-item{
+  border:1px solid #e1e7ef;
+
+  border-radius:12px;
+
+  padding:15px;
+
+  background:#fafcff;
+}
+
+.comment-text{
+  color:#111827;
+
+  font-size:16px;
+
+  line-height:1.7;
+
+  white-space:pre-wrap;
+}
+
+.comment-date{
+  margin-top:8px;
+
+  font-size:13px;
+
+  color:#6b7280;
+}
+
+.comment-message{
+  color:#6b7280;
+
+  padding:10px 0;
+}
+
+
+/* =====================================================
+   CONTACT
+===================================================== */
+
+.contact-form{
+  max-width:620px;
+}
+
+.contact-form form{
+  display:grid;
+
+  gap:8px;
+}
+
+.contact-form label{
+  font-weight:700;
+
+  margin-top:8px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+
+  border:1px solid #d9e1ea;
+
+  border-radius:10px;
+
+  padding:13px;
+
+  font:inherit;
+
+  background:#fff;
+}
+
+.contact-form button{
+  border:0;
+
+  border-radius:10px;
+
+  padding:13px 18px;
+
+  font-weight:700;
+
+  cursor:pointer;
+
+  background:#2563eb;
+
+  color:#fff;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:850px){
+
+  .menu{
+    display:block;
+
+    margin-left:auto;
+  }
+
+  header nav{
+    display:none;
+
+    position:absolute;
+
+    right:15px;
+
+    top:72px;
+
+    width:245px;
+
+    background:#fff;
+
+    border:1px solid #d9e1ea;
+
+    border-radius:16px;
+
+    padding:10px;
+
+    box-shadow:
+    0 12px 30px #0002;
+
+    z-index:50;
+  }
+
+  header nav.open{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:4px;
+  }
+
+  header nav a{
+    width:100%;
+
+    padding:13px 14px;
+  }
+
+  .home-hero{
+    grid-template-columns:1fr;
+
+    padding:45px 6%;
+  }
+
+  .hero-visual{
+    min-height:300px;
+  }
+
+  .home-features{
+    grid-template-columns:
+    repeat(2,1fr);
+  }
+
+  .ongoing-grid{
+    grid-template-columns:
+    1fr 1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .home-hero{
+    min-height:auto;
+
+    padding:38px 20px;
+
+    border-radius:
+    0 0 25px 25px;
+  }
+
+  .home-hero h1{
+    font-size:40px;
+  }
+
+  .home-hero p{
+    font-size:16px;
+  }
+
+  .hero-btn{
+    width:100%;
+  }
+
+  .globe-card{
+    max-width:330px;
+  }
+
+  .globe{
+    font-size:105px;
+  }
+
+  .home-features{
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:11px;
+  }
+
+  .ongoing-grid{
+    grid-template-columns:1fr;
+  }
+
+  .social-home-grid{
+    grid-template-columns:1fr;
+  }
+
+  .home-about-card{
+    padding:23px 18px;
+  }
+
+  .home-about-card p{
+    font-size:16px;
+  }
+
+  .post-view-inner{
+    width:calc(100% - 24px);
+  }
+
+  .post-view-title{
+    font-size:24px;
+  }
+
+  .post-description,
+  .post-description p{
+    font-size:16px;
+
+    line-height:1.85;
+  }
+
+  .post-action{
+    flex:1 1 auto;
+  }
+
+}
+
+
+/* =====================================================
+   SERVICE GRID
+===================================================== */
+
+.service-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(230px,1fr));
+
+  gap:18px;
+
+  margin-top:25px;
+}
+
+.service-grid article{
+  padding:22px;
+
+  border-radius:18px;
+
+  background:#fff;
+
+  border:1px solid #dce5ef;
+
+  box-shadow:0 8px 22px #00000009;
+}
+
+.service-grid article b{
+  color:#12315f;
+
+  font-size:18px;
+}
+
+.service-grid article p{
+  line-height:1.7;
+}
+
+.service-note{
+  margin-top:25px;
+
+  padding:20px;
+
+  border-radius:15px;
+
+  background:#f5f8fc;
+
+  border:1px solid #e1e8f0;
+
+  line-height:1.8;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+  text-align:center;
+
+  padding:30px 15px;
+}
+
+footer a{
+  color:inherit;
+
+  font-weight:700;
+
+  text-decoration:none;
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="wrap nav">
+
+<a class="brand"
+   href="#home"
+   aria-label="KULMIS HUB">
+
+<img src="assets/logo.svg"
+     alt="KULMIS HUB Logo">
+
+<span class="brand-text">
+
+<strong>KULMIS HUB</strong>
+
+<small>
+Fursado waxbarasho, Seminars & shaqooyin
+</small>
+
+</span>
+
+</a>
+
+
+<button class="menu"
+        aria-label="Fur Menu">
+
+☰
+
+</button>
+
+
+<nav>
+
+<a href="#home">
+🏠 Bogga Hore
+</a>
+
+<a href="#about">
+👤 Nagu Saabsan
+</a>
+
+<a href="#seminars">
+🎤 Seminars
+</a>
+
+<a href="#scholarships">
+🎓 Deeqo Waxbarasho
+</a>
+
+<a href="#work">
+💼 Fursadaha Shaqo
+</a>
+
+<a href="#services">
+🛠 Adeegyadeena
+</a>
+
+<a href="#contact">
+📩 Nala Soo Xiriir
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section id="home"
+         class="page active home-redesign">
+
+
+<div class="home-hero">
+
+
+<div class="home-hero-copy">
+
+
+<span class="hero-badge">
+
+🌍 KULMIS HUB
+
+</span>
+
+
+<h1>
+
+<span>Waa Hoyga</span><br>
+
+Fursadaha Caalamiga ah.
+
+</h1>
+
+
+<p>
+
+Hal meel ka hel deeqaha waxbarasho,
+seminars, shaqooyin iyo fursado kale
+oo ka socda Soomaaliya, Afrika iyo
+dunida inteeda kale.
+
+</p>
+
+
+<div class="hero-actions">
+
+
+<a class="hero-btn primary"
+   href="#scholarships">
+
+🎓 Eeg Deeqaha
+
+</a>
+
+
+<a class="hero-btn secondary"
+   href="#seminars">
+
+🎤 Eeg Seminars
+
+</a>
+
+
+<a class="hero-btn secondary"
+   href="#work">
+
+💼 Eeg Fursadaha Shaqo
+
+</a>
+
+
+</div>
+
+</div>
+
+
+<div class="hero-visual">
+
+
+<div class="globe-card">
+
+
+<div class="globe">
+🌍
+</div>
+
+
+<div class="float-card fc1">
+
+🎓
+
+<div>
+
+Waxbarasho
+
+<small>
+Scholarships
+</small>
+
+</div>
+
+</div>
+
+
+<div class="float-card fc2">
+
+💼
+
+<div>
+
+Shaqo
+
+<small>
+Job Opportunities
+</small>
+
+</div>
+
+</div>
+
+
+<div class="float-card fc3">
+
+🎤
+
+<div>
+
+Seminars
+
+<small>
+Events & Workshops
+</small>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="wrap">
+
+
+<!-- ONGOING -->
+
+<div class="home-section-title">
+
+<span>
+ONGOING OPPORTUNITIES
+</span>
+
+<h2>
+Fursadaha Hadda Socdo
+</h2>
+
+<p>
+Halkan ka eeg fursadaha cusub ee hadda socda.
+</p>
+
+</div>
+
+
+<div class="ongoing-wrap">
+
+<div id="homeOngoingGrid"
+     class="ongoing-grid">
+
+<div class="ongoing-empty">
+Fursadaha waa la soo dejinayaa...
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ABOUT KULMIS -->
+
+<div class="home-section-title">
+
+<span>
+KULMIS HUB
+</span>
+
+<h2>
+Maxay tahay KULMIS HUB?
+</h2>
+
+</div>
+
+
+<div class="home-about-card">
+
+
+<div class="home-about-icon">
+🌍
+</div>
+
+
+<p>
+
+<strong>KULMIS HUB</strong>
+waa madal aad ka heli karto
+fursadaha waxbarasho, shaqo iyo
+Seminars kuwa ka kala dhacaya
+gudaha Soomaaliya iyo dunida inteeda kale.
+
+</p>
+
+
+<p>
+
+Ujeeddadeennu waa inaan fursadaha
+muhiimka ah kuugu soo uruurino hal meel,
+si aad si fudud ula socoto fursadaha cusub
+oo aadan uga harin.
+
+</p>
+
+
+</div>
+
+
+<!-- SOCIAL MEDIA -->
+
+<div class="home-section-title">
+
+<span>
+FOLLOW KULMIS HUB
+</span>
+
+<h2>
+Baraha Bulshada
+</h2>
+
+<p>
+Nala soco si aadan u seegin fursadaha cusub.
+</p>
+
+</div>
+
+
+<div class="social-home-grid">
+
+
+<!-- TIKTOK -->
+
+<a class="social-home-card tiktok"
+   href="https://www.tiktok.com/@kulmismedia1"
+   target="_blank"
+   rel="noopener noreferrer">
+
+<div class="social-logo">
+
+<svg viewBox="0 0 24 24"
+     aria-hidden="true">
+
+<path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-3.95h-3.2v13.67a2.89 2.89 0 1 1-2.89-2.89c.3 0 .59.05.86.13v-3.27a6.2 6.2 0 1 0 5.23 6.03V9.47a8 8 0 0 0 3.77.94V7.2z"/>
+
+</svg>
+
+</div>
+
+
+<div>
+
+<strong>
+TikTok
+</strong>
+
+<small>
+Follow us on TikTok
+</small>
+
+</div>
+
+
+<span class="social-arrow">
+→
+</span>
+
+</a>
+
+
+<!-- YOUTUBE -->
+
+<a class="social-home-card youtube"
+   href="https://youtube.com/@kulmismedia1"
+   target="_blank"
+   rel="noopener noreferrer">
+
+<div class="social-logo">
+
+<svg viewBox="0 0 24 24"
+     aria-hidden="true">
+
+<path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.6 15.5v-7l6.3 3.5-6.3 3.5z"/>
+
+</svg>
+
+</div>
+
+
+<div>
+
+<strong>
+YouTube
+</strong>
+
+<small>
+Subscribe to our channel
+</small>
+
+</div>
+
+
+<span class="social-arrow">
+→
+</span>
+
+</a>
+
+
+<!-- FACEBOOK -->
+
+<a class="social-home-card facebook"
+   href="https://www.facebook.com/share/1CBScozWZg/"
+   target="_blank"
+   rel="noopener noreferrer">
+
+<div class="social-logo">
+
+<svg viewBox="0 0 24 24"
+     aria-hidden="true">
+
+<path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.17 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.04 1.79-4.72 4.55-4.72 1.32 0 2.7.24 2.7.24v2.98h-1.52c-1.5 0-1.97.94-1.97 1.9v2.28h3.35l-.54 3.49h-2.81V24C19.61 23.17 24 18.1 24 12.07z"/>
+
+</svg>
+
+</div>
+
+
+<div>
+
+<strong>
+Facebook
+</strong>
+
+<small>
+Follow our Facebook page
+</small>
+
+</div>
+
+
+<span class="social-arrow">
+→
+</span>
+
+</a>
+
+
+<!-- WHATSAPP -->
+
+<a class="social-home-card whatsapp"
+   href="https://chat.whatsapp.com/ENOp6oKksKmIyfj5KvMY56"
+   target="_blank"
+   rel="noopener noreferrer">
+
+<div class="social-logo">
+
+<svg viewBox="0 0 24 24"
+     aria-hidden="true">
+
+<path d="M20.52 3.48A11.82 11.82 0 0 0 12.08 0C5.55 0 .24 5.31.24 11.84c0 2.09.55 4.13 1.59 5.93L.15 24l6.38-1.67a11.82 11.82 0 0 0 5.55 1.41h.01c6.53 0 11.84-5.31 11.84-11.84 0-3.17-1.23-6.14-3.41-8.42zM12.09 21.7h-.01a9.83 9.83 0 0 1-5.01-1.37l-.36-.21-3.79.99 1.01-3.7-.23-.38a9.83 9.83 0 1 1 8.39 4.67zm5.4-7.37c-.29-.14-1.7-.84-1.96-.93-.26-.1-.45-.14-.64.14-.19.29-.73.93-.89 1.12-.16.19-.33.21-.61.07-.29-.14-1.2-.44-2.29-1.4-.85-.76-1.42-1.7-1.58-1.98-.16-.29-.02-.44.12-.58.13-.13.29-.33.43-.49.14-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.64-1.55-.87-2.12-.23-.56-.46-.49-.64-.5h-.55c-.19 0-.49.07-.75.35-.26.29-.99.97-.99 2.36s1.01 2.74 1.15 2.93c.14.19 1.99 3.04 4.83 4.26.67.29 1.2.46 1.61.59.68.22 1.3.19 1.79.12.55-.08 1.7-.7 1.94-1.37.24-.67.24-1.25.17-1.37-.07-.12-.26-.19-.54-.33z"/>
+
+</svg>
+
+</div>
+
+
+<div>
+
+<strong>
+WhatsApp Community
+</strong>
+
+<small>
+Join our community
+</small>
+
+</div>
+
+
+<span class="social-arrow">
+→
+</span>
+
+</a>
+
+
+<!-- TELEGRAM -->
+
+<a class="social-home-card telegram"
+   href="https://t.me/Kulmismedia"
+   target="_blank"
+   rel="noopener noreferrer">
+
+<div class="social-logo">
+
+<svg viewBox="0 0 24 24"
+     aria-hidden="true">
+
+<path d="M21.5 3.1 2.9 10.3c-1.27.51-1.26 1.21-.23 1.53l4.77 1.49 1.83 5.65c.22.61.11.85.74.85.49 0 .71-.22.98-.49l2.31-2.25 4.81 3.55c.88.49 1.52.23 1.74-.82l3.15-14.85c.32-1.29-.49-1.87-1.5-1.4zM8.18 12.98l10.55-6.66c.53-.32 1.01-.15.61.2l-8.72 7.87-.34 3.63-2.1-5.04z"/>
+
+</svg>
+
+</div>
+
+
+<div>
+
+<strong>
+Telegram Channel
+</strong>
+
+<small>
+Join our Telegram channel
+</small>
+
+</div>
+
+
+<span class="social-arrow">
+→
+</span>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about"
+         class="page section">
+
+<div class="wrap">
+
+<label>
+NAGU SAABSAN
+</label>
+
+<h2>
+About KULMIS HUB
+</h2>
+
+<p>
+
+<b>
+<i>
+KULMIS HUB waa madal dijitaal ah
+oo diiradda saarta baahinta fursadaha
+waxbarasho, seminars, shaqooyin iyo
+fursado kale.
+</i>
+</b>
+
+</p>
+
+<p>
+
+<b>
+<i>
+Waxaan isku dayeynaa inaan hal meel
+ku soo ururino fursadaha gudaha iyo
+kuwa caalamiga ah.
+</i>
+</b>
+
+</p>
+
+<h3>
+Waxaan baahinnaa:
+</h3>
+
+<ul>
+
+<li>
+🎓 Scholarships & Educational Opportunities
+</li>
+
+<li>
+🎤 Gudaha & Caalami Seminars
+</li>
+
+<li>
+💼 Gudaha & Caalami Work Opportunities
+</li>
+
+<li>
+🌍 Caalami Opportunities
+</li>
+
+</ul>
+
+<h3>
+Aragtideenna
+</h3>
+
+<p>
+
+In KULMIS HUB noqoto meel lagu
+kalsoon yahay oo laga helo xog iyo
+fursado waxbarasho, shaqo iyo
+horumarineed.
+
+</p>
+
+<h3>
+Hadafkeenna
+</h3>
+
+<p>
+
+Inaan bulshada siino xog faa'iido leh,
+fudud oo la fahmi karo, isla markaana
+aan dadka ku hagno meelaha rasmiga ah.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SCHOLARSHIPS
+===================================================== -->
+
+<section id="scholarships"
+         class="page section">
+
+<div class="wrap">
+
+<label>
+DEEGO WAXBARASHO
+</label>
+
+<h2>
+Deeqo Waxbarasho
+</h2>
+
+<div class="choice-grid">
+
+<button class="choice-card"
+        onclick="showScholarshipInside()">
+
+<span>📍</span>
+
+<b>
+Gudaha
+</b>
+
+<small>
+Fursadaha waxbarasho ee gudaha.
+</small>
+
+</button>
+
+
+<button class="choice-card"
+        onclick="showScholarshipWorld()">
+
+<span>🌍</span>
+
+<b>
+Caalamka
+</b>
+
+<small>
+Dooro dalka aad rabto inaad ka
+aragto fursadaha waxbarasho.
+</small>
+
+</button>
+
+</div>
+
+
+<div id="scholarshipInside"
+     style="display:none">
+
+<button class="back"
+        onclick="backScholarshipHome()">
+
+← Deeqo Waxbarasho
+
+</button>
+
+<h3>
+📍 Deeqaha Waxbarasho ee Gudaha
+</h3>
+
+<div id="scholarshipInsideList"
+     class="result-list">
+</div>
+
+</div>
+
+
+<div id="scholarshipWorld"
+     style="display:none">
+
+<button class="back"
+        onclick="backScholarshipHome()">
+
+← Deeqo Waxbarasho
+
+</button>
+
+<h3>
+🌍 Caalamka — Dooro Dalka
+</h3>
+
+<div id="scholarshipCountriesWorld"
+     class="country-list">
+</div>
+
+</div>
+
+
+<div id="scholarshipResults"
+     style="display:none">
+
+<button class="back"
+        onclick="backScholarshipCountries()">
+
+← Wadamada
+
+</button>
+
+<h3 id="selectedCountry">
+</h3>
+
+<div id="resultGrid"
+     class="result-list">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SEMINARS
+===================================================== -->
+
+<section id="seminars"
+         class="page section">
+
+<div class="wrap">
+
+<label>
+SEMINARRADA
+</label>
+
+<h2>
+Seminars
+</h2>
+
+
+<div class="choice-grid">
+
+<button class="choice-card"
+        onclick="showSeminarInside()">
+
+<span>📍</span>
+
+<b>
+Gudaha
+</b>
+
+<small>
+Seminars iyo workshops gudaha.
+</small>
+
+</button>
+
+
+<button class="choice-card"
+        onclick="showSeminarWorld()">
+
+<span>🌍</span>
+
+<b>
+Caalamka
+</b>
+
+<small>
+Dooro dalka aad rabto inaad ka
+aragto seminars-ka.
+</small>
+
+</button>
+
+</div>
+
+
+<div id="seminarInside"
+     style="display:none">
+
+<button class="back"
+        onclick="backSeminarHome()">
+
+← Seminars
+
+</button>
+
+<h3>
+📍 Seminars Gudaha
+</h3>
+
+<div id="seminarInsideList"
+     class="result-list">
+</div>
+
+</div>
+
+
+<div id="seminarWorld"
+     style="display:none">
+
+<button class="back"
+        onclick="backSeminarHome()">
+
+← Seminars
+
+</button>
+
+<h3>
+🌍 Caalamka — Dooro Dalka
+</h3>
+
+<div id="seminarCountryGrid"
+     class="country-list">
+</div>
+
+</div>
+
+
+<div id="seminarResults"
+     style="display:none">
+
+<button class="back"
+        onclick="backSeminarCountries()">
+
+← Wadamada
+
+</button>
+
+<h3 id="seminarSelectedCountry">
+</h3>
+
+<div id="seminarResultList"
+     class="result-list">
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     WORK
+===================================================== -->
+
+<section id="work"
+         class="page section">
+
+<div class="wrap">
+
+<label>
+FURSADAHA SHAQO
+</label>
+
+<h2>
+Fursadaha Shaqo
+</h2>
+
+
+<div class="choice-grid">
+
+<button class="choice-card"
+        onclick="showWorkHome('Gudaha')">
+
+<span>
+📍
+</span>
+
+<b>
+Gudaha
+</b>
+
+<small>
+Fursadaha shaqo ee gudaha.
+</small>
+
+</button>
+
+
+<button class="choice-card"
+        onclick="showWorkHome('Caalami')">
+
+<span>
+🌍
+</span>
+
+<b>
+Caalamka
+</b>
+
+<small>
+Dooro dalka aad rabto inaad ka
+aragto fursadaha shaqo.
+</small>
+
+</button>
+
+</div>
+
+
+<div id="workInternational"
+     style="display:none">
+
+<button class="back"
+        onclick="backWorkHome()">
+
+← Fursadaha Shaqo
+
+</button>
+
+<h3>
+🌍 Caalamka — Dooro Dalka
+</h3>
+
+<div id="workCountryGrid"
+     class="country-list">
+</div>
+
+</div>
+
+
+<div id="workCountries"
+     style="display:none">
+</div>
+
+
+<div id="workList"
+     class="result-list">
+</div>
+
+
+<div class="service-note">
+
+<b>
+💼 Caawinta Codsiga Shaqada:
+</b>
+
+<br>
+
+Link-ga shaqada waan soo dhigi doonaa.
+
+<br>
+
+Haddii aad rabto in KULMIS HUB
+si gaar ah kuugu sameeyo codsiga,
+nala soo xiriir.
+
+<br>
+
+<b>
+Ogow: adeeggan waa lacag.
+</b>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section id="services"
+         class="page section">
+
+<div class="wrap">
+
+<label>
+ADEEGYADA
+</label>
+
+<h2>
+Adeegyadeena
+</h2>
+
+
+<div class="service-grid">
+
+<article>
+
+<b>
+🎓 Scholarship Application Assistance
+</b>
+
+<p>
+Waxaan kaa caawinaynaa fahamka
+shuruudaha iyo habka codsiga.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+🏫 University Admission Assistance
+</b>
+
+<p>
+Waxaan kaa caawinaynaa doorashada
+jaamacadda iyo program-ka.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+📄 Application & Document Guidance
+</b>
+
+<p>
+Waxaan ku siinaynaa hagitaan ku saabsan
+dukumentiyada loo baahan yahay.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+🌍 Study Abroad Guidance
+</b>
+
+<p>
+Waxaan kaa caawinaynaa fahamka
+fursadaha waxbarasho ee dunida.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+💼 Job & Internship Application Guidance
+</b>
+
+<p>
+Waxaan kaa caawinaynaa fahamka
+fursadaha shaqo iyo internship-ka.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+🎤 Seminar & Opportunity Guidance
+</b>
+
+<p>
+Waxaan kuu soo gudbinaynaa seminars,
+workshops iyo conferences.
+</p>
+
+</article>
+
+</div>
+
+
+<div class="service-note">
+
+<b>
+📩 Adeegyada Admission & Shaqo:
+</b>
+
+<br>
+
+Link-ga jaamacadda ama shaqada
+waan soo dhigi doonaa.
+
+<br>
+
+Haddii aad rabto in KULMIS HUB
+si gaar ah kuugu sameeyo codsiga,
+nala soo xiriir.
+
+<br>
+
+<b>
+Ogow: qaybta codsiga gaarka ah
+waa adeeg lacag leh.
+</b>
+
+</div>
+
+
+<p style="margin-top:24px">
+
+<b>
+Fiiro gaar ah:
+</b>
+
+KULMIS HUB ma dammaanad qaado
+admission, scholarship ama shaqo.
+
+Go'aanka ugu dambeeya waxaa leh
+jaamacadda, hay'adda ama loo-shaqeeyaha.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact"
+         class="page section">
+
+<div class="wrap">
+
+<label>
+NALA SOO XIRIIR
+</label>
+
+<h2>
+Nala Soo Xiriir
+</h2>
+
+
+<div class="contact-form">
+
+<form
+onsubmit="event.preventDefault();alert('Mahadsanid! Fariintaada waa la diyaariyey.');">
+
+
+<label>
+Magaca qofka
+</label>
+
+<input
+type="text"
+placeholder="Magacaaga"
+required>
+
+
+<label>
+Email-ka
+</label>
+
+<input
