@@ -1,0 +1,4782 @@
+<!DOCTYPE html>
+<html lang="so">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>KULMIS HUB — Hoyga Fursadaha Caalamiga ah</title>
+
+<meta
+name="description"
+content="KULMIS HUB — Deeqo waxbarasho, Seminars, shaqooyin iyo fursado caalami ah."
+>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Times New Roman",Times,serif;
+    background:#f5f7fb;
+    color:#102a56;
+    line-height:1.6;
+}
+
+button,
+input,
+textarea{
+    font-family:"Times New Roman",Times,serif;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    text-decoration:none;
+}
+
+.wrap{
+    width:min(1120px,calc(100% - 32px));
+    margin:auto;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+
+    background:#fff;
+
+    border-bottom:1px solid #e3e8ef;
+
+    box-shadow:
+    0 4px 18px rgba(0,0,0,.08);
+}
+
+.nav{
+    min-height:82px;
+
+    display:flex;
+    align-items:center;
+
+    gap:20px;
+}
+
+
+/* =========================================================
+   KULMIS HUB WORD LOGO
+========================================================= */
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    color:#102a56;
+
+    min-width:0;
+}
+
+.kulmis-logo{
+    width:58px;
+    height:58px;
+
+    flex:none;
+
+    display:block;
+
+    filter:
+    drop-shadow(
+        0 5px 10px rgba(0,60,130,.18)
+    );
+
+    animation:
+    kulmisLogoFloat 4s ease-in-out infinite;
+}
+
+.kulmis-logo .logo-ring{
+    transform-origin:center;
+    animation:
+    kulmisRing 7s linear infinite;
+}
+
+.kulmis-logo .logo-shine{
+    animation:
+    kulmisShine 3s ease-in-out infinite;
+}
+
+.kulmis-logo .logo-dot{
+    animation:
+    kulmisDot 2.5s ease-in-out infinite;
+}
+
+
+/* Header text */
+
+.brand-text{
+    min-width:0;
+}
+
+.brand-text strong{
+    display:block;
+
+    font-size:27px;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+    color:#102a56;
+
+    letter-spacing:.3px;
+}
+
+.brand-text small{
+    display:block;
+
+    margin-top:5px;
+
+    color:#6d7480;
+
+    font-size:15px;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+}
+
+
+/* =========================================================
+   LOGO ANIMATION
+========================================================= */
+
+@keyframes kulmisLogoFloat{
+
+    0%,100%{
+        transform:
+        translateY(0)
+        scale(1);
+    }
+
+    50%{
+        transform:
+        translateY(-4px)
+        scale(1.035);
+    }
+
+}
+
+@keyframes kulmisRing{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+@keyframes kulmisShine{
+
+    0%,100%{
+        opacity:.15;
+    }
+
+    50%{
+        opacity:.55;
+    }
+
+}
+
+@keyframes kulmisDot{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.3);
+    }
+
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+nav{
+    margin-left:auto;
+
+    display:flex;
+    align-items:center;
+
+    gap:3px;
+}
+
+nav a{
+    color:#102a56;
+
+    font-weight:800;
+
+    padding:10px 11px;
+
+    border-radius:10px;
+
+    transition:.2s;
+}
+
+nav a:hover{
+    background:#edf4ff;
+
+    color:#2165d6;
+}
+
+.menu-btn{
+    display:none;
+
+    margin-left:auto;
+
+    width:58px;
+    height:58px;
+
+    border:0;
+
+    border-radius:16px;
+
+    background:#102f5f;
+
+    color:#fff;
+
+    font-size:31px;
+
+    line-height:1;
+}
+
+
+/* =========================================================
+   PAGE SYSTEM
+========================================================= */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    padding:52px 0 58px;
+
+    background:
+    radial-gradient(
+        circle at 78% 18%,
+        rgba(255,210,31,.18),
+        transparent 28%
+    ),
+    linear-gradient(
+        135deg,
+        #061b4f 0%,
+        #0b3f91 52%,
+        #087f8d 100%
+    );
+}
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    right:-240px;
+    top:-180px;
+
+    border-radius:50%;
+
+    background:
+    rgba(255,255,255,.06);
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    left:-120px;
+    bottom:-170px;
+
+    border-radius:50%;
+
+    background:
+    rgba(34,211,238,.08);
+}
+
+.hero .wrap{
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* =========================================================
+   HERO KULMIS HUB LOGO
+========================================================= */
+
+.hero-logo{
+    width:120px;
+    height:120px;
+
+    margin:0 auto 24px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:32px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+    0 0 0 5px rgba(255,255,255,.035),
+    0 14px 38px rgba(0,0,0,.24);
+
+    animation:
+    heroLogoFloat 4s ease-in-out infinite;
+}
+
+.hero-logo .kulmis-logo{
+    width:100%;
+    height:100%;
+
+    padding:10px;
+
+    animation:
+    heroLogoPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes heroLogoFloat{
+
+    0%,100%{
+        transform:
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateY(-7px);
+    }
+
+}
+
+@keyframes heroLogoPulse{
+
+    0%,100%{
+        transform:
+        scale(1);
+    }
+
+    50%{
+        transform:
+        scale(1.045);
+    }
+
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero-title{
+    max-width:920px;
+
+    margin:0 auto;
+
+    text-align:center;
+
+    font-size:
+    clamp(39px,5vw,62px);
+
+    line-height:1.08;
+
+    font-weight:900;
+
+    letter-spacing:.2px;
+}
+
+.hero-title .yellow{
+    color:#ffd21f;
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero-description{
+    max-width:850px;
+
+    margin:20px auto 0;
+
+    text-align:center;
+
+    color:#f2f6ff;
+
+    font-size:20px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   YELLOW MESSAGE
+========================================================= */
+
+.hero-message{
+    max-width:900px;
+
+    margin:22px auto 0;
+
+    text-align:center;
+
+    color:#ffd21f;
+
+    font-size:19px;
+
+    line-height:1.55;
+
+    font-weight:900;
+
+    padding:0 10px;
+}
+
+
+/* =========================================================
+   HERO BUTTONS
+========================================================= */
+
+.hero-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:26px;
+}
+
+.hero-button{
+    min-width:205px;
+
+    min-height:52px;
+
+    padding:12px 18px;
+
+    border-radius:15px;
+
+    border:
+    1px solid rgba(255,255,255,.28);
+
+    font-size:18px;
+
+    font-weight:900;
+
+    text-align:center;
+
+    transition:.2s;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+}
+
+.hero-button:hover{
+    transform:translateY(-3px);
+}
+
+.hero-button.primary{
+    background:#ffd21f;
+
+    color:#102a56;
+
+    border-color:#ffd21f;
+}
+
+.hero-button.secondary{
+    background:
+    rgba(255,255,255,.10);
+
+    color:#fff;
+}
+
+.hero-button.secondary:hover{
+    background:
+    rgba(255,255,255,.18);
+}
+
+
+/* =========================================================
+   ONGOING
+========================================================= */
+
+.ongoing{
+    padding:60px 0;
+}
+
+.ongoing-heading{
+    text-align:center;
+
+    margin-bottom:28px;
+}
+
+.ongoing-heading span{
+    display:block;
+
+    color:#2d6acb;
+
+    font-size:24px;
+
+    font-weight:900;
+
+    letter-spacing:.5px;
+}
+
+.ongoing-heading h2{
+    margin-top:5px;
+
+    color:#102a56;
+
+    font-size:48px;
+
+    line-height:1.15;
+}
+
+.ongoing-heading p{
+    margin-top:12px;
+
+    color:#6d7480;
+
+    font-size:18px;
+}
+
+.ongoing-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.ongoing-card{
+    width:100%;
+
+    border:
+    1px solid #e0e6ef;
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:left;
+
+    box-shadow:
+    0 8px 25px
+    rgba(16,42,86,.07);
+
+    transition:.2s;
+}
+
+.ongoing-card:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 15px 30px
+    rgba(16,42,86,.13);
+}
+
+.tag{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    padding:5px 10px;
+
+    border-radius:999px;
+
+    background:#eaf2ff;
+
+    color:#2563eb;
+
+    font-size:14px;
+
+    font-weight:900;
+}
+
+.ongoing-card h3{
+    margin-top:12px;
+
+    color:#2563eb;
+
+    font-size:21px;
+
+    line-height:1.4;
+}
+
+.ongoing-card p{
+    margin-top:8px;
+
+    color:#6d7480;
+
+    font-size:15px;
+}
+
+.empty{
+    padding:30px;
+
+    background:#fff;
+
+    border:
+    1px solid #e1e7ef;
+
+    border-radius:18px;
+
+    color:#6d7480;
+
+    text-align:center;
+}
+
+
+/* =========================================================
+   GENERAL SECTION
+========================================================= */
+
+.section{
+    min-height:65vh;
+
+    padding:60px 0;
+}
+
+.section-label{
+    color:#2563eb;
+
+    font-size:17px;
+
+    font-weight:900;
+
+    letter-spacing:1px;
+}
+
+.section h2{
+    margin:8px 0 25px;
+
+    color:#102a56;
+
+    font-size:44px;
+
+    line-height:1.2;
+}
+
+.section p{
+    color:#29384f;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    margin-bottom:17px;
+}
+
+
+/* =========================================================
+   CHOICE CARDS
+========================================================= */
+
+.choice-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:25px;
+}
+
+.choice-card{
+    border:
+    1px solid #dce4ef;
+
+    border-radius:22px;
+
+    background:#fff;
+
+    padding:30px;
+
+    text-align:left;
+
+    box-shadow:
+    0 8px 22px
+    rgba(16,42,86,.06);
+
+    transition:.2s;
+}
+
+.choice-card:hover{
+    transform:translateY(-4px);
+
+    border-color:#2563eb;
+}
+
+.choice-card .icon{
+    font-size:42px;
+
+    margin-bottom:12px;
+}
+
+.choice-card strong{
+    display:block;
+
+    color:#102a56;
+
+    font-size:27px;
+}
+
+.choice-card small{
+    display:block;
+
+    margin-top:7px;
+
+    color:#6d7480;
+
+    font-size:17px;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-btn{
+    border:0;
+
+    background:none;
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    padding:5px 0;
+
+    margin-bottom:18px;
+}
+
+
+/* =========================================================
+   POST LIST
+========================================================= */
+
+.result-list{
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:14px;
+}
+
+.post-list-item{
+    width:100%;
+
+    padding:19px;
+
+    border:
+    1px solid #dce4ef;
+
+    border-radius:15px;
+
+    background:#fff;
+
+    color:#2563eb;
+
+    text-align:left;
+
+    font-size:20px;
+
+    font-weight:900;
+
+    transition:.2s;
+}
+
+.post-list-item:hover{
+    transform:translateY(-2px);
+
+    border-color:#2563eb;
+
+    box-shadow:
+    0 10px 24px
+    rgba(16,42,86,.08);
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.service-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.service-card{
+    background:#fff;
+
+    border:
+    1px solid #e0e6ef;
+
+    border-radius:18px;
+
+    padding:23px;
+
+    box-shadow:
+    0 8px 22px
+    rgba(16,42,86,.06);
+}
+
+.service-card strong{
+    display:block;
+
+    color:#102a56;
+
+    font-size:20px;
+}
+
+.service-card p{
+    margin-top:9px;
+
+    color:#6d7480;
+
+    font-size:17px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-form{
+    max-width:700px;
+}
+
+.contact-form label{
+    display:block;
+
+    margin:13px 0 6px;
+
+    font-weight:900;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+
+    padding:13px;
+
+    border:
+    1px solid #d5deea;
+
+    border-radius:10px;
+
+    font-size:17px;
+
+    outline:none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+    border-color:#2563eb;
+}
+
+.contact-form button{
+    margin-top:15px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:13px 20px;
+
+    font-size:17px;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.info-box{
+    max-width:900px;
+}
+
+.info-box p{
+    background:#fff;
+
+    padding:20px;
+
+    border-left:
+    4px solid #2563eb;
+
+    border-radius:8px;
+
+    box-shadow:
+    0 7px 18px
+    rgba(16,42,86,.06);
+}
+
+
+/* =========================================================
+   SOCIAL
+========================================================= */
+
+.social-section{
+    padding:48px 0;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071d50,
+        #0b3d91
+    );
+
+    color:#fff;
+}
+
+.social-section h2{
+    text-align:center;
+
+    margin-bottom:22px;
+
+    font-size:36px;
+}
+
+.social-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:12px;
+}
+
+.social-link{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    padding:13px;
+
+    border:
+    1px solid rgba(255,255,255,.20);
+
+    border-radius:14px;
+
+    color:#fff;
+
+    font-weight:900;
+
+    background:
+    rgba(255,255,255,.08);
+
+    transition:.2s;
+}
+
+.social-link:hover{
+    background:
+    rgba(255,255,255,.18);
+
+    transform:translateY(-3px);
+}
+
+.social-icon{
+    width:31px;
+    height:31px;
+
+    border-radius:8px;
+
+    background:#fff;
+
+    color:#102a56;
+
+    display:grid;
+
+    place-items:center;
+
+    font-weight:900;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    padding:28px 15px;
+
+    background:#061735;
+
+    color:#fff;
+
+    text-align:center;
+}
+
+footer a{
+    color:#fff;
+
+    font-weight:800;
+}
+
+footer small{
+    display:block;
+
+    margin-top:8px;
+}
+
+
+/* =========================================================
+   POST VIEW
+========================================================= */
+
+.post-view{
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:20000;
+
+    overflow-y:auto;
+
+    background:#fff;
+}
+
+.post-view.active{
+    display:block;
+}
+
+.post-inner{
+    width:min(
+        900px,
+        calc(100% - 28px)
+    );
+
+    margin:auto;
+
+    padding:20px 0 70px;
+}
+
+.post-back{
+    border:0;
+
+    background:none;
+
+    color:#2563eb;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    margin-bottom:12px;
+}
+
+.post-image{
+    width:100%;
+
+    max-height:450px;
+
+    object-fit:cover;
+
+    border-radius:16px;
+
+    margin-bottom:20px;
+}
+
+.post-title{
+    color:#2563eb;
+
+    font-size:38px;
+
+    line-height:1.3;
+
+    margin-bottom:15px;
+}
+
+.post-meta{
+    margin-bottom:7px;
+
+    color:#29384f;
+
+    font-size:17px;
+}
+
+.post-description{
+    margin-top:25px;
+
+    color:#111;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+.post-description p{
+    color:#111;
+
+    margin-bottom:18px;
+}
+
+.post-heading{
+    margin:28px 0 12px;
+
+    color:#2563eb;
+
+    font-size:22px;
+
+    font-weight:900;
+}
+
+.post-numbered{
+    color:#111 !important;
+
+    font-weight:800;
+}
+
+.post-actions{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin:25px 0;
+}
+
+.post-action{
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    border:0;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-weight:900;
+}
+
+.post-action.light{
+    background:#eaf2ff;
+
+    color:#2563eb;
+}
+
+
+/* =========================================================
+   COMMENTS
+========================================================= */
+
+.comments{
+    margin-top:30px;
+
+    border-top:
+    1px solid #dce4ef;
+
+    padding-top:25px;
+}
+
+.comments h3{
+    color:#2563eb;
+
+    font-size:25px;
+
+    margin-bottom:15px;
+}
+
+.comment-form textarea{
+    width:100%;
+
+    min-height:120px;
+
+    padding:13px;
+
+    border:
+    1px solid #d5deea;
+
+    border-radius:10px;
+
+    font-size:17px;
+}
+
+.comment-form button{
+    margin-top:10px;
+
+    padding:11px 18px;
+
+    border:0;
+
+    border-radius:10px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    font-weight:900;
+}
+
+.comment-item{
+    margin-top:12px;
+
+    padding:15px;
+
+    border:
+    1px solid #e0e6ef;
+
+    border-radius:12px;
+
+    background:#fff;
+}
+
+.comment-date{
+    margin-top:5px;
+
+    color:#6d7480;
+
+    font-size:13px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(
+    min-width:601px
+)
+and
+(
+    max-width:1000px
+){
+
+    .hero-logo{
+        width:98px;
+        height:98px;
+    }
+
+    .hero-title{
+        font-size:52px;
+    }
+
+    .ongoing-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .service-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .social-grid{
+        grid-template-columns:
+        repeat(3,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+@media(max-width:900px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    nav{
+        display:none;
+
+        position:absolute;
+
+        top:78px;
+
+        right:16px;
+
+        width:270px;
+
+        padding:9px;
+
+        background:#fff;
+
+        border:
+        1px solid #dce4ef;
+
+        border-radius:16px;
+
+        box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.18);
+
+        flex-direction:column;
+
+        align-items:stretch;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    nav a{
+        padding:14px;
+
+        width:100%;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    .wrap{
+        width:
+        calc(100% - 24px);
+    }
+
+    .nav{
+        min-height:78px;
+    }
+
+
+    /* HEADER LOGO */
+
+    .kulmis-logo{
+        width:52px;
+        height:52px;
+    }
+
+    .brand-text strong{
+        font-size:23px;
+    }
+
+    .brand-text small{
+        max-width:190px;
+
+        font-size:13px;
+    }
+
+    .menu-btn{
+        width:54px;
+        height:54px;
+
+        font-size:29px;
+    }
+
+
+    /* HERO LOGO */
+
+    .hero{
+        padding:38px 0 45px;
+    }
+
+    .hero-logo{
+        width:82px;
+        height:82px;
+
+        border-radius:24px;
+
+        margin-bottom:21px;
+    }
+
+    .hero-logo .kulmis-logo{
+        padding:7px;
+    }
+
+
+    /* HERO TITLE */
+
+    .hero-title{
+        font-size:39px;
+
+        line-height:1.10;
+
+        letter-spacing:0;
+    }
+
+    .hero-description{
+        margin-top:18px;
+
+        font-size:17px;
+
+        line-height:1.65;
+    }
+
+    .hero-message{
+        margin-top:19px;
+
+        font-size:16px;
+
+        line-height:1.55;
+    }
+
+
+    /* BUTTONS */
+
+    .hero-buttons{
+        display:grid;
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:9px;
+
+        width:100%;
+
+        max-width:520px;
+
+        margin:23px auto 0;
+    }
+
+    .hero-button{
+        min-width:0;
+
+        width:100%;
+
+        min-height:54px;
+
+        padding:10px 7px;
+
+        font-size:16px;
+
+        border-radius:14px;
+    }
+
+    .hero-button:nth-child(3){
+        grid-column:
+        1 / -1;
+
+        width:
+        calc(50% - 4px);
+
+        justify-self:center;
+    }
+
+
+    /* ONGOING */
+
+    .ongoing{
+        padding:45px 0;
+    }
+
+    .ongoing-heading span{
+        font-size:20px;
+    }
+
+    .ongoing-heading h2{
+        font-size:39px;
+    }
+
+    .ongoing-heading p{
+        font-size:16px;
+    }
+
+    .ongoing-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    /* SECTIONS */
+
+    .section{
+        padding:45px 0;
+    }
+
+    .section h2{
+        font-size:36px;
+    }
+
+    .section p{
+        font-size:17px;
+    }
+
+
+    .choice-grid,
+    .result-list,
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .choice-card{
+        padding:27px;
+    }
+
+
+    .social-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    .post-title{
+        font-size:28px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    .kulmis-logo,
+    .hero-logo,
+    .hero-logo .kulmis-logo,
+    .kulmis-logo .logo-ring,
+    .kulmis-logo .logo-shine,
+    .kulmis-logo .logo-dot{
+        animation:none;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+<div class="wrap nav">
+
+
+<a
+    href="#home"
+    class="brand"
+    data-page="home"
+>
+
+
+<!-- =====================================================
+     KULMIS HUB LOGO
+     MA AHA K LOGO
+===================================================== -->
+
+<svg
+    class="kulmis-logo"
+    viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="KULMIS HUB Logo"
+>
+
+
+<defs>
+
+<linearGradient
+    id="kulmisGradient"
+    x1="0"
+    y1="0"
+    x2="1"
+    y2="1"
+>
+
+<stop
+    offset="0%"
+    stop-color="#0a4da2"
+/>
+
+<stop
+    offset="55%"
+    stop-color="#1266c5"
+/>
+
+<stop
+    offset="100%"
+    stop-color="#08a1b7"
+/>
+
+</linearGradient>
+
+
+<linearGradient
+    id="goldGradient"
+    x1="0"
+    y1="0"
+    x2="1"
+    y2="1"
+>
+
+<stop
+    offset="0%"
+    stop-color="#ffe36b"
+/>
+
+<stop
+    offset="100%"
+    stop-color="#f5b800"
+/>
+
+</linearGradient>
+
+</defs>
+
+
+<!-- Outer circle -->
+
+<circle
+    cx="100"
+    cy="100"
+    r="92"
+    fill="url(#kulmisGradient)"
+/>
+
+
+<!-- Animated ring -->
+
+<circle
+    class="logo-ring"
+    cx="100"
+    cy="100"
+    r="80"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2.5"
+    stroke-dasharray="12 7"
+    opacity=".38"
+/>
+
+
+<!-- Globe -->
+
+<circle
+    cx="100"
+    cy="100"
+    r="51"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="4"
+    opacity=".88"
+/>
+
+
+<ellipse
+    cx="100"
+    cy="100"
+    rx="23"
+    ry="51"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".75"
+/>
+
+
+<path
+    d="M49 100 H151"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".75"
+/>
+
+
+<path
+    d="M58 75 C82 87 118 87 142 75"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".7"
+/>
+
+
+<path
+    d="M58 125 C82 113 118 113 142 125"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".7"
+/>
+
+
+<!-- KULMIS HUB text -->
+
+<text
+    x="100"
+    y="103"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-size="19"
+    font-weight="900"
+    font-family="Arial, sans-serif"
+    letter-spacing="1"
+>
+KULMIS
+</text>
+
+
+<text
+    x="100"
+    y="122"
+    text-anchor="middle"
+    fill="#ffd21f"
+    font-size="17"
+    font-weight="900"
+    font-family="Arial, sans-serif"
+    letter-spacing="1"
+>
+HUB
+</text>
+
+
+<!-- Network dots -->
+
+<circle
+    class="logo-dot"
+    cx="46"
+    cy="52"
+    r="7"
+    fill="url(#goldGradient)"
+/>
+
+
+<circle
+    class="logo-dot"
+    cx="154"
+    cy="52"
+    r="7"
+    fill="url(#goldGradient)"
+/>
+
+
+<circle
+    class="logo-dot"
+    cx="46"
+    cy="148"
+    r="7"
+    fill="url(#goldGradient)"
+/>
+
+
+<circle
+    class="logo-dot"
+    cx="154"
+    cy="148"
+    r="7"
+    fill="url(#goldGradient)"
+/>
+
+
+<!-- Network lines -->
+
+<path
+    d="M46 52 L72 70"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<path
+    d="M154 52 L128 70"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<path
+    d="M46 148 L72 130"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<path
+    d="M154 148 L128 130"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<!-- Shine -->
+
+<circle
+    class="logo-shine"
+    cx="66"
+    cy="66"
+    r="24"
+    fill="#ffffff"
+    opacity=".15"
+/>
+
+
+</svg>
+
+
+<span class="brand-text">
+
+<strong>
+KULMIS HUB
+</strong>
+
+<small>
+Hoyga Fursadaha Caalamiga ah
+</small>
+
+</span>
+
+</a>
+
+
+<button
+    class="menu-btn"
+    id="menuBtn"
+    aria-label="Fur menu"
+    type="button"
+>
+☰
+</button>
+
+
+<nav id="mainNav">
+
+<a href="#home" data-page="home">
+Bogga Hore
+</a>
+
+<a href="#about" data-page="about">
+Nagu Saabsan
+</a>
+
+<a href="#scholarships" data-page="scholarships">
+Deeqo Waxbarasho
+</a>
+
+<a href="#seminars" data-page="seminars">
+Seminars
+</a>
+
+<a href="#work" data-page="work">
+Fursadaha Shaqo
+</a>
+
+<a href="#services" data-page="services">
+Adeegyadeena
+</a>
+
+<a href="#contact" data-page="contact">
+Nala Soo Xiriir
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HOME
+===================================================== -->
+
+<section
+    id="home"
+    class="page active"
+>
+
+
+<div class="hero">
+
+
+<div class="wrap">
+
+
+<!-- =================================================
+     KULMIS HUB LOGO
+================================================= -->
+
+<div class="hero-logo">
+
+
+<svg
+    class="kulmis-logo"
+    viewBox="0 0 200 200"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-label="KULMIS HUB Logo"
+>
+
+
+<defs>
+
+<linearGradient
+    id="heroKulmisGradient"
+    x1="0"
+    y1="0"
+    x2="1"
+    y2="1"
+>
+
+<stop
+    offset="0%"
+    stop-color="#0a4da2"
+/>
+
+<stop
+    offset="55%"
+    stop-color="#1266c5"
+/>
+
+<stop
+    offset="100%"
+    stop-color="#08a1b7"
+/>
+
+</linearGradient>
+
+<linearGradient
+    id="heroGoldGradient"
+    x1="0"
+    y1="0"
+    x2="1"
+    y2="1"
+>
+
+<stop
+    offset="0%"
+    stop-color="#ffe36b"
+/>
+
+<stop
+    offset="100%"
+    stop-color="#f5b800"
+/>
+
+</linearGradient>
+
+</defs>
+
+
+<circle
+    cx="100"
+    cy="100"
+    r="92"
+    fill="url(#heroKulmisGradient)"
+/>
+
+
+<circle
+    class="logo-ring"
+    cx="100"
+    cy="100"
+    r="80"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="2.5"
+    stroke-dasharray="12 7"
+    opacity=".38"
+/>
+
+
+<circle
+    cx="100"
+    cy="100"
+    r="51"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="4"
+    opacity=".88"
+/>
+
+
+<ellipse
+    cx="100"
+    cy="100"
+    rx="23"
+    ry="51"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".75"
+/>
+
+
+<path
+    d="M49 100 H151"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".75"
+/>
+
+
+<path
+    d="M58 75 C82 87 118 87 142 75"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".7"
+/>
+
+
+<path
+    d="M58 125 C82 113 118 113 142 125"
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="3"
+    opacity=".7"
+/>
+
+
+<text
+    x="100"
+    y="103"
+    text-anchor="middle"
+    fill="#ffffff"
+    font-size="19"
+    font-weight="900"
+    font-family="Arial, sans-serif"
+    letter-spacing="1"
+>
+KULMIS
+</text>
+
+
+<text
+    x="100"
+    y="122"
+    text-anchor="middle"
+    fill="#ffd21f"
+    font-size="17"
+    font-weight="900"
+    font-family="Arial, sans-serif"
+    letter-spacing="1"
+>
+HUB
+</text>
+
+
+<circle
+    class="logo-dot"
+    cx="46"
+    cy="52"
+    r="7"
+    fill="url(#heroGoldGradient)"
+/>
+
+
+<circle
+    class="logo-dot"
+    cx="154"
+    cy="52"
+    r="7"
+    fill="url(#heroGoldGradient)"
+/>
+
+
+<circle
+    class="logo-dot"
+    cx="46"
+    cy="148"
+    r="7"
+    fill="url(#heroGoldGradient)"
+/>
+
+
+<circle
+    class="logo-dot"
+    cx="154"
+    cy="148"
+    r="7"
+    fill="url(#heroGoldGradient)"
+/>
+
+
+<path
+    d="M46 52 L72 70"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<path
+    d="M154 52 L128 70"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<path
+    d="M46 148 L72 130"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<path
+    d="M154 148 L128 130"
+    stroke="#ffd21f"
+    stroke-width="3"
+    opacity=".8"
+/>
+
+
+<circle
+    class="logo-shine"
+    cx="66"
+    cy="66"
+    r="24"
+    fill="#ffffff"
+    opacity=".15"
+/>
+
+
+</svg>
+
+</div>
+
+
+<h1 class="hero-title">
+
+KULMIS HUB —
+
+<span class="yellow">
+Hoyga Fursadaha Caalamiga ah
+</span>
+
+</h1>
+
+
+<p class="hero-description">
+
+Hal meel ka hel deeqaha waxbarasho, seminars,
+shaqooyin iyo fursado kale oo ka socda Soomaaliya,
+Afrika iyo dunida inteeda kale.
+
+</p>
+
+
+<p class="hero-message">
+
+Fursadda maanta waxay noqon kartaa mustaqbalkaaga berri,
+ka faa'iidayso inta aysan fursaddu kaa seegin.
+
+</p>
+
+
+<div class="hero-buttons">
+
+
+<button
+    type="button"
+    class="hero-button primary"
+    data-page="scholarships"
+>
+🎓 Deeqaha Waxbarasho
+</button>
+
+
+<button
+    type="button"
+    class="hero-button secondary"
+    data-page="seminars"
+>
+🎤 Seminars
+</button>
+
+
+<button
+    type="button"
+    class="hero-button secondary"
+    data-page="work"
+>
+💼 Fursadaha Shaqo
+</button>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+     ONGOING
+================================================= -->
+
+<div class="ongoing">
+
+
+<div class="wrap">
+
+
+<div class="ongoing-heading">
+
+<span>
+ONGOING OPPORTUNITIES
+</span>
+
+<h2>
+Fursadaha Hadda Socda
+</h2>
+
+<p>
+Fursadaha deadline-koodu uusan dhammaan ayaa si automatic ah halkan uga muuqda.
+</p>
+
+</div>
+
+
+<div
+    id="homeOngoingGrid"
+    class="ongoing-grid"
+>
+
+<div class="empty">
+Fursadaha waa la soo dejinayaa...
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section
+    id="about"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+NAGU SAABSAN
+</div>
+
+<h2>
+KULMIS HUB
+</h2>
+
+
+<p>
+
+<b>
+KULMIS HUB waa madal dijitaal ah oo bulshada u soo gudbisa fursadaha waxbarasho, seminars, shaqooyin iyo fursado kale oo gudaha iyo caalamka ah.
+</b>
+
+</p>
+
+
+<p>
+
+Ujeeddadeennu waa inaan fursadaha muhiimka ah hal meel ku soo ururinno, si qof kasta uu si fudud ugu helo macluumaad ku saabsan fursadaha jira.
+
+</p>
+
+
+<p>
+
+Waxaan sidoo kale dadka ku hagnaa inay booqdaan bogagga rasmiga ah ee fursadaha si ay halkaas uga helaan shuruudaha iyo habka saxda ah ee codsiga.
+
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SCHOLARSHIPS
+===================================================== -->
+
+<section
+    id="scholarships"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+DEEGO WAXBARASHO
+</div>
+
+<h2>
+Deeqo Waxbarasho
+</h2>
+
+
+<div id="scholarshipHome">
+
+
+<div class="choice-grid">
+
+
+<button
+    class="choice-card"
+    onclick="showScholarshipInside()"
+>
+
+<div class="icon">
+📍
+</div>
+
+<strong>
+Gudaha
+</strong>
+
+<small>
+Fursadaha waxbarasho ee gudaha Soomaaliya.
+</small>
+
+</button>
+
+
+<button
+    class="choice-card"
+    onclick="showScholarshipWorld()"
+>
+
+<div class="icon">
+🌍
+</div>
+
+<strong>
+Caalamka
+</strong>
+
+<small>
+Dhammaan deeqaha waxbarasho ee caalamka.
+</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<div
+    id="scholarshipInside"
+    style="display:none;"
+>
+
+<button
+    class="back-btn"
+    onclick="backScholarship()"
+>
+← Deeqo Waxbarasho
+</button>
+
+<h3>
+📍 Deeqaha Gudaha
+</h3>
+
+<div
+    id="scholarshipInsideList"
+    class="result-list"
+></div>
+
+</div>
+
+
+<div
+    id="scholarshipWorld"
+    style="display:none;"
+>
+
+<button
+    class="back-btn"
+    onclick="backScholarship()"
+>
+← Deeqo Waxbarasho
+</button>
+
+<h3>
+🌍 Deeqaha Caalamka
+</h3>
+
+<div
+    id="scholarshipWorldList"
+    class="result-list"
+></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SEMINARS
+===================================================== -->
+
+<section
+    id="seminars"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+SEMINARS
+</div>
+
+<h2>
+Seminars
+</h2>
+
+
+<div id="seminarHome">
+
+
+<div class="choice-grid">
+
+
+<button
+    class="choice-card"
+    onclick="showSeminarInside()"
+>
+
+<div class="icon">
+📍
+</div>
+
+<strong>
+Gudaha
+</strong>
+
+<small>
+Seminars iyo workshops gudaha Soomaaliya.
+</small>
+
+</button>
+
+
+<button
+    class="choice-card"
+    onclick="showSeminarWorld()"
+>
+
+<div class="icon">
+🌍
+</div>
+
+<strong>
+Caalamka
+</strong>
+
+<small>
+Seminars iyo events caalami ah.
+</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<div
+    id="seminarInside"
+    style="display:none;"
+>
+
+<button
+    class="back-btn"
+    onclick="backSeminar()"
+>
+← Seminars
+</button>
+
+<h3>
+📍 Seminars-ka Gudaha
+</h3>
+
+<div
+    id="seminarInsideList"
+    class="result-list"
+></div>
+
+</div>
+
+
+<div
+    id="seminarWorld"
+    style="display:none;"
+>
+
+<button
+    class="back-btn"
+    onclick="backSeminar()"
+>
+← Seminars
+</button>
+
+<h3>
+🌍 Seminars-ka Caalamka
+</h3>
+
+<div
+    id="seminarWorldList"
+    class="result-list"
+></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WORK
+===================================================== -->
+
+<section
+    id="work"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+FURSADAHA SHAQO
+</div>
+
+<h2>
+Fursadaha Shaqo
+</h2>
+
+
+<div id="workHome">
+
+
+<div class="choice-grid">
+
+
+<button
+    class="choice-card"
+    onclick="showWork('inside')"
+>
+
+<div class="icon">
+📍
+</div>
+
+<strong>
+Gudaha
+</strong>
+
+<small>
+Fursadaha shaqo ee gudaha Soomaaliya.
+</small>
+
+</button>
+
+
+<button
+    class="choice-card"
+    onclick="showWork('world')"
+>
+
+<div class="icon">
+🌍
+</div>
+
+<strong>
+Caalamka
+</strong>
+
+<small>
+Fursadaha shaqo ee caalamka.
+</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+
+<div
+    id="workInside"
+    style="display:none;"
+>
+
+<button
+    class="back-btn"
+    onclick="backWork()"
+>
+← Fursadaha Shaqo
+</button>
+
+<h3>
+📍 Shaqooyinka Gudaha
+</h3>
+
+<div
+    id="workInsideList"
+    class="result-list"
+></div>
+
+</div>
+
+
+<div
+    id="workWorld"
+    style="display:none;"
+>
+
+<button
+    class="back-btn"
+    onclick="backWork()"
+>
+← Fursadaha Shaqo
+</button>
+
+<h3>
+🌍 Shaqooyinka Caalamka
+</h3>
+
+<div
+    id="workWorldList"
+    class="result-list"
+></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section
+    id="services"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+ADEEGYADEENA
+</div>
+
+<h2>
+Adeegyadeena
+</h2>
+
+
+<div class="service-grid">
+
+
+<div class="service-card">
+
+<strong>
+🎓 Scholarship Application Assistance
+</strong>
+
+<p>
+Caawinta fahamka shuruudaha iyo habka codsiga deeqaha waxbarasho.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<strong>
+🏫 University Admission Assistance
+</strong>
+
+<p>
+Caawinta fahamka admission-ka iyo doorashada program-ka.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<strong>
+📄 Application & Document Guidance
+</strong>
+
+<p>
+Hagitaan ku saabsan dukumentiyada iyo xogta codsiga.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<strong>
+🌍 Study Abroad Guidance
+</strong>
+
+<p>
+Hagitaan ku saabsan fursadaha waxbarasho ee dalalka kala duwan.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<strong>
+💼 Job & Internship Guidance
+</strong>
+
+<p>
+Hagitaan ku saabsan shaqooyinka iyo internship-yada.
+</p>
+
+</div>
+
+
+<div class="service-card">
+
+<strong>
+🎤 Seminar & Opportunity Guidance
+</strong>
+
+<p>
+Hagitaan ku saabsan seminars, workshops iyo fursadaha kale.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section
+    id="contact"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+NALA SOO XIRIIR
+</div>
+
+<h2>
+Nala Soo Xiriir
+</h2>
+
+
+<div class="contact-form">
+
+<form
+    onsubmit="
+    event.preventDefault();
+    alert('Mahadsanid! Fariintaada waa la helay.');
+    "
+>
+
+
+<label>
+Magaca
+</label>
+
+<input
+    type="text"
+    placeholder="Magacaaga"
+    required
+>
+
+
+<label>
+Email
+</label>
+
+<input
+    type="email"
+    placeholder="Email-kaaga"
+    required
+>
+
+
+<label>
+Fariinta
+</label>
+
+<textarea
+    rows="6"
+    placeholder="Qor fariintaada..."
+    required
+></textarea>
+
+
+<button type="submit">
+Dir Fariinta
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRIVACY
+===================================================== -->
+
+<section
+    id="privacy"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+ASTURNAANTA
+</div>
+
+<h2>
+Qaanuunka Asturnaanta
+</h2>
+
+
+<div class="info-box">
+
+<p>
+KULMIS HUB waxay ixtiraamaysaa asturnaanta dadka isticmaala website-kan. Xogta aad nala wadaagto waxaa loo isticmaalaa ujeeddooyinka adeegga iyo xiriirka.
+</p>
+
+<p>
+Waxaan ku dadaalaynaa inaan ilaalino xogta isticmaalayaasha, laakiin dadka isticmaala waa inay sidoo kale taxaddaraan marka ay xogtooda ku qorayaan websites ama adeegyo kale oo dibadda ah.
+</p>
+
+<p>
+Fursadaha lagu daabaco KULMIS HUB waxay yeelan karaan websites rasmi ah oo gaar ah. Ka hor intaadan bixin xog gaar ah ama dukumenti, hubi website-ka rasmiga ah iyo shuruudaha adeeggaas.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     TERMS
+===================================================== -->
+
+<section
+    id="terms"
+    class="page section"
+>
+
+<div class="wrap">
+
+<div class="section-label">
+SHURUUCDA ISTICMAALKA
+</div>
+
+<h2>
+Shuruudaha iyo Xeerarka
+</h2>
+
+
+<div class="info-box">
+
+<p>
+KULMIS HUB waxay soo bandhigtaa fursado waxbarasho, shaqo, seminars iyo fursado kale oo laga helo ilo kala duwan. Macluumaadka fursaduhu wuu is beddeli karaa.
+</p>
+
+<p>
+KULMIS HUB ma beddelayso hay'adda ama website-ka rasmiga ah ee fursadda. Shuruudaha, deadline-yada, khidmadaha iyo habka codsiga waxaa go'aamiya hay'adda bixisa fursadda.
+</p>
+
+<p>
+Isticmaaluhu wuxuu mas'uul ka yahay inuu akhriyo shuruudaha fursadda ka hor codsiga. KULMIS HUB kuma ballanqaadayso in codsi kasta uu keeni doono admission, scholarship ama shaqo.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     SOCIAL
+===================================================== -->
+
+<section class="social-section">
+
+<div class="wrap">
+
+<h2>
+Baraha Bulshada
+</h2>
+
+
+<div class="social-grid">
+
+
+<a
+    class="social-link"
+    href="https://www.tiktok.com/@kulmismedia1?_r=1&_t=ZS-9A6mYFzFLmf"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+
+<span class="social-icon">
+♪
+</span>
+
+TikTok
+
+</a>
+
+
+<a
+    class="social-link"
+    href="https://t.me/Kulmismedia"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+
+<span class="social-icon">
+✈
+</span>
+
+Telegram
+
+</a>
+
+
+<a
+    class="social-link"
+    href="https://www.facebook.com/share/1bGUvUsggt/"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+
+<span class="social-icon">
+f
+</span>
+
+Facebook
+
+</a>
+
+
+<a
+    class="social-link"
+    href="https://youtube.com/@kulmishub?si=vkwKkrbtKR8sgMyA"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+
+<span class="social-icon">
+▶
+</span>
+
+YouTube
+
+</a>
+
+
+<a
+    class="social-link"
+    href="https://chat.whatsapp.com/ENOp6oKksKmIyfj5KvMY56?s=sh&p=a&ilr=4&iam=1"
+    target="_blank"
+    rel="noopener noreferrer"
+>
+
+<span class="social-icon">
+W
+</span>
+
+WhatsApp
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div>
+
+<a href="#privacy" data-page="privacy">
+Asturnaanta
+</a>
+
+&nbsp; | &nbsp;
+
+<a href="#terms" data-page="terms">
+Shuruudaha iyo Xeerarka
+</a>
+
+</div>
+
+
+<small>
+© 2026 KULMIS HUB. Dhammaan xuquuqdu way dhowran tahay.
+</small>
+
+</footer>
+
+
+
+<!-- =====================================================
+     POST VIEW
+===================================================== -->
+
+<div
+    id="postView"
+    class="post-view"
+>
+
+<div class="post-inner">
+
+<button
+    class="post-back"
+    onclick="closePost()"
+>
+← Dib ugu noqo
+</button>
+
+<div id="postContent"></div>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
+const SUPABASE_URL =
+"https://wxamihjterffxrnpqxwt.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_KXBcUODUGXrWUTY70jNPvw_2SwNy-A1";
+
+let dbRows=[];
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const nav=
+document.getElementById("mainNav");
+
+const menuBtn=
+document.getElementById("menuBtn");
+
+
+/* =========================================================
+   ESCAPE
+========================================================= */
+
+function esc(value){
+
+    return String(value ?? "").replace(
+        /[&<>'"]/g,
+        char=>({
+            "&":"&amp;",
+            "<":"&lt;",
+            ">":"&gt;",
+            "'":"&#39;",
+            '"':"&quot;"
+        }[char])
+    );
+
+}
+
+
+/* =========================================================
+   NORMALIZE
+========================================================= */
+
+function norm(value){
+
+    return String(value||"")
+        .trim()
+        .toLowerCase()
+        .replace(/[–—]/g,"-");
+
+}
+
+
+/* =========================================================
+   TYPE
+========================================================= */
+
+function getPostType(row){
+
+    const type=
+    norm(row.type);
+
+
+    if([
+        "scholarship",
+        "scholarships",
+        "waxbarasho",
+        "education",
+        "fellowship",
+        "grant"
+    ].includes(type)){
+
+        return "scholarship";
+
+    }
+
+
+    if([
+        "seminar",
+        "seminars",
+        "workshop",
+        "workshops",
+        "conference",
+        "webinar",
+        "event"
+    ].includes(type)){
+
+        return "seminar";
+
+    }
+
+
+    if([
+        "job",
+        "jobs",
+        "shaqo",
+        "work",
+        "employment",
+        "vacancy",
+        "internship"
+    ].includes(type)){
+
+        return "job";
+
+    }
+
+
+    const category=
+    norm(row.category);
+
+
+    if(
+        category.includes("scholarship")||
+        category.includes("waxbarasho")||
+        category.includes("education")||
+        category.includes("fellowship")||
+        category.includes("grant")
+    ){
+
+        return "scholarship";
+
+    }
+
+
+    if(
+        category.includes("seminar")||
+        category.includes("workshop")||
+        category.includes("conference")||
+        category.includes("webinar")||
+        category.includes("event")
+    ){
+
+        return "seminar";
+
+    }
+
+
+    if(
+        category.includes("job")||
+        category.includes("shaqo")||
+        category.includes("work")||
+        category.includes("employment")||
+        category.includes("vacancy")||
+        category.includes("internship")
+    ){
+
+        return "job";
+
+    }
+
+
+    return "other";
+
+}
+
+
+function isScholarship(row){
+
+    return getPostType(row)==="scholarship";
+
+}
+
+
+function isSeminar(row){
+
+    return getPostType(row)==="seminar";
+
+}
+
+
+function isJob(row){
+
+    return getPostType(row)==="job";
+
+}
+
+
+/* =========================================================
+   ICON
+========================================================= */
+
+function getIcon(row){
+
+    const type=
+    getPostType(row);
+
+
+    if(type==="scholarship"){
+        return "🎓";
+    }
+
+
+    if(type==="seminar"){
+        return "🎤";
+    }
+
+
+    if(type==="job"){
+        return "💼";
+    }
+
+
+    return "🌍";
+
+}
+
+
+/* =========================================================
+   SOMALIA
+========================================================= */
+
+function isSomalia(row){
+
+    const value=
+    norm([
+        row.country,
+        row.continent,
+        row.location
+    ].join(" "));
+
+
+    return(
+        value.includes("somalia")||
+        value.includes("soomaaliya")||
+        value.includes("gudaha")||
+        value.includes("local")
+    );
+
+}
+
+
+/* =========================================================
+   DEADLINE
+========================================================= */
+
+function isExpired(row){
+
+    if(!row.deadline){
+        return false;
+    }
+
+
+    const date=
+    new Date(
+        String(row.deadline)+"T23:59:59"
+    );
+
+
+    if(Number.isNaN(date.getTime())){
+        return false;
+    }
+
+
+    return date<new Date();
+
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+function formatDescription(text){
+
+    if(!text){
+        return "";
+    }
+
+
+    return String(text)
+        .replace(/\r\n/g,"\n")
+        .replace(/\r/g,"\n")
+        .trim()
+        .split(/\n\s*\n/)
+        .filter(Boolean)
+        .map(block=>{
+
+            const s=
+            block.replace(/\n/g," ").trim();
+
+
+            if(
+                s.length<=110&&
+                (
+                    s===s.toUpperCase()||
+                    /^(MAXAY|NOOCA|SHURUUDAHA|MAXAA|SIDEE|MUHIIM|DEADLINE|OFFICIAL|KULMIS HUB)/i.test(s)
+                )
+            ){
+
+                return `
+                    <div class="post-heading">
+                        ${esc(s)}
+                    </div>
+                `;
+
+            }
+
+
+            if(/^\d+[\.\)]\s/.test(s)){
+
+                return `
+                    <p class="post-numbered">
+                        ${esc(s)}
+                    </p>
+                `;
+
+            }
+
+
+            return `
+                <p>
+                    ${esc(s)}
+                </p>
+            `;
+
+        })
+        .join("");
+
+}
+
+
+/* =========================================================
+   LOAD DATABASE
+========================================================= */
+
+async function loadDB(){
+
+    try{
+
+        const url=
+        SUPABASE_URL+
+        "/rest/v1/opportunities"+
+        "?select=*"+
+        "&published=eq.true"+
+        "&order=created_at.desc";
+
+
+        const response=
+        await fetch(
+            url,
+            {
+                headers:{
+                    apikey:SUPABASE_KEY,
+                    Authorization:
+                    "Bearer "+SUPABASE_KEY
+                }
+            }
+        );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "HTTP "+response.status
+            );
+
+        }
+
+
+        dbRows=
+        await response.json();
+
+
+        renderOngoing();
+
+    }
+    catch(error){
+
+        console.error(
+            "Supabase error:",
+            error
+        );
+
+        dbRows=[];
+
+        renderOngoing();
+
+    }
+
+}
+
+
+/* =========================================================
+   POST BUTTON
+========================================================= */
+
+function postButton(row){
+
+    const title=
+    row.title||
+    row.program||
+    row.company||
+    "Fursad";
+
+
+    return `
+
+        <button
+            type="button"
+            class="post-list-item"
+            onclick="openPost('${esc(row.id)}')"
+        >
+
+            ${getIcon(row)}
+
+            ${esc(title)}
+
+        </button>
+
+    `;
+
+}
+
+
+/* =========================================================
+   ONGOING
+========================================================= */
+
+function renderOngoing(){
+
+    const box=
+    document.getElementById(
+        "homeOngoingGrid"
+    );
+
+
+    if(!box){
+        return;
+    }
+
+
+    const rows=
+    dbRows.filter(
+        row=>!isExpired(row)
+    );
+
+
+    if(!rows.length){
+
+        box.innerHTML=`
+            <div class="empty">
+                Weli fursado hadda socda lama daabicin.
+            </div>
+        `;
+
+        return;
+
+    }
+
+
+    box.innerHTML=
+    rows.map(row=>{
+
+        const title=
+        row.title||
+        row.program||
+        row.company||
+        "Fursad";
+
+
+        const type=
+        getPostType(row);
+
+
+        let label=
+        "Fursad";
+
+
+        if(type==="scholarship"){
+            label="Deeq Waxbarasho";
+        }
+
+
+        if(type==="seminar"){
+            label="Seminar";
+        }
+
+
+        if(type==="job"){
+            label="Fursad Shaqo";
+        }
+
+
+        return `
+
+            <button
+                type="button"
+                class="ongoing-card"
+                onclick="openPost('${esc(row.id)}')"
+            >
+
+                <span class="tag">
+
+                    ${getIcon(row)}
+
+                    ${label}
+
+                </span>
+
+
+                <h3>
+                    ${esc(title)}
+                </h3>
+
+
+                <p>
+
+                    ${
+                        row.country
+                        ? esc(row.country)
+                        :""
+                    }
+
+                    ${
+                        row.deadline
+                        ? " • Deadline: "+
+                          esc(row.deadline)
+                        :""
+                    }
+
+                </p>
+
+            </button>
+
+        `;
+
+    }).join("");
+
+}
+
+
+/* =========================================================
+   PAGE NAVIGATION
+========================================================= */
+
+function showPage(pageId){
+
+    document
+    .querySelectorAll(".page")
+    .forEach(page=>{
+        page.classList.remove("active");
+    });
+
+
+    const target=
+    document.getElementById(pageId);
+
+
+    if(!target){
+        return;
+    }
+
+
+    target.classList.add("active");
+
+
+    nav.classList.remove("open");
+
+
+    if(pageId==="scholarships"){
+        backScholarship();
+    }
+
+
+    if(pageId==="seminars"){
+        backSeminar();
+    }
+
+
+    if(pageId==="work"){
+        backWork();
+    }
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+
+    history.replaceState(
+        null,
+        "",
+        "#"+pageId
+    );
+
+}
+
+
+/* =========================================================
+   PAGE BUTTONS
+========================================================= */
+
+document
+.querySelectorAll("[data-page]")
+.forEach(element=>{
+
+    element.addEventListener(
+        "click",
+        function(event){
+
+            event.preventDefault();
+
+
+            const page=
+            this.getAttribute(
+                "data-page"
+            );
+
+
+            if(page){
+                showPage(page);
+            }
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+menuBtn.addEventListener(
+    "click",
+    function(event){
+
+        event.stopPropagation();
+
+        nav.classList.toggle("open");
+
+    }
+);
+
+
+document
+.querySelectorAll("#mainNav a")
+.forEach(link=>{
+
+    link.addEventListener(
+        "click",
+        function(){
+            nav.classList.remove("open");
+        }
+    );
+
+});
+
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        if(
+            nav.classList.contains("open")&&
+            !nav.contains(event.target)&&
+            !menuBtn.contains(event.target)
+        ){
+
+            nav.classList.remove("open");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   SCHOLARSHIPS
+========================================================= */
+
+function showScholarshipInside(){
+
+    document.getElementById(
+        "scholarshipHome"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "scholarshipWorld"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "scholarshipInside"
+    ).style.display="block";
+
+
+    const rows=
+    dbRows.filter(
+        row=>
+        isScholarship(row)&&
+        isSomalia(row)
+    );
+
+
+    document.getElementById(
+        "scholarshipInsideList"
+    ).innerHTML=
+
+    rows.length
+    ?
+    rows.map(postButton).join("")
+    :
+    `
+        <div class="empty">
+            Weli deeq gudaha ah lama daabicin.
+        </div>
+    `;
+
+}
+
+
+function showScholarshipWorld(){
+
+    document.getElementById(
+        "scholarshipHome"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "scholarshipInside"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "scholarshipWorld"
+    ).style.display="block";
+
+
+    const rows=
+    dbRows.filter(
+        row=>
+        isScholarship(row)&&
+        !isSomalia(row)
+    );
+
+
+    document.getElementById(
+        "scholarshipWorldList"
+    ).innerHTML=
+
+    rows.length
+    ?
+    rows.map(postButton).join("")
+    :
+    `
+        <div class="empty">
+            Weli scholarship caalami ah lama daabicin.
+        </div>
+    `;
+
+}
+
+
+function backScholarship(){
+
+    document.getElementById(
+        "scholarshipHome"
+    ).style.display="block";
+
+
+    document.getElementById(
+        "scholarshipInside"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "scholarshipWorld"
+    ).style.display="none";
+
+}
+
+
+/* =========================================================
+   SEMINARS
+========================================================= */
+
+function showSeminarInside(){
+
+    document.getElementById(
+        "seminarHome"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "seminarWorld"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "seminarInside"
+    ).style.display="block";
+
+
+    const rows=
+    dbRows.filter(
+        row=>
+        isSeminar(row)&&
+        isSomalia(row)
+    );
+
+
+    document.getElementById(
+        "seminarInsideList"
+    ).innerHTML=
+
+    rows.length
+    ?
+    rows.map(postButton).join("")
+    :
+    `
+        <div class="empty">
+            Weli seminar gudaha ah lama daabicin.
+        </div>
+    `;
+
+}
+
+
+function showSeminarWorld(){
+
+    document.getElementById(
+        "seminarHome"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "seminarInside"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "seminarWorld"
+    ).style.display="block";
+
+
+    const rows=
+    dbRows.filter(
+        row=>
+        isSeminar(row)&&
+        !isSomalia(row)
+    );
+
+
+    document.getElementById(
+        "seminarWorldList"
+    ).innerHTML=
+
+    rows.length
+    ?
+    rows.map(postButton).join("")
+    :
+    `
+        <div class="empty">
+            Weli seminar caalami ah lama daabicin.
+        </div>
+    `;
+
+}
+
+
+function backSeminar(){
+
+    document.getElementById(
+        "seminarHome"
+    ).style.display="block";
+
+
+    document.getElementById(
+        "seminarInside"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "seminarWorld"
+    ).style.display="none";
+
+}
+
+
+/* =========================================================
+   JOBS
+========================================================= */
+
+function showWork(type){
+
+    document.getElementById(
+        "workHome"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "workInside"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "workWorld"
+    ).style.display="none";
+
+
+    if(type==="inside"){
+
+        document.getElementById(
+            "workInside"
+        ).style.display="block";
+
+
+        const rows=
+        dbRows.filter(
+            row=>
+            isJob(row)&&
+            isSomalia(row)
+        );
+
+
+        document.getElementById(
+            "workInsideList"
+        ).innerHTML=
+
+        rows.length
+        ?
+        rows.map(postButton).join("")
+        :
+        `
+            <div class="empty">
+                Weli shaqo gudaha ah lama daabicin.
+            </div>
+        `;
+
+    }
+    else{
+
+        document.getElementById(
+            "workWorld"
+        ).style.display="block";
+
+
+        const rows=
+        dbRows.filter(
+            row=>
+            isJob(row)&&
+            !isSomalia(row)
+        );
+
+
+        document.getElementById(
+            "workWorldList"
+        ).innerHTML=
+
+        rows.length
+        ?
+        rows.map(postButton).join("")
+        :
+        `
+            <div class="empty">
+                Weli shaqo caalami ah lama daabicin.
+            </div>
+        `;
+
+    }
+
+}
+
+
+function backWork(){
+
+    document.getElementById(
+        "workHome"
+    ).style.display="block";
+
+
+    document.getElementById(
+        "workInside"
+    ).style.display="none";
+
+
+    document.getElementById(
+        "workWorld"
+    ).style.display="none";
+
+}
+
+
+/* =========================================================
+   OPEN POST
+========================================================= */
+
+async function openPost(id){
+
+    const row=
+    dbRows.find(
+        item=>
+        String(item.id)===
+        String(id)
+    );
+
+
+    if(!row){
+        return;
+    }
+
+
+    const title=
+    row.title||
+    row.program||
+    row.company||
+    "Fursad";
+
+
+    const content=
+    document.getElementById(
+        "postContent"
+    );
+
+
+    content.innerHTML=`
+
+        ${
+            row.image_url
+            ?
+            `
+                <img
+                    class="post-image"
+                    src="${esc(row.image_url)}"
+                    alt="${esc(title)}"
+                >
+            `
+            :""
+        }
+
+
+        <h1 class="post-title">
+
+            ${getIcon(row)}
+
+            ${esc(title)}
+
+        </h1>
+
+
+        ${
+            row.country
+            ?
+            `
+                <div class="post-meta">
+                    <b>Wadanka:</b>
+                    ${esc(row.country)}
+                </div>
+            `
+            :""
+        }
+
+
+        ${
+            row.location
+            ?
+            `
+                <div class="post-meta">
+                    <b>Goobta:</b>
+                    ${esc(row.location)}
+                </div>
+            `
+            :""
+        }
+
+
+        ${
+            row.deadline
+            ?
+            `
+                <div class="post-meta">
+                    <b>Deadline:</b>
+                    ${esc(row.deadline)}
+                </div>
+            `
+            :""
+        }
+
+
+        ${
+            row.description
+            ?
+            `
+                <div class="post-description">
+                    ${formatDescription(row.description)}
+                </div>
+            `
+            :""
+        }
+
+
+        <div class="post-actions">
+
+
+            ${
+                row.link
+                ?
+                `
+                    <a
+                        class="post-action"
+                        href="${esc(row.link)}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        🔗 Official / Apply
+                    </a>
+                `
+                :""
+            }
+
+
+            <button
+                class="post-action light"
+                onclick="copyPostLink('${esc(row.id)}')"
+            >
+                🔗 Copy Link
+            </button>
+
+
+        </div>
+
+
+        <div class="comments">
+
+
+            <h3>
+                💬 Fariimaha
+            </h3>
+
+
+            <form
+                class="comment-form"
+                onsubmit="submitComment(event,'${esc(row.id)}')"
+            >
+
+                <textarea
+                    name="comment"
+                    placeholder="Qor fariintaada..."
+                    required
+                    maxlength="1000"
+                ></textarea>
+
+
+                <button type="submit">
+                    Dir Fariinta
+                </button>
+
+            </form>
+
+
+            <div
+                id="comments-${esc(row.id)}"
+                style="margin-top:15px;"
+            >
+                Fariimaha waa la soo dejinayaa...
+            </div>
+
+
+        </div>
+
+    `;
+
+
+    document
+    .getElementById("postView")
+    .classList.add("active");
+
+
+    document.body.style.overflow="hidden";
+
+
+    history.replaceState(
+        null,
+        "",
+        "#post-"+id
+    );
+
+
+    await loadComments(id);
+
+}
+
+
+/* =========================================================
+   CLOSE POST
+========================================================= */
+
+function closePost(){
+
+    document
+    .getElementById("postView")
+    .classList.remove("active");
+
+
+    document.body.style.overflow="";
+
+
+    document.getElementById(
+        "postContent"
+    ).innerHTML="";
+
+
+    showPage("home");
+
+}
+
+
+/* =========================================================
+   COPY LINK
+========================================================= */
+
+async function copyPostLink(id){
+
+    const url=
+    location.origin+
+    location.pathname+
+    "#post-"+id;
+
+
+    try{
+
+        await navigator.clipboard.writeText(url);
+
+        alert(
+            "Link-ga post-kan waa la koobiyeeyay."
+        );
+
+    }
+    catch(error){
+
+        const textarea=
+        document.createElement(
+            "textarea"
+        );
+
+
+        textarea.value=url;
+
+
+        document.body.appendChild(
+            textarea
+        );
+
+
+        textarea.select();
+
+
+        document.execCommand(
+            "copy"
+        );
+
+
+        textarea.remove();
+
+
+        alert(
+            "Link-ga post-kan waa la koobiyeeyay."
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   COMMENTS
+========================================================= */
+
+async function loadComments(id){
+
+    const box=
+    document.getElementById(
+        "comments-"+id
+    );
+
+
+    if(!box){
+        return;
+    }
+
+
+    try{
+
+        const response=
+        await fetch(
+            SUPABASE_URL+
+            "/rest/v1/comments"+
+            "?select=id,comment,created_at"+
+            "&opportunity_id=eq."+
+            encodeURIComponent(id)+
+            "&order=created_at.asc",
+            {
+                headers:{
+                    apikey:SUPABASE_KEY,
+                    Authorization:
+                    "Bearer "+SUPABASE_KEY
+                }
+            }
+        );
+
+
+        if(!response.ok){
+            throw new Error(
+                "Comments failed"
+            );
+        }
+
+
+        const comments=
+        await response.json();
+
+
+        if(!comments.length){
+
+            box.innerHTML=`
+                <div class="empty">
+                    Weli fariin lama qorin.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        box.innerHTML=
+        comments.map(comment=>`
+
+            <div class="comment-item">
+
+                ${esc(comment.comment)}
+
+                <div class="comment-date">
+
+                    ${
+                        new Date(
+                            comment.created_at
+                        ).toLocaleDateString(
+                            "en-GB"
+                        )
+                    }
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        box.innerHTML=`
+            <div class="empty">
+                Fariimaha lama soo dejin karin.
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   SUBMIT COMMENT
+========================================================= */
+
+async function submitComment(event,id){
+
+    event.preventDefault();
+
+
+    const form=
+    event.target;
+
+
+    const formData=
+    new FormData(form);
+
+
+    const comment=
+    String(
+        formData.get("comment")||""
+    ).trim();
+
+
+    if(!comment){
+        return;
+    }
+
+
+    const button=
+    form.querySelector("button");
+
+
+    button.disabled=true;
+
+
+    try{
+
+        const response=
+        await fetch(
+            SUPABASE_URL+
+            "/rest/v1/comments",
+            {
+                method:"POST",
+
+                headers:{
+                    apikey:SUPABASE_KEY,
+
+                    Authorization:
+                    "Bearer "+SUPABASE_KEY,
+
+                    "Content-Type":
+                    "application/json",
+
+                    Prefer:
+                    "return=minimal"
+                },
+
+                body:JSON.stringify({
+
+                    opportunity_id:id,
+
+                    name:"Visitor",
+
+                    email:null,
+
+                    comment:comment
+
+                })
+
+            }
+        );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Comment failed"
+            );
+
+        }
+
+
+        form.reset();
+
+
+        await loadComments(id);
+
+
+        alert(
+            "Fariinta waa la diray."
+        );
+
+    }
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "Fariinta lama diri karin."
+        );
+
+    }
+    finally{
+
+        button.disabled=false;
+
+    }
+
+}
+
+
+/* =========================================================
+   HASH
+========================================================= */
+
+function loadHash(){
+
+    const hash=
+    location.hash.replace("#","");
+
+
+    if(hash.startsWith("post-")){
+
+        const id=
+        hash.substring(5);
+
+
+        if(dbRows.length){
+            openPost(id);
+        }
+
+        return;
+
+    }
+
+
+    const validPages=[
+        "home",
+        "about",
+        "scholarships",
+        "seminars",
+        "work",
+        "services",
+        "contact",
+        "privacy",
+        "terms"
+    ];
+
+
+    if(validPages.includes(hash)){
+
+        showPage(hash);
+
+    }
+    else{
+
+        showPage("home");
+
+    }
+
+}
+
+
+window.addEventListener(
+    "hashchange",
+    loadHash
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+(async function(){
+
+    await loadDB();
+
+    loadHash();
+
+})();
+
+</script>
+
+
+</body>
+  </html>
