@@ -1,0 +1,3482 @@
+<!doctype html>
+<html lang="so">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>KULMIS HUB — Hoyga Fursadaha Caalamiga ah</title>
+
+<meta name="description"
+content="KULMIS HUB — Deeqo waxbarasho, Seminars iyo Fursadaha Shaqo gudaha iyo caalamka.">
+
+<link rel="stylesheet" href="assets/style.css">
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+  box-sizing:border-box;
+  font-family:"Times New Roman",Times,serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  color:#102a56;
+  background:#f6f8fc;
+}
+
+a{
+  text-decoration:none;
+}
+
+button,
+input,
+textarea{
+  font-family:"Times New Roman",Times,serif;
+}
+
+.wrap{
+  width:min(1120px,calc(100% - 32px));
+  margin:auto;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:#fff;
+  border-bottom:1px solid #e5eaf1;
+  box-shadow:0 4px 18px #102a560d;
+}
+
+.nav{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:#102a56;
+}
+
+.brand img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+}
+
+.brand-text strong{
+  display:block;
+  font-size:27px;
+}
+
+.brand-text small{
+  display:block;
+  color:#6b7280;
+  font-size:14px;
+  margin-top:3px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  max-width:270px;
+}
+
+nav{
+  margin-left:auto;
+  display:flex;
+  gap:4px;
+  align-items:center;
+}
+
+nav a{
+  padding:10px 11px;
+  border-radius:10px;
+  color:#102a56;
+  font-weight:800;
+  transition:.2s;
+}
+
+nav a:hover,
+nav a.active{
+  background:#eaf2ff;
+  color:#2563eb;
+}
+
+.menu{
+  display:none;
+  margin-left:auto;
+  border:0;
+  background:#102a56;
+  color:#fff;
+  border-radius:14px;
+  font-size:30px;
+  padding:7px 13px;
+  cursor:pointer;
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+.section{
+  padding:55px 0;
+  min-height:65vh;
+}
+
+.section> .wrap>label{
+  font-weight:900;
+  color:#2563eb;
+  letter-spacing:1px;
+}
+
+.section h2{
+  font-size:42px;
+  margin:8px 0 30px;
+}
+
+.section p{
+  line-height:1.8;
+  font-size:18px;
+  color:#29384f;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      #061b4f,
+      #0b3d91 52%,
+      #087f8c
+    );
+  color:#fff;
+  padding:55px 0 52px;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  background:#ffd21f20;
+  right:-140px;
+  top:-200px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  background:#28d7ff18;
+  left:-90px;
+  bottom:-120px;
+}
+
+.hero .wrap{
+  position:relative;
+  z-index:2;
+}
+
+
+/* animated logo */
+
+.hero-logo{
+  width:104px;
+  height:104px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 22px;
+  padding:8px;
+  border-radius:28px;
+  background:#ffffff14;
+  border:1px solid #ffffff35;
+  box-shadow:
+    0 0 0 5px #ffffff08,
+    0 0 35px #ffd21f55;
+  animation:
+    logoFloat 3.8s ease-in-out infinite,
+    logoGlow 5s linear infinite;
+}
+
+@keyframes logoFloat{
+  0%,100%{
+    transform:translateY(0) rotate(-1deg);
+  }
+  50%{
+    transform:translateY(-7px) rotate(1deg);
+  }
+}
+
+@keyframes logoGlow{
+  0%{
+    box-shadow:
+      0 0 0 5px #ffffff08,
+      0 0 25px #ffd21f66;
+  }
+  25%{
+    box-shadow:
+      0 0 0 5px #ffffff08,
+      0 0 30px #29d8ff66;
+  }
+  50%{
+    box-shadow:
+      0 0 0 5px #ffffff08,
+      0 0 32px #7c5cff66;
+  }
+  75%{
+    box-shadow:
+      0 0 0 5px #ffffff08,
+      0 0 30px #00e5a866;
+  }
+  100%{
+    box-shadow:
+      0 0 0 5px #ffffff08,
+      0 0 25px #ffd21f66;
+  }
+}
+
+.hero h1{
+  text-align:center;
+  font-size:clamp(40px,6vw,68px);
+  line-height:1.05;
+  margin:0 auto 18px;
+  max-width:900px;
+}
+
+.hero h1 span{
+  color:#ffd21f;
+}
+
+.hero p{
+  text-align:center;
+  font-size:19px;
+  line-height:1.7;
+  max-width:790px;
+  margin:0 auto;
+  color:#eaf3ff;
+}
+
+.hero-highlight{
+  text-align:center;
+  margin:17px auto 0;
+  font-size:17px;
+  font-weight:900;
+  color:#ffd21f !important;
+}
+
+
+/* hero buttons */
+
+.hero-actions{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:23px;
+}
+
+.hero-btn{
+  border:0;
+  border-radius:12px;
+  padding:11px 16px;
+  font-weight:900;
+  cursor:pointer;
+  font-size:15px;
+  transition:.2s;
+}
+
+.primary{
+  background:#ffd21f;
+  color:#082454;
+}
+
+.secondary{
+  background:#ffffff18;
+  color:#fff;
+  border:1px solid #ffffff35;
+}
+
+.hero-btn:hover{
+  transform:translateY(-2px);
+}
+
+
+/* =========================
+   ONGOING
+========================= */
+
+.ongoing-title{
+  text-align:center;
+  margin:45px 0 22px;
+}
+
+.ongoing-title span{
+  color:#2563eb;
+  font-weight:900;
+}
+
+.ongoing-title h2{
+  font-size:36px;
+  margin:7px;
+}
+
+.ongoing-title p{
+  color:#687386;
+  font-size:17px;
+}
+
+.ongoing-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.ongoing-card{
+  border:1px solid #e1e8f2;
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  text-align:left;
+  cursor:pointer;
+  box-shadow:0 10px 25px #102a560b;
+  transition:.2s;
+}
+
+.ongoing-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 35px #102a5618;
+}
+
+.tag{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#eaf2ff;
+  color:#2563eb;
+  font-size:13px;
+  font-weight:900;
+}
+
+.ongoing-card h3{
+  font-size:21px;
+  line-height:1.4;
+  margin:12px 0 8px;
+}
+
+.ongoing-card p{
+  margin:0;
+  color:#687386;
+  line-height:1.6;
+  font-size:15px;
+}
+
+.empty{
+  padding:30px;
+  text-align:center;
+  background:#fff;
+  border:1px solid #e1e8f2;
+  border-radius:18px;
+  color:#687386;
+}
+
+
+/* =========================
+   CHOICE CARDS
+========================= */
+
+.choice-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.choice-card{
+  border:1px solid #d9e1ea;
+  border-radius:24px;
+  padding:35px;
+  background:#fff;
+  cursor:pointer;
+  text-align:left;
+  transition:.2s;
+  box-shadow:0 8px 20px #102a5608;
+}
+
+.choice-card:hover{
+  transform:translateY(-4px);
+  border-color:#2563eb;
+  box-shadow:0 15px 30px #102a5614;
+}
+
+.choice-card span{
+  font-size:42px;
+  display:block;
+  margin-bottom:17px;
+}
+
+.choice-card b{
+  font-size:27px;
+  display:block;
+}
+
+.choice-card small{
+  display:block;
+  margin-top:7px;
+  color:#687386;
+  line-height:1.5;
+  font-size:17px;
+}
+
+
+/* =========================
+   RESULTS
+========================= */
+
+.result-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin-top:22px;
+}
+
+.post-list-item{
+  width:100%;
+  padding:20px;
+  border:1px solid #d9e1ea;
+  border-radius:16px;
+  background:#fff;
+  cursor:pointer;
+  text-align:left;
+  font-weight:800;
+  font-size:21px;
+  color:#2563eb;
+  transition:.2s;
+}
+
+.post-list-item:hover{
+  border-color:#2563eb;
+  transform:translateY(-2px);
+  box-shadow:0 10px 25px #102a5610;
+}
+
+.post-list-item:after{
+  content:"→";
+  float:right;
+}
+
+.back{
+  margin:20px 0;
+  border:0;
+  background:transparent;
+  color:#2563eb;
+  font-weight:900;
+  cursor:pointer;
+  font-size:17px;
+}
+
+
+/* =========================
+   SERVICES
+========================= */
+
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.service-grid article{
+  background:#fff;
+  border:1px solid #e1e8f2;
+  border-radius:18px;
+  padding:22px;
+  box-shadow:0 8px 22px #102a5608;
+}
+
+.service-grid b{
+  font-size:19px;
+}
+
+.service-grid p{
+  color:#687386;
+  line-height:1.65;
+  font-size:17px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-form{
+  max-width:650px;
+}
+
+.contact-form form{
+  display:grid;
+  gap:8px;
+}
+
+.contact-form label{
+  font-weight:900;
+  margin-top:8px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  border:1px solid #d9e1ea;
+  border-radius:10px;
+  padding:13px;
+  font:inherit;
+}
+
+.contact-form button{
+  border:0;
+  border-radius:10px;
+  padding:13px 18px;
+  background:#2563eb;
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+
+
+/* =========================
+   PRIVACY / TERMS
+========================= */
+
+.info-box{
+  max-width:850px;
+}
+
+.info-box p{
+  background:#fff;
+  border-left:4px solid #2563eb;
+  padding:18px 20px;
+  border-radius:8px;
+  margin:0 0 16px;
+  box-shadow:0 6px 18px #102a5608;
+}
+
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social-section{
+  background:
+    linear-gradient(
+      135deg,
+      #071d50,
+      #0b3d91
+    );
+  color:#fff;
+  padding:48px 0;
+}
+
+.social-section h2{
+  text-align:center;
+  font-size:34px;
+  margin-top:0;
+}
+
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+}
+
+.social-link{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  background:#ffffff12;
+  border:1px solid #ffffff25;
+  border-radius:14px;
+  padding:14px;
+  color:#fff;
+  font-weight:900;
+  transition:.2s;
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.social-link:hover{
+  background:#ffffff25;
+  transform:translateY(-3px);
+}
+
+.social-icon{
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  font-weight:900;
+  border-radius:9px;
+  background:#fff;
+  color:#102a56;
+  font-size:18px;
+}
+
+.social-link.tiktok .social-icon{
+  color:#111;
+}
+
+.social-link.youtube .social-icon{
+  color:#f00;
+}
+
+.social-link.facebook .social-icon{
+  color:#1877f2;
+}
+
+.social-link.whatsapp .social-icon{
+  color:#16a34a;
+}
+
+.social-link.telegram .social-icon{
+  color:#229ed9;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  background:#061735;
+  color:#fff;
+  text-align:center;
+  padding:28px 15px;
+}
+
+footer a{
+  color:#fff;
+  font-weight:800;
+}
+
+footer small{
+  display:block;
+  margin-top:10px;
+}
+
+
+/* =========================
+   POST VIEW
+========================= */
+
+.post-view{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:#fff;
+  overflow-y:auto;
+}
+
+.post-view.active{
+  display:block;
+}
+
+.post-view-inner{
+  width:min(900px,calc(100% - 28px));
+  margin:auto;
+  padding:18px 0 60px;
+}
+
+.post-view-back{
+  border:0;
+  background:transparent;
+  color:#2563eb;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  padding:10px 0;
+}
+
+.post-image{
+  display:block;
+  width:100%;
+  max-height:440px;
+  object-fit:cover;
+  border-radius:14px;
+  margin:10px 0 20px;
+}
+
+.post-view-title{
+  font-size:34px;
+  color:#2563eb;
+  line-height:1.35;
+  margin:10px 0 18px;
+}
+
+.post-meta{
+  margin:7px 0;
+  font-size:16px;
+}
+
+.post-description{
+  font-size:17px;
+  line-height:1.9;
+  color:#111;
+}
+
+.post-description p{
+  margin:0 0 20px;
+}
+
+.post-heading{
+  display:block;
+  margin:28px 0 12px;
+  color:#2563eb;
+  font-size:21px;
+  font-weight:900;
+}
+
+.post-numbered{
+  font-weight:800;
+  margin-bottom:15px;
+}
+
+.post-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:22px 0;
+}
+
+.post-action{
+  border:0;
+  border-radius:10px;
+  padding:12px 18px;
+  background:#2563eb;
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.post-action.secondary{
+  background:#eaf2ff;
+  color:#2563eb;
+}
+
+
+/* =========================
+   COMMENTS
+========================= */
+
+.comments{
+  border-top:1px solid #d9e1ea;
+  padding-top:25px;
+  margin-top:30px;
+}
+
+.comments h3{
+  color:#2563eb;
+}
+
+.comment-form{
+  display:grid;
+  gap:10px;
+}
+
+.comment-form textarea{
+  min-height:120px;
+  padding:12px;
+  border:1px solid #d9e1ea;
+  border-radius:10px;
+  font:16px "Times New Roman",serif;
+}
+
+.comment-form button{
+  width:max-content;
+  border:0;
+  border-radius:10px;
+  background:#2563eb;
+  color:#fff;
+  padding:11px 18px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.comment-item{
+  border:1px solid #e1e7ef;
+  border-radius:12px;
+  padding:14px;
+  margin-top:10px;
+}
+
+.comment-date{
+  font-size:13px;
+  color:#6b7280;
+  margin-top:7px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px){
+
+  nav{
+    display:none;
+    position:absolute;
+    right:16px;
+    top:78px;
+    width:250px;
+    background:#fff;
+    padding:9px;
+    border:1px solid #d9e1ea;
+    border-radius:14px;
+    box-shadow:0 15px 35px #0002;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    padding:14px;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .ongoing-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .social-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .service-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .wrap{
+    width:min(100% - 24px,1120px);
+  }
+
+  .nav{
+    min-height:78px;
+  }
+
+  .brand{
+    gap:10px;
+  }
+
+  .brand img{
+    width:53px;
+    height:53px;
+  }
+
+  .brand-text strong{
+    font-size:23px;
+  }
+
+  .brand-text small{
+    max-width:190px;
+    font-size:13px;
+  }
+
+  .hero{
+    padding:38px 0 42px;
+  }
+
+  .hero-logo{
+    width:82px;
+    height:82px;
+    border-radius:23px;
+    padding:6px;
+    margin-bottom:17px;
+  }
+
+  .hero h1{
+    font-size:39px;
+    line-height:1.08;
+  }
+
+  .hero p{
+    font-size:17px;
+    line-height:1.65;
+  }
+
+  .hero-highlight{
+    font-size:15px !important;
+  }
+
+  .hero-actions{
+    gap:8px;
+  }
+
+  .hero-btn{
+    padding:10px 13px;
+    font-size:14px;
+  }
+
+  .choice-grid,
+  .result-list,
+  .ongoing-grid,
+  .service-grid{
+    grid-template-columns:1fr;
+  }
+
+  .choice-card{
+    padding:30px;
+  }
+
+  .section h2{
+    font-size:36px;
+  }
+
+  .social-grid{
+    grid-template-columns:1fr;
+  }
+
+  .post-view-title{
+    font-size:25px;
+  }
+
+}
+
+
+/* tablet */
+
+@media(min-width:601px) and (max-width:1000px){
+
+  .hero-logo{
+    width:92px;
+    height:92px;
+  }
+
+  .hero h1{
+    font-size:54px;
+  }
+
+  .social-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
+
+
+/* reduce motion */
+
+@media(prefers-reduced-motion:reduce){
+
+  *,
+  *:before,
+  *:after{
+    animation:none !important;
+    scroll-behavior:auto !important;
+  }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+<div class="wrap nav">
+
+<a class="brand" href="#home">
+
+<img
+src="assets/logo.svg"
+alt="KULMIS HUB"
+>
+
+<span class="brand-text">
+
+<strong>KULMIS HUB</strong>
+
+<small>
+Fursado waxbarasho, Seminars & shaqooyin
+</small>
+
+</span>
+
+</a>
+
+
+<button
+class="menu"
+id="menuBtn"
+aria-label="Menu"
+>
+☰
+</button>
+
+
+<nav id="mainNav">
+
+<a href="#home">
+Bogga Hore
+</a>
+
+<a href="#about">
+Nagu Saabsan
+</a>
+
+<a href="#scholarships">
+Deeqo Waxbarasho
+</a>
+
+<a href="#seminars">
+Seminars
+</a>
+
+<a href="#work">
+Fursadaha Shaqo
+</a>
+
+<a href="#services">
+Adeegyadeena
+</a>
+
+<a href="#contact">
+Nala Soo Xiriir
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- ==================================================
+     HOME
+================================================== -->
+
+<section
+id="home"
+class="page active"
+>
+
+<div class="hero">
+
+<div class="wrap">
+
+
+<!-- animated logo -->
+
+<img
+class="hero-logo"
+src="assets/logo.svg"
+alt="KULMIS HUB Logo"
+>
+
+
+<h1>
+
+KULMIS HUB —
+Waa Hoyga
+
+<span>
+Fursadaha Caalamiga ah.
+</span>
+
+</h1>
+
+
+<p>
+
+Hal meel ka hel deeqaha waxbarasho, seminars,
+shaqooyin iyo fursado kale oo ka socda Soomaaliya,
+Afrika iyo dunida inteeda kale.
+
+</p>
+
+
+<p class="hero-highlight">
+
+Fursadda saxda ah hal meel ka raadi — KULMIS HUB.
+
+</p>
+
+
+<div class="hero-actions">
+
+
+<a
+class="hero-btn primary"
+href="#scholarships"
+>
+🎓 Deeqaha Waxbarasho
+</a>
+
+
+<a
+class="hero-btn secondary"
+href="#seminars"
+>
+🎤 Seminars
+</a>
+
+
+<a
+class="hero-btn secondary"
+href="#work"
+>
+💼 Fursadaha Shaqo
+</a>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="wrap">
+
+<div class="ongoing-title">
+
+<span>
+ONGOING OPPORTUNITIES
+</span>
+
+<h2>
+Fursadaha Hadda Socda
+</h2>
+
+<p>
+Fursadaha deadline-koodu uusan dhammaan ayaa si automatic ah halkan uga muuqda.
+</p>
+
+</div>
+
+
+<div
+id="homeOngoingGrid"
+class="ongoing-grid"
+>
+
+<div class="empty">
+Fursadaha waa la soo dejinayaa...
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     ABOUT
+================================================== -->
+
+<section
+id="about"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+NAGU SAABSAN
+</label>
+
+<h2>
+KULMIS HUB
+</h2>
+
+
+<p>
+
+<b>
+KULMIS HUB waa madal dijitaal ah oo bulshada u soo gudbisa fursadaha waxbarasho, seminars, shaqooyin iyo fursado kale oo gudaha iyo caalamka ah.
+</b>
+
+</p>
+
+
+<p>
+
+Ujeeddadeennu waa inaan fursadaha muhiimka ah hal meel ku soo ururinno, si qof kasta uu si fudud ugu helo macluumaad ku saabsan fursadaha jira.
+
+</p>
+
+
+<p>
+
+Waxaan sidoo kale ku hagnaa dadka inay booqdaan bogagga rasmiga ah ee fursadaha, si ay halkaas uga helaan shuruudaha iyo habka saxda ah ee codsiga.
+
+</p>
+
+
+<h3>
+Waxaan baahinnaa:
+</h3>
+
+
+<ul>
+
+<li>
+🎓 Deeqo Waxbarasho
+</li>
+
+<li>
+🎤 Seminars, workshops & conferences
+</li>
+
+<li>
+💼 Fursadaha Shaqo & internships
+</li>
+
+<li>
+🌍 Fursadaha Caalamiga ah
+</li>
+
+</ul>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SCHOLARSHIPS
+================================================== -->
+
+<section
+id="scholarships"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+DEEGO WAXBARASHO
+</label>
+
+<h2>
+Deeqo Waxbarasho
+</h2>
+
+
+<div
+id="scholarshipHomeChoices"
+class="choice-grid"
+>
+
+
+<button
+class="choice-card"
+onclick="showScholarshipInside()"
+>
+
+<span>
+📍
+</span>
+
+<b>
+Gudaha
+</b>
+
+<small>
+Fursadaha waxbarasho ee gudaha Soomaaliya.
+</small>
+
+</button>
+
+
+<button
+class="choice-card"
+onclick="showScholarshipWorld()"
+>
+
+<span>
+🌍
+</span>
+
+<b>
+Caalamka
+</b>
+
+<small>
+Dhammaan deeqaha caalamiga ah ee KULMIS HUB lagu daabacay.
+</small>
+
+</button>
+
+
+</div>
+
+
+
+<!-- gudaha -->
+
+<div
+id="scholarshipInside"
+style="display:none"
+>
+
+<button
+class="back"
+onclick="backScholarshipHome()"
+>
+← Deeqo Waxbarasho
+</button>
+
+
+<h3>
+📍 Deeqaha Gudaha
+</h3>
+
+
+<div
+id="scholarshipInsideList"
+class="result-list"
+></div>
+
+</div>
+
+
+
+<!-- caalamka -->
+
+<div
+id="scholarshipWorld"
+style="display:none"
+>
+
+<button
+class="back"
+onclick="backScholarshipHome()"
+>
+← Deeqo Waxbarasho
+</button>
+
+
+<h3>
+🌍 Deeqaha Waxbarasho ee Caalamka
+</h3>
+
+
+<p>
+Halkan waxaa si automatic ah uga soo muuqanaya dhammaan scholarship-yada caalamiga ah ee Admin Panel-ka lagu daabaco.
+</p>
+
+
+<div
+id="scholarshipWorldList"
+class="result-list"
+></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SEMINARS
+================================================== -->
+
+<section
+id="seminars"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+SEMINARS
+</label>
+
+<h2>
+Seminars
+</h2>
+
+
+<div
+id="seminarHomeChoices"
+class="choice-grid"
+>
+
+
+<button
+class="choice-card"
+onclick="showSeminarInside()"
+>
+
+<span>
+📍
+</span>
+
+<b>
+Gudaha
+</b>
+
+<small>
+Seminars iyo workshops gudaha Soomaaliya.
+</small>
+
+</button>
+
+
+<button
+class="choice-card"
+onclick="showSeminarWorld()"
+>
+
+<span>
+🌍
+</span>
+
+<b>
+Caalamka
+</b>
+
+<small>
+Seminars iyo events caalami ah.
+</small>
+
+</button>
+
+
+</div>
+
+
+
+<div
+id="seminarInside"
+style="display:none"
+>
+
+<button
+class="back"
+onclick="backSeminarHome()"
+>
+← Seminars
+</button>
+
+
+<h3>
+📍 Seminars-ka Gudaha
+</h3>
+
+
+<div
+id="seminarInsideList"
+class="result-list"
+></div>
+
+</div>
+
+
+
+<div
+id="seminarWorld"
+style="display:none"
+>
+
+<button
+class="back"
+onclick="backSeminarHome()"
+>
+← Seminars
+</button>
+
+
+<h3>
+🌍 Seminars-ka Caalamka
+</h3>
+
+
+<div
+id="seminarWorldList"
+class="result-list"
+></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     JOBS
+================================================== -->
+
+<section
+id="work"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+FURSADAHA SHAQO
+</label>
+
+<h2>
+Fursadaha Shaqo
+</h2>
+
+
+<div
+id="workHomeChoices"
+class="choice-grid"
+>
+
+
+<button
+class="choice-card"
+onclick="showWorkHome('Gudaha')"
+>
+
+<span>
+📍
+</span>
+
+<b>
+Gudaha
+</b>
+
+<small>
+Fursadaha shaqo ee gudaha Soomaaliya.
+</small>
+
+</button>
+
+
+<button
+class="choice-card"
+onclick="showWorkHome('Caalamka')"
+>
+
+<span>
+🌍
+</span>
+
+<b>
+Caalamka
+</b>
+
+<small>
+Fursadaha shaqo ee ka jira dalalka kala duwan.
+</small>
+
+</button>
+
+
+</div>
+
+
+
+<div
+id="workInside"
+style="display:none"
+>
+
+<button
+class="back"
+onclick="backWorkHome()"
+>
+← Fursadaha Shaqo
+</button>
+
+
+<h3>
+📍 Shaqooyinka Gudaha
+</h3>
+
+
+<div
+id="workInsideList"
+class="result-list"
+></div>
+
+</div>
+
+
+
+<div
+id="workInternational"
+style="display:none"
+>
+
+<button
+class="back"
+onclick="backWorkHome()"
+>
+← Fursadaha Shaqo
+</button>
+
+
+<h3>
+🌍 Shaqooyinka Caalamka
+</h3>
+
+
+<div
+id="workWorldList"
+class="result-list"
+></div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     SERVICES
+================================================== -->
+
+<section
+id="services"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+ADEEGYADENA
+</label>
+
+<h2>
+Adeegyadeena
+</h2>
+
+
+<div class="service-grid">
+
+
+<article>
+
+<b>
+🎓 Scholarship Application Assistance
+</b>
+
+<p>
+Caawinta fahamka shuruudaha iyo habka codsiga deeqaha waxbarasho.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+🏫 University Admission Assistance
+</b>
+
+<p>
+Caawinta doorashada jaamacadda iyo program-ka ku habboon.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+📄 Application & Document Guidance
+</b>
+
+<p>
+Hagitaan ku saabsan dukumentiyada iyo xogta looga baahan yahay codsiga.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+🌍 Study Abroad Guidance
+</b>
+
+<p>
+Hagitaan ku saabsan fursadaha waxbarasho ee dalalka kala duwan.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+💼 Job & Internship Guidance
+</b>
+
+<p>
+Hagitaan ku saabsan shaqooyinka iyo internship-yada la heli karo.
+</p>
+
+</article>
+
+
+<article>
+
+<b>
+🎤 Seminar & Opportunity Guidance
+</b>
+
+<p>
+Hagitaan ku saabsan seminars, workshops, conferences iyo fursado kale.
+</p>
+
+</article>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTACT
+================================================== -->
+
+<section
+id="contact"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+NALA SOO XIRIIR
+</label>
+
+<h2>
+Nala Soo Xiriir
+</h2>
+
+
+<div class="contact-form">
+
+<form
+onsubmit="event.preventDefault();alert('Mahadsanid! Fariintaada waa la diyaariyey.');"
+>
+
+
+<label>
+Magaca
+</label>
+
+<input
+type="text"
+required
+placeholder="Magacaaga"
+>
+
+
+<label>
+Email
+</label>
+
+<input
+type="email"
+required
+placeholder="Email-kaaga"
+>
+
+
+<label>
+Fariinta
+</label>
+
+<textarea
+rows="6"
+required
+placeholder="Qor fariintaada..."
+></textarea>
+
+
+<button
+type="submit"
+>
+Dir Fariinta
+</button>
+
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     PRIVACY
+================================================== -->
+
+<section
+id="privacy"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+ASTURNAANTA
+</label>
+
+<h2>
+Qaanuunka Asturnaanta
+</h2>
+
+
+<div class="info-box">
+
+
+<p>
+
+KULMIS HUB waxay ixtiraamaysaa asturnaanta dadka isticmaala website-kan. Xogta aad nala wadaagto waxaa loo isticmaalaa oo keliya ujeeddooyinka adeegga iyo xiriirka.
+
+</p>
+
+
+<p>
+
+Waxaan ku dadaalaynaa inaan ilaalino xogta isticmaalayaasha, laakiin dadka isticmaala waa inay sidoo kale taxaddaraan marka ay xogtooda ku qorayaan websites ama adeegyo kale oo dibadda ah.
+
+</p>
+
+
+<p>
+
+Fursadaha lagu daabaco KULMIS HUB waxay yeelan karaan websites rasmi ah oo gaar ah. Ka hor intaadan bixin xog gaar ah ama dukumenti, hubi website-ka rasmiga ah iyo shuruudaha adeeggaas.
+
+</p>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     TERMS
+================================================== -->
+
+<section
+id="terms"
+class="page section"
+>
+
+<div class="wrap">
+
+<label>
+SHURUUCDA ISTICMAALKA
+</label>
+
+<h2>
+Shuruudaha iyo Xeerarka
+</h2>
+
+
+<div class="info-box">
+
+
+<p>
+
+KULMIS HUB waxay soo bandhigtaa fursado waxbarasho, shaqo, seminars iyo fursado kale oo laga helo ilo kala duwan. Macluumaadka fursaduhu wuu is beddeli karaa, sidaas darteed isticmaaluhu waa inuu hubiyaa xogta ugu dambaysa.
+
+</p>
+
+
+<p>
+
+KULMIS HUB ma beddelayso hay'adda ama website-ka rasmiga ah ee fursadda. Shuruudaha, deadline-yada, khidmadaha iyo habka codsiga waxaa go'aamiya hay'adda bixisa fursadda.
+
+</p>
+
+
+<p>
+
+Isticmaaluhu wuxuu mas'uul ka yahay inuu akhriyo shuruudaha fursadda ka hor codsiga. KULMIS HUB sidoo kale kuma ballanqaadayso in codsi kasta uu keeni doono admission, scholarship ama shaqo.
+
+</p>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==================================================
+     SOCIAL MEDIA
+================================================== -->
+
+<section class="social-section">
+
+<div class="wrap">
+
+<h2>
+Baraha Bulshada
+</h2>
+
+
+<div class="social-grid">
+
+
+<a
+class="social-link tiktok"
+href="https://www.tiktok.com/@kulmismedia1?_r=1&_t=ZS-9A6mYFzFLmf"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="KULMIS HUB TikTok"
+>
+
+<span
+class="social-icon"
+aria-hidden="true"
+>
+♪
+</span>
+
+<span>
+TikTok
+</span>
+
+</a>
+
+
+
+<a
+class="social-link youtube"
+href="https://youtube.com/@kulmishub?si=vkwKkrbtKR8sgMyA"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="KULMIS HUB YouTube"
+>
+
+<span
+class="social-icon"
+aria-hidden="true"
+>
+▶
+</span>
+
+<span>
+YouTube
+</span>
+
+</a>
+
+
+
+<a
+class="social-link facebook"
+href="https://www.facebook.com/share/1bGUvUsggt/"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="KULMIS HUB Facebook"
+>
+
+<span
+class="social-icon"
+aria-hidden="true"
+>
+f
+</span>
+
+<span>
+Facebook
+</span>
+
+</a>
+
+
+
+<a
+class="social-link whatsapp"
+href="https://chat.whatsapp.com/ENOp6oKksKmIyfj5KvMY56?s=sh&p=a&ilr=4&iam=1"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="KULMIS HUB WhatsApp Community"
+>
+
+<span
+class="social-icon"
+aria-hidden="true"
+>
+W
+</span>
+
+<span>
+WhatsApp Community
+</span>
+
+</a>
+
+
+
+<a
+class="social-link telegram"
+href="https://t.me/Kulmismedia"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="KULMIS HUB Telegram Channel"
+>
+
+<span
+class="social-icon"
+aria-hidden="true"
+>
+✈
+</span>
+
+<span>
+Telegram Channel
+</span>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+<div>
+
+<a href="#privacy">
+Asturnaanta
+</a>
+
+&nbsp; | &nbsp;
+
+<a href="#terms">
+Shuruudaha iyo Xeerarka
+</a>
+
+</div>
+
+
+<small>
+© 2026 KULMIS HUB. Dhammaan xuquuqdu way dhowran tahay.
+</small>
+
+</footer>
+
+
+
+<!-- ==================================================
+     POST VIEW
+================================================== -->
+
+<div
+id="postView"
+class="post-view"
+>
+
+<div class="post-view-inner">
+
+<button
+class="post-view-back"
+onclick="closePost()"
+>
+← Dib ugu noqo
+</button>
+
+
+<div id="postViewContent"></div>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* ==================================================
+   SUPABASE
+================================================== */
+
+const SUPABASE_URL =
+'https://wxamihjterffxrnpqxwt.supabase.co';
+
+const SUPABASE_KEY =
+'sb_publishable_KXBcUODUGXrWUTY70jNPvw_2SwNy-A1';
+
+let dbRows=[];
+
+
+/* ==================================================
+   HELPERS
+================================================== */
+
+const $ =
+id => document.getElementById(id);
+
+
+function esc(v){
+
+  return String(v ?? '').replace(
+    /[&<>'"]/g,
+    c => ({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      "'":'&#39;',
+      '"':'&quot;'
+    }[c])
+  );
+
+}
+
+
+function norm(v){
+
+  return String(v || '')
+    .trim()
+    .toLowerCase()
+    .replace(/[–—]/g,'-');
+
+}
+
+
+/* ==================================================
+   POST TYPE
+   ADMIN PANEL TYPE IS AUTHORITATIVE
+================================================== */
+
+function getPostType(row){
+
+  const t = norm(row.type);
+
+  /*
+     Type-ka Admin Panel-ka ayaa mudnaanta koowaad leh.
+  */
+
+  if(
+    [
+      'scholarship',
+      'scholarships',
+      'waxbarasho',
+      'education',
+      'fellowship',
+      'grant'
+    ].includes(t)
+  ){
+    return 'scholarship';
+  }
+
+
+  if(
+    [
+      'seminar',
+      'seminars',
+      'workshop',
+      'workshops',
+      'conference',
+      'webinar',
+      'event'
+    ].includes(t)
+  ){
+    return 'seminar';
+  }
+
+
+  if(
+    [
+      'job',
+      'jobs',
+      'shaqo',
+      'work',
+      'employment',
+      'vacancy',
+      'internship'
+    ].includes(t)
+  ){
+    return 'job';
+  }
+
+
+  /*
+     Haddii type-ku madhan yahay,
+     category ayaa fallback noqonaysa.
+  */
+
+  const c =
+    norm(row.category);
+
+
+  if(
+    c.includes('scholarship') ||
+    c.includes('waxbarasho') ||
+    c.includes('education') ||
+    c.includes('fellowship') ||
+    c.includes('grant')
+  ){
+    return 'scholarship';
+  }
+
+
+  if(
+    c.includes('seminar') ||
+    c.includes('workshop') ||
+    c.includes('conference') ||
+    c.includes('webinar') ||
+    c.includes('event')
+  ){
+    return 'seminar';
+  }
+
+
+  if(
+    c.includes('job') ||
+    c.includes('shaqo') ||
+    c.includes('work') ||
+    c.includes('employment') ||
+    c.includes('vacancy') ||
+    c.includes('internship')
+  ){
+    return 'job';
+  }
+
+
+  return 'other';
+
+}
+
+
+function isScholarship(row){
+
+  return getPostType(row)==='scholarship';
+
+}
+
+
+function isSeminar(row){
+
+  return getPostType(row)==='seminar';
+
+}
+
+
+function isJob(row){
+
+  return getPostType(row)==='job';
+
+}
+
+
+function iconFor(row){
+
+  const type =
+    getPostType(row);
+
+  if(type==='scholarship'){
+    return '🎓';
+  }
+
+  if(type==='seminar'){
+    return '🎤';
+  }
+
+  if(type==='job'){
+    return '💼';
+  }
+
+  return '🌍';
+
+}
+
+
+/* ==================================================
+   DEADLINE
+================================================== */
+
+function isExpired(row){
+
+  if(!row.deadline){
+    return false;
+  }
+
+  const date =
+    new Date(
+      String(row.deadline)+'T23:59:59'
+    );
+
+  return (
+    !Number.isNaN(date.getTime()) &&
+    date < new Date()
+  );
+
+}
+
+
+/* ==================================================
+   LOCATION
+================================================== */
+
+function isSomalia(row){
+
+  const text =
+    norm([
+      row.country,
+      row.continent,
+      row.location
+    ].join(' '));
+
+  return (
+    text.includes('somalia') ||
+    text.includes('soomaaliya') ||
+    text.includes('gudaha') ||
+    text.includes('local')
+  );
+
+}
+
+
+/* ==================================================
+   DESCRIPTION FORMAT
+================================================== */
+
+function formatDescription(text){
+
+  if(!text){
+    return '';
+  }
+
+  return String(text)
+    .replace(/\r\n/g,'\n')
+    .replace(/\r/g,'\n')
+    .trim()
+    .split(/\n\s*\n/)
+    .filter(Boolean)
+    .map(block=>{
+
+      const s =
+        block
+          .replace(/\n/g,' ')
+          .trim();
+
+
+      if(
+        s.length <= 110 &&
+        (
+          s === s.toUpperCase() ||
+          /^(MAXAY|NOOCA|SHURUUDAHA|MAXAA|SIDEE|MUHIIM|DEADLINE|OFFICIAL|KULMIS HUB)/i.test(s)
+        )
+      ){
+
+        return `
+          <div class="post-heading">
+            ${esc(s)}
+          </div>
+        `;
+
+      }
+
+
+      if(
+        /^\d+[\.\)]\s/.test(s)
+      ){
+
+        return `
+          <p class="post-numbered">
+            ${esc(s)}
+          </p>
+        `;
+
+      }
+
+
+      return `
+        <p>
+          ${esc(s)}
+        </p>
+      `;
+
+    })
+    .join('');
+
+}
+
+
+/* ==================================================
+   LOAD DATABASE
+================================================== */
+
+async function loadDB(){
+
+  try{
+
+    const url =
+      SUPABASE_URL +
+      '/rest/v1/opportunities?select=*&published=eq.true&order=created_at.desc';
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          headers:{
+            apikey:SUPABASE_KEY,
+            Authorization:'Bearer '+SUPABASE_KEY
+          }
+        }
+      );
+
+
+    if(!response.ok){
+
+      throw new Error(
+        'HTTP '+response.status
+      );
+
+    }
+
+
+    dbRows =
+      await response.json();
+
+
+    console.log(
+      'KULMIS HUB posts:',
+      dbRows
+    );
+
+
+  }catch(error){
+
+    console.error(
+      'Supabase error:',
+      error
+    );
+
+    dbRows=[];
+
+  }
+
+}
+
+
+/* ==================================================
+   POST BUTTON
+================================================== */
+
+function postListButton(row){
+
+  const title =
+    row.title ||
+    row.program ||
+    row.company ||
+    'Fursad';
+
+
+  return `
+
+    <button
+      class="post-list-item"
+      onclick="openPostById('${esc(row.id)}')"
+    >
+
+      ${iconFor(row)}
+      ${esc(title)}
+
+    </button>
+
+  `;
+
+}
+
+
+/* ==================================================
+   SCHOLARSHIPS
+================================================== */
+
+function showScholarshipInside(){
+
+  $('scholarshipHomeChoices').style.display='none';
+
+  $('scholarshipWorld').style.display='none';
+
+  $('scholarshipInside').style.display='block';
+
+
+  const rows =
+    dbRows.filter(
+      row =>
+        isScholarship(row) &&
+        isSomalia(row)
+    );
+
+
+  $('scholarshipInsideList').innerHTML =
+    rows.length
+      ? rows.map(postListButton).join('')
+      : `
+        <div class="empty">
+          Weli deeq gudaha ah lama daabicin.
+        </div>
+      `;
+
+}
+
+
+function showScholarshipWorld(){
+
+  $('scholarshipHomeChoices').style.display='none';
+
+  $('scholarshipInside').style.display='none';
+
+  $('scholarshipWorld').style.display='block';
+
+
+  /*
+     MUHIIM:
+     Caalamka hadda si toos ah ayuu u tusayaa
+     dhammaan scholarship posts-ka.
+     Qaarad iyo Dal halkan kama jiraan.
+  */
+
+  const rows =
+    dbRows.filter(
+      row =>
+        isScholarship(row) &&
+        !isSomalia(row)
+    );
+
+
+  $('scholarshipWorldList').innerHTML =
+    rows.length
+      ? rows.map(postListButton).join('')
+      : `
+        <div class="empty">
+          Weli scholarship caalami ah lama daabicin.
+        </div>
+      `;
+
+}
+
+
+function backScholarshipHome(){
+
+  $('scholarshipHomeChoices').style.display='grid';
+
+  $('scholarshipInside').style.display='none';
+
+  $('scholarshipWorld').style.display='none';
+
+}
+
+
+/* ==================================================
+   SEMINARS
+================================================== */
+
+function showSeminarInside(){
+
+  $('seminarHomeChoices').style.display='none';
+
+  $('seminarWorld').style.display='none';
+
+  $('seminarInside').style.display='block';
+
+
+  const rows =
+    dbRows.filter(
+      row =>
+        isSeminar(row) &&
+        isSomalia(row)
+    );
+
+
+  $('seminarInsideList').innerHTML =
+    rows.length
+      ? rows.map(postListButton).join('')
+      : `
+        <div class="empty">
+          Weli seminar gudaha ah lama daabicin.
+        </div>
+      `;
+
+}
+
+
+function showSeminarWorld(){
+
+  $('seminarHomeChoices').style.display='none';
+
+  $('seminarInside').style.display='none';
+
+  $('seminarWorld').style.display='block';
+
+
+  const rows =
+    dbRows.filter(
+      row =>
+        isSeminar(row) &&
+        !isSomalia(row)
+    );
+
+
+  $('seminarWorldList').innerHTML =
+    rows.length
+      ? rows.map(postListButton).join('')
+      : `
+        <div class="empty">
+          Weli seminar caalami ah lama daabicin.
+        </div>
+      `;
+
+}
+
+
+function backSeminarHome(){
+
+  $('seminarHomeChoices').style.display='grid';
+
+  $('seminarInside').style.display='none';
+
+  $('seminarWorld').style.display='none';
+
+}
+
+
+/* ==================================================
+   JOBS
+================================================== */
+
+function showWorkHome(type){
+
+  $('workHomeChoices').style.display='none';
+
+  $('workInside').style.display='none';
+
+  $('workInternational').style.display='none';
+
+
+  if(type==='Gudaha'){
+
+    $('workInside').style.display='block';
+
+
+    const rows =
+      dbRows.filter(
+        row =>
+          isJob(row) &&
+          isSomalia(row)
+      );
+
+
+    $('workInsideList').innerHTML =
+      rows.length
+        ? rows.map(postListButton).join('')
+        : `
+          <div class="empty">
+            Weli shaqo gudaha ah lama daabicin.
+          </div>
+        `;
+
+    return;
+
+  }
+
+
+  $('workInternational').style.display='block';
+
+
+  const rows =
+    dbRows.filter(
+      row =>
+        isJob(row) &&
+        !isSomalia(row)
+    );
+
+
+  $('workWorldList').innerHTML =
+    rows.length
+      ? rows.map(postListButton).join('')
+      : `
+        <div class="empty">
+          Weli shaqo caalami ah lama daabicin.
+        </div>
+      `;
+
+}
+
+
+function backWorkHome(){
+
+  $('workHomeChoices').style.display='grid';
+
+  $('workInside').style.display='none';
+
+  $('workInternational').style.display='none';
+
+}
+
+
+/* ==================================================
+   HOME ONGOING
+================================================== */
+
+function renderHomeOngoing(){
+
+  const box =
+    $('homeOngoingGrid');
+
+
+  if(!box){
+    return;
+  }
+
+
+  /*
+     Dhammaan posts-ka active ah ayaa halkan ka muuqda.
+     Deadline dhacay waa laga saarayaa.
+  */
+
+  const rows =
+    dbRows.filter(
+      row =>
+        !isExpired(row)
+    );
+
+
+  if(!rows.length){
+
+    box.innerHTML = `
+      <div class="empty">
+        Weli fursado hadda socda lama daabicin.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    rows.map(row=>{
+
+      const title =
+        row.title ||
+        row.program ||
+        row.company ||
+        'Fursad cusub';
+
+
+      const type =
+        getPostType(row);
+
+
+      const label =
+        type==='scholarship'
+          ? 'Deeq Waxbarasho'
+          : type==='seminar'
+            ? 'Seminar'
+            : type==='job'
+              ? 'Fursad Shaqo'
+              : 'Fursad';
+
+
+      return `
+
+        <button
+          class="ongoing-card"
+          onclick="openPostById('${esc(row.id)}')"
+        >
+
+          <span class="tag">
+            ${iconFor(row)}
+            ${label}
+          </span>
+
+
+          <h3>
+            ${esc(title)}
+          </h3>
+
+
+          <p>
+
+            ${
+              row.country
+                ? esc(row.country)
+                : ''
+            }
+
+            ${
+              row.deadline
+                ? ' • Deadline: '+esc(row.deadline)
+                : ''
+            }
+
+          </p>
+
+        </button>
+
+      `;
+
+    }).join('');
+
+}
+
+
+/* ==================================================
+   OPEN POST
+================================================== */
+
+async function openPostById(id){
+
+  const row =
+    dbRows.find(
+      item =>
+        String(item.id) === String(id)
+    );
+
+
+  if(!row){
+    return;
+  }
+
+
+  const title =
+    row.title ||
+    row.program ||
+    row.company ||
+    'Fursad';
+
+
+  $('postViewContent').innerHTML = `
+
+    ${
+      row.image_url
+      ? `
+        <img
+          class="post-image"
+          src="${esc(row.image_url)}"
+          alt="${esc(title)}"
+        >
+      `
+      : ''
+    }
+
+
+    <h1 class="post-view-title">
+      ${iconFor(row)}
+      ${esc(title)}
+    </h1>
+
+
+    ${
+      row.country
+      ? `
+        <p class="post-meta">
+          <b>Wadanka:</b>
+          ${esc(row.country)}
+        </p>
+      `
+      : ''
+    }
+
+
+    ${
+      row.location
+      ? `
+        <p class="post-meta">
+          <b>Goobta:</b>
+          ${esc(row.location)}
+        </p>
+      `
+      : ''
+    }
+
+
+    ${
+      row.deadline
+      ? `
+        <p class="post-meta">
+          <b>Deadline:</b>
+          ${esc(row.deadline)}
+        </p>
+      `
+      : ''
+    }
+
+
+    ${
+      row.description
+      ? `
+        <div class="post-description">
+          ${formatDescription(row.description)}
+        </div>
+      `
+      : ''
+    }
+
+
+    <div class="post-actions">
+
+
+      ${
+        row.link
+        ? `
+          <a
+            class="post-action"
+            target="_blank"
+            rel="noopener"
+            href="${esc(row.link)}"
+          >
+            🔗 Official / Apply
+          </a>
+        `
+        : ''
+      }
+
+
+      <button
+        class="post-action secondary"
+        onclick="copyPostLink('${esc(row.id)}')"
+      >
+        🔗 Copy Link
+      </button>
+
+
+    </div>
+
+
+    <div class="comments">
+
+      <h3>
+        💬 Fariimaha
+      </h3>
+
+
+      <form
+        class="comment-form"
+        onsubmit="submitComment(event,'${esc(row.id)}')"
+      >
+
+        <textarea
+          name="comment"
+          placeholder="Qor fariintaada..."
+          required
+          maxlength="1000"
+        ></textarea>
+
+
+        <button>
+          Dir Fariinta
+        </button>
+
+      </form>
+
+
+      <div id="comments-${esc(row.id)}">
+        Fariimaha waa la soo dejinayaa...
+      </div>
+
+    </div>
+
+  `;
+
+
+  $('postView').classList.add('active');
+
+  document.body.style.overflow='hidden';
+
+
+  history.replaceState(
+    null,
+    '',
+    '#post-'+row.id
+  );
+
+
+  await loadComments(row.id);
+
+}
+
+
+/* ==================================================
+   CLOSE POST
+================================================== */
+
+function closePost(){
+
+  $('postView').classList.remove('active');
+
+  document.body.style.overflow='';
+
+  $('postViewContent').innerHTML='';
+
+
+  history.replaceState(
+    null,
+    '',
+    '#home'
+  );
+
+
+  route();
+
+}
+
+
+/* ==================================================
+   COPY POST LINK
+================================================== */
+
+async function copyPostLink(id){
+
+  const url =
+    location.origin +
+    location.pathname +
+    '#post-'+id;
+
+
+  try{
+
+    await navigator.clipboard.writeText(url);
+
+    alert(
+      'Link-ga post-kan waa la koobiyeeyay.'
+    );
+
+  }catch(error){
+
+    const textarea =
+      document.createElement('textarea');
+
+    textarea.value=url;
+
+    document.body.appendChild(textarea);
+
+    textarea.select();
+
+    document.execCommand('copy');
+
+    textarea.remove();
+
+    alert(
+      'Link-ga post-kan waa la koobiyeeyay.'
+    );
+
+  }
+
+}
+
+
+/* ==================================================
+   COMMENTS
+================================================== */
+
+async function loadComments(id){
+
+  const box =
+    $('comments-'+id);
+
+
+  if(!box){
+    return;
+  }
+
+
+  try{
+
+    const response =
+      await fetch(
+        SUPABASE_URL +
+        '/rest/v1/comments?select=id,comment,created_at&opportunity_id=eq.' +
+        encodeURIComponent(id) +
+        '&order=created_at.asc',
+        {
+          headers:{
+            apikey:SUPABASE_KEY,
+            Authorization:'Bearer '+SUPABASE_KEY
+          }
+        }
+      );
+
+
+    if(!response.ok){
+      throw new Error('Comments error');
+    }
+
+
+    const comments =
+      await response.json();
+
+
+    box.innerHTML =
+      comments.length
+      ?
+      comments.map(comment=>`
+
+        <div class="comment-item">
+
+          <div>
+            ${esc(comment.comment)}
+          </div>
+
+          <div class="comment-date">
+            ${new Date(
+              comment.created_at
+            ).toLocaleDateString('en-GB')}
+          </div>
+
+        </div>
+
+      `).join('')
+      :
+      `
+        <div class="empty">
+          Weli fariin lama qorin.
+        </div>
+      `;
+
+
+  }catch(error){
+
+    console.error(error);
+
+    box.innerHTML =
+      `
+        <div class="empty">
+          Fariimaha lama soo dejin karin.
+        </div>
+      `;
+
+  }
+
+}
+
+
+/* ==================================================
+   SUBMIT COMMENT
+================================================== */
+
+async function submitComment(event,id){
+
+  event.preventDefault();
+
+
+  const form =
+    event.target;
+
+
+  const comment =
+    String(
+      new FormData(form).get('comment') || ''
+    ).trim();
+
+
+  if(!comment){
+    return;
+  }
+
+
+  const button =
+    form.querySelector('button');
+
+
+  button.disabled=true;
+
+
+  try{
+
+    const response =
+      await fetch(
+        SUPABASE_URL +
+        '/rest/v1/comments',
+        {
+          method:'POST',
+
+          headers:{
+            apikey:SUPABASE_KEY,
+            Authorization:'Bearer '+SUPABASE_KEY,
+            'Content-Type':'application/json',
+            Prefer:'return=minimal'
+          },
+
+          body:JSON.stringify({
+
+            opportunity_id:id,
+
+            name:'Visitor',
+
+            email:null,
+
+            comment:comment
+
+          })
+
+        }
+      );
+
+
+    if(!response.ok){
+      throw new Error('Comment failed');
+    }
+
+
+    form.reset();
+
+    await loadComments(id);
+
+
+    alert(
+      'Fariinta waa la diray.'
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      'Fariinta lama diri karin.'
+    );
+
+  }finally{
+
+    button.disabled=false;
+
+  }
+
+}
+
+
+/* ==================================================
+   ROUTING
+================================================== */
+
+function route(){
+
+  const hash =
+    location.hash.replace('#','');
+
+
+  if(
+    hash.startsWith('post-')
+  ){
+
+    if(dbRows.length){
+
+      openPostById(
+        hash.substring(5)
+      );
+
+    }
+
+    return;
+
+  }
+
+
+  document
+    .querySelectorAll('.page')
+    .forEach(
+      page =>
+        page.classList.remove('active')
+    );
+
+
+  const page =
+    $(hash || 'home') ||
+    $('home');
+
+
+  page.classList.add('active');
+
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
+
+  if(
+    nav.classList.contains('open')
+  ){
+
+    nav.classList.remove('open');
+
+  }
+
+}
+
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+const menuBtn =
+  $('menuBtn');
+
+const nav =
+  $('mainNav');
+
+
+menuBtn.addEventListener(
+  'click',
+  event => {
+
+    event.stopPropagation();
+
+    nav.classList.toggle('open');
+
+  }
+);
+
+
+document
+  .querySelectorAll('#mainNav a')
+  .forEach(
+    link =>
+      link.addEventListener(
+        'click',
+        () => {
+
+          nav.classList.remove('open');
+
+        }
+      )
+  );
+
+
+document.addEventListener(
+  'click',
+  event => {
+
+    if(
+      nav.classList.contains('open') &&
+      !nav.contains(event.target) &&
+      !menuBtn.contains(event.target)
+    ){
+
+      nav.classList.remove('open');
+
+    }
+
+  }
+);
+
+
+window.addEventListener(
+  'hashchange',
+  route
+);
+
+
+/* ==================================================
+   START
+================================================== */
+
+(async()=>{
+
+  route();
+
+  await loadDB();
+
+  renderHomeOngoing();
+
+  route();
+
+})();
+
+</script>
+
+</body>
+</html>
