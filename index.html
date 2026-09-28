@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="so">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KULMIS HUB</title>
+<meta name="description" content="KULMIS HUB — Scholarships, Jobs and Seminars">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+*{font-family:"Times New Roman",Times,serif;box-sizing:border-box}
+body{font-family:"Times New Roman",Times,serif;color:#111827}
+.page{display:none}.page.active{display:block}
+.choice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:28px}
+.choice-card{border:1px solid #d9e1ea;border-radius:18px;padding:24px;background:#fff;cursor:pointer;text-align:left;transition:.2s}
+.choice-card:hover{transform:translateY(-2px);box-shadow:0 10px 25px #00000012}
+.choice-card span{font-size:34px;display:block;margin-bottom:12px}.choice-card b{font-size:20px;display:block}
+.choice-card small{display:block;margin-top:7px;color:#111827;line-height:1.5}
+.back{margin-top:22px;border:0;background:transparent;color:#2563eb;font-weight:700;cursor:pointer;font-size:17px;padding:8px 0}
+.country-list,.result-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:22px}
+.country-btn{padding:18px;border:1px solid #d9e1ea;border-radius:15px;background:#fff;cursor:pointer;text-align:left;font-weight:700;font-size:16px}
+.country-btn:hover{border-color:#2563eb;transform:translateY(-1px)}
+.social-links{display:grid;gap:10px;max-width:600px}.social-links a{display:flex;justify-content:space-between;gap:15px;padding:15px 18px;border:1px solid #ffffff22;border-radius:12px}
+.social-links a b{color:#fff}.social-links a span{color:#c4cfdb}
+footer{text-align:center;padding:28px 15px}footer small{opacity:.8}footer a{color:inherit;font-weight:700;text-decoration:none}
+.menu{display:none;background:transparent;border:0;color:inherit;font-size:28px;cursor:pointer;padding:8px;z-index:20;transform:translateY(7px)}
+@media(max-width:850px){
+.nav{position:relative}.menu{display:block;margin-left:auto}
+header nav{display:none;position:absolute;right:15px;top:72px;width:220px;background:#fff;border:1px solid #d9e1ea;border-radius:14px;padding:10px;box-shadow:0 12px 30px #0002;z-index:50}
+header nav.open{display:flex;flex-direction:column;gap:4px}header nav a{display:block;padding:13px 14px;border-radius:9px;color:#152235}
+}
+.contact-form{max-width:620px}.contact-form form{display:grid;gap:8px}.contact-form label{font-weight:700;margin-top:8px}
+.contact-form input,.contact-form textarea{width:100%;border:1px solid #d9e1ea;border-radius:10px;padding:13px;font:inherit;background:#fff}
+.contact-form button{border:0;border-radius:10px;padding:13px 18px;font-weight:700;cursor:pointer}
+@media(max-width:600px){footer{padding-bottom:90px}}
+
+.result-card{overflow:hidden;font-family:"Times New Roman",Times,serif;color:#111827;line-height:1.85;background:#fff;border:1px solid #d9e1ea;border-radius:18px;padding:20px}
+.post-list-item{width:100%;padding:18px 20px;border:1px solid #d9e1ea;border-radius:15px;background:#fff;cursor:pointer;text-align:left;color:#2563eb;font-size:20px;font-weight:800;line-height:1.5;transition:.2s}
+.post-list-item:hover{transform:translateY(-1px);box-shadow:0 8px 22px #00000010;border-color:#2563eb}
+.post-list-item::after{content:"→";float:right;font-size:24px}
+.post-image-first{display:block;width:100%;max-height:440px;object-fit:cover;border-radius:12px;margin:0 0 22px}
+.post-card-title,.post-view-title{display:block;font-family:"Times New Roman",Times,serif;color:#2563eb;font-weight:800}
+.post-card-title{font-size:24px;line-height:1.45;margin:0 0 14px}
+.post-view-title{font-size:30px;line-height:1.4;margin:15px 0 18px}
+.post-description{font-size:17px;line-height:1.9;color:#111827}.post-description p{margin:0 0 22px;font-size:17px;line-height:1.9}
+.post-heading{display:block;margin:28px 0 12px;color:#2563eb;font-size:20px;line-height:1.5;font-weight:800}
+.post-numbered{margin:0 0 16px;color:#111827;line-height:1.85}.post-numbered strong{font-weight:800}
+.post-meta{color:#111827;font-size:16px;line-height:1.7;margin:7px 0}.post-meta strong{font-weight:800}
+.result-card a{color:#2563eb}
+.post-view{display:none;position:fixed;inset:0;z-index:9999;background:#fff;overflow-y:auto}.post-view.active{display:block}
+.post-view-inner{width:min(900px,calc(100% - 30px));margin:auto;padding:20px 0 60px}
+.post-view-back{border:0;background:transparent;color:#2563eb;font-size:17px;font-weight:800;cursor:pointer;padding:10px 0;margin-bottom:12px}
+.post-view-actions{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 25px}
+.post-action{border:0;border-radius:10px;padding:11px 18px;font-weight:800;font-size:15px;cursor:pointer;background:#2563eb;color:#fff;text-decoration:none}
+.post-action.secondary{background:#eef4ff;color:#2563eb}
+.comments-box{margin-top:35px;padding-top:25px;border-top:1px solid #d9e1ea}
+.comments-title{color:#2563eb;font-size:23px;font-weight:800;margin-bottom:18px}
+.comment-form{display:grid;gap:10px;margin-bottom:25px}.comment-form textarea{width:100%;min-height:120px;resize:vertical;border:1px solid #d9e1ea;border-radius:10px;padding:13px;font:16px "Times New Roman",Times,serif}
+.comment-submit{width:max-content;border:0;border-radius:10px;background:#2563eb;color:#fff;padding:12px 20px;font-weight:800;cursor:pointer}
+.comment-list{display:grid;gap:12px}.comment-item{border:1px solid #e1e7ef;border-radius:12px;padding:15px;background:#fafcff}
+.comment-text{color:#111827;font-size:16px;line-height:1.7;white-space:pre-wrap}.comment-date{margin-top:8px;font-size:13px;color:#6b7280}
+.comment-message{color:#6b7280;padding:10px 0}
+@media(max-width:600px){
+.result-card{padding:16px}.post-image-first{max-height:300px}.post-description,.post-description p{font-size:16px;line-height:1.85}
+.post-heading{font-size:18px;margin-top:24px}.post-numbered{font-size:16px}.post-card-title{font-size:21px}
+.post-view-inner{width:calc(100% - 24px);padding-top:12px}.post-view-title{font-size:24px}.post-action{flex:1 1 auto}
+}
+/* HOME REDESIGN */
+.home-redesign{padding-bottom:55px}
+.home-hero{position:relative;overflow:hidden;border-radius:0 0 34px 34px;background:linear-gradient(135deg,#061b4f,#0b3d91 48%,#087f8c);color:#fff;min-height:520px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:35px;padding:58px 6%;box-shadow:0 18px 45px #071f4b22}
+.home-hero:before,.home-hero:after{content:"";position:absolute;border-radius:50%;filter:blur(2px);opacity:.22}.home-hero:before{width:360px;height:360px;background:#ffd21f;right:-110px;top:-150px}.home-hero:after{width:300px;height:300px;background:#21d4fd;left:-120px;bottom:-160px}
+.home-hero-copy{position:relative;z-index:2}.hero-badge{display:inline-flex;background:#ffffff18;border:1px solid #ffffff35;border-radius:999px;padding:9px 15px;font-size:15px;font-weight:700}
+.home-hero h1{font-size:clamp(38px,5vw,68px);line-height:1.05;margin:20px 0 16px;font-weight:900}.home-hero h1 span{color:#ffd21f}.home-hero p{font-size:19px;line-height:1.75;max-width:680px;color:#eaf3ff;margin:0 0 25px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}.hero-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 19px;border-radius:14px;text-decoration:none;font-weight:800;border:1px solid #ffffff28;transition:.25s}.hero-btn.primary{background:#ffd21f;color:#082454}.hero-btn.secondary{background:#ffffff14;color:#fff}.hero-btn:hover{transform:translateY(-3px);box-shadow:0 12px 25px #0003}
+.hero-visual{position:relative;z-index:2;min-height:350px;display:flex;align-items:center;justify-content:center}.globe-card{width:min(430px,100%);aspect-ratio:1;border-radius:35px;background:linear-gradient(145deg,#ffffff18,#ffffff08);border:1px solid #ffffff2e;box-shadow:0 25px 60px #0003;display:flex;align-items:center;justify-content:center;position:relative}.globe{font-size:155px;filter:drop-shadow(0 15px 25px #0005);animation:floatGlobe 4s ease-in-out infinite}
+.float-card{position:absolute;background:#fff;color:#0b1f3a;border-radius:16px;padding:12px 15px;box-shadow:0 15px 35px #0003;font-weight:800;display:flex;gap:9px;align-items:center}.float-card small{display:block;font-weight:600;color:#667085;font-size:11px}.fc1{top:18px;left:12px}.fc2{right:10px;top:95px}.fc3{left:20px;bottom:35px}@keyframes floatGlobe{50%{transform:translateY(-10px) rotate(2deg)}}
+.home-features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:28px auto 0}.feature-card{position:relative;overflow:hidden;padding:24px;border-radius:22px;background:#fff;border:1px solid #e4e9f1;box-shadow:0 12px 30px #0b1f3a0d;transition:.25s}.feature-card:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:5px;background:var(--accent)}.feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 38px #0b1f3a18}.feature-icon{width:58px;height:58px;border-radius:17px;display:grid;place-items:center;font-size:29px;background:var(--soft);margin-bottom:15px}.feature-card h3{margin:0 0 8px;font-size:21px;color:#102a56}.feature-card p{margin:0;color:#596579;line-height:1.65}
+.home-section-title{text-align:center;margin:50px 0 20px}.home-section-title span{color:#2563eb;font-weight:800}.home-section-title h2{font-size:34px;color:#102a56;margin:7px 0}.home-section-title p{color:#687386;margin:0}.ongoing-wrap{background:linear-gradient(180deg,#f7faff,#fff);border-radius:28px;padding:25px;border:1px solid #e6edf7}.ongoing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.ongoing-card{background:#fff;border:1px solid #e1e8f2;border-radius:18px;padding:18px;transition:.25s;position:relative;overflow:hidden}.ongoing-card:hover{transform:translateY(-4px);box-shadow:0 15px 30px #0b1f3a14}.ongoing-card .tag{display:inline-block;padding:6px 10px;border-radius:999px;background:#eaf2ff;color:#1d4ed8;font-size:12px;font-weight:800;margin-bottom:10px}.ongoing-card h3{margin:0 0 8px;color:#12315f;font-size:20px;line-height:1.4}.ongoing-card p{margin:0;color:#687386;line-height:1.6;font-size:14px}.ongoing-empty{text-align:center;padding:30px;color:#667085}.home-cta{margin-top:32px;border-radius:26px;padding:34px;background:linear-gradient(135deg,#0b2d70,#123e92);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:20px}.home-cta h2{margin:0 0 7px;font-size:30px}.home-cta p{margin:0;color:#dbe8ff;line-height:1.6}
+@media(max-width:900px){.home-hero{grid-template-columns:1fr;padding:45px 6%}.hero-visual{min-height:300px}.home-features{grid-template-columns:repeat(2,1fr)}.ongoing-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.home-hero{min-height:auto;padding:38px 20px}.home-hero h1{font-size:39px}.home-hero p{font-size:16px}.globe-card{max-width:330px}.globe{font-size:105px}.home-features{grid-template-columns:1fr 1fr;gap:11px}.feature-card{padding:17px}.feature-card h3{font-size:17px}.feature-card p{font-size:13px}.ongoing-grid{grid-template-columns:1fr}.home-cta{display:block;padding:25px}.home-cta .hero-btn{margin-top:17px}}
+
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap nav">
+<a class="brand" href="#home" aria-label="KULMIS HUB - Bogga Hore">
+<img src="assets/logo.svg" alt="KULMIS HUB logo">
+<span class="brand-text"><strong>KULMIS HUB</strong><small>Fursado waxbarasho, Seminars & shaqooyin</small></span>
+</a>
+<button class="menu" aria-label="Menu">☰</button>
+<nav>
+<a href="#home">Bogga Hore</a><a href="#about">Nagu Saabsan</a><a href="#scholarships">Deeqo Waxbarasho</a>
+<a href="#seminars">Seminars</a><a href="#work">Fursadaha Shaqo</a><a href="#services">Adeegyada</a><a href="#contact">Nala Soo Xiriir</a>
+</nav>
+</div>
+</header>
+
+<main>
+
+<section id="home" class="page active home-redesign">
+<div class="home-hero">
+<div class="home-hero-copy">
+<span class="hero-badge">🌍 KULMIS HUB • Fursadaha Caalamiga ah</span>
+<h1>Waa Hoyga <span>Fursadaha</span> Caalamiga ah.</h1>
+<p>Hal meel ka hel deeqaha waxbarasho, seminars, shaqooyin iyo fursado kale oo ka socda Soomaaliya, Afrika iyo dunida inteeda kale.</p>
+<div class="hero-actions">
+<a class="hero-btn primary" href="#scholarships">🎓 Eeg Deeqaha</a>
+<a class="hero-btn secondary" href="#work">💼 Eeg Shaqooyinka</a>
+<a class="hero-btn secondary" href="#seminars">🎤 Eeg Seminars</a>
+</div></div>
+<div class="hero-visual"><div class="globe-card"><div class="globe">🌍</div>
+<div class="float-card fc1">🎓 <div>Waxbarasho<small>Scholarships</small></div></div>
+<div class="float-card fc2">💼 <div>Shaqo<small>Job Opportunities</small></div></div>
+<div class="float-card fc3">🎤 <div>Seminars<small>Events & Workshops</small></div></div>
+</div></div></div>
+<div class="wrap">
+<div class="home-features">
+<article class="feature-card" style="--accent:#2563eb;--soft:#eaf2ff"><div class="feature-icon">🎓</div><h3>Deeqo Waxbarasho</h3><p>Ka hel fursadaha waxbarasho ee gudaha iyo caalamka.</p></article>
+<article class="feature-card" style="--accent:#f59e0b;--soft:#fff6db"><div class="feature-icon">🎤</div><h3>Seminars</h3><p>La soco seminars, workshops iyo conferences cusub.</p></article>
+<article class="feature-card" style="--accent:#16a34a;--soft:#eaf9ef"><div class="feature-icon">💼</div><h3>Fursadaha Shaqo</h3><p>Hel shaqooyin, internships iyo fursado xirfadeed.</p></article>
+<article class="feature-card" style="--accent:#7c3aed;--soft:#f1eaff"><div class="feature-icon">🌍</div><h3>Fursadaha Caalamiga ah</h3><p>Fursado ka socda qaarado iyo dalal kala duwan.</p></article>
+</div>
+<div class="home-section-title"><span>ONGOING OPPORTUNITIES</span><h2>Fursadaha Hadda Socda</h2><p>Fursadaha ugu dambeeyay ee KULMIS HUB lagu daabacay.</p></div>
+<div class="ongoing-wrap"><div id="homeOngoingGrid" class="ongoing-grid"><div class="ongoing-empty">Fursadaha waa la soo dejinayaa...</div></div></div>
+<div class="home-cta"><div><h2>Ha seegin fursadda xigta.</h2><p>Si joogto ah ula soco KULMIS HUB oo hel fursadaha cusub marka ay soo baxaan.</p></div><a class="hero-btn primary" href="#contact">📩 Nala Soo Xiriir</a></div>
+</div></section>
+
+<section id="about" class="page section"><div class="wrap">
+<label>NAGU SAABSAN</label><h2>About KULMIS HUB</h2>
+<p><b><i>KULMIS HUB waa madal dijitaal ah oo diiradda saarta baahinta fursadaha waxbarasho, seminars, shaqooyin iyo fursado kale.</i></b></p>
+<p><b><i>Waxaan isku dayeynaa inaan hal meel ku soo ururino fursadaha gudaha iyo kuwa caalamiga ah.</i></b></p>
+<h3>Waxaan baahinnaa:</h3><ul><li>🎓 Scholarships & Educational Opportunities</li><li>🎤 Gudaha & Caalami Seminars</li><li>💼 Gudaha & Caalami Work Opportunities</li><li>🌍 Caalami Opportunities</li></ul>
+<h3>Aragtideenna</h3><p>In KULMIS HUB noqoto meel lagu kalsoon yahay oo laga helo xog iyo fursado waxbarasho, shaqo iyo horumarineed.</p>
+<h3>Hadafkeenna</h3><p>Inaan bulshada siino xog faa'iido leh, fudud oo la fahmi karo, isla markaana aan dadka ku hagno meelaha rasmiga ah.</p>
+</div></section>
+
+<section id="scholarships" class="page section"><div class="wrap">
+<label>DEEGO WAXBARASHO</label><h2>Deeqo Waxbarasho</h2>
+<div class="choice-grid">
+<button class="choice-card" onclick="showScholarshipInside()"><span>📍</span><b>Gudaha</b><small>Fursadaha waxbarasho ee gudaha.</small></button>
+<button class="choice-card" onclick="showScholarshipWorld()"><span>🌍</span><b>Caalamka</b><small>Deeqaha waxbarasho ee dalalka iyo qaaradaha caalamka.</small></button>
+</div>
+<div id="scholarshipInside" style="display:none"><button class="back" onclick="backScholarshipHome()">← ← Deeqo Waxbarasho</button><h3>📍 Deeqaha Waxbarasho ee Gudaha</h3><div id="scholarshipInsideList" class="result-list"></div></div>
+<div id="scholarshipWorld" style="display:none"><button class="back" onclick="backScholarshipHome()">← ← Deeqo Waxbarasho</button><h3>🌍 Qaaradaha Caalamka</h3><div id="scholarshipContinents" class="choice-grid"></div></div>
+<div id="scholarshipCountries" style="display:none"><button class="back" onclick="backScholarshipContinents()">← ← Qaaradaha</button><h3 id="selectedContinent"></h3><div id="countryGrid" class="country-list"></div></div>
+<div id="scholarshipResults" style="display:none"><button class="back" onclick="backScholarshipCountries()">← ← Wadamada</button><h3 id="selectedCountry"></h3><div id="resultGrid" class="result-list"></div></div>
+</div></section>
+
+<section id="seminars" class="page section"><div class="wrap">
+<label>SEMINARRADA</label><h2>Seminars</h2>
+<div class="choice-grid">
+<button class="choice-card" onclick="showSeminarInside()"><span>📍</span><b>Gudaha</b><small>Seminars iyo workshops gudaha Somalia, Kenya iyo Bariga Africa.</small></button>
+<button class="choice-card" onclick="showSeminarWorld()"><span>🌍</span><b>Caalamka</b><small>Seminars, conferences, webinars iyo workshops ee dalalka caalamka.</small></button>
+</div>
+<div id="seminarInside" style="display:none"><button class="back" onclick="backSeminarHome()">← ← Seminars</button><h3>📍 Seminars Gudaha</h3><div id="seminarInsideList" class="result-list"></div></div>
+<div id="seminarWorld" style="display:none"><button class="back" onclick="backSeminarHome()">← ← Seminars</button><h3>🌍 Qaaradaha Caalamka</h3><div id="seminarContinents" class="choice-grid"></div></div>
+<div id="seminarCountries" style="display:none"><button class="back" onclick="backSeminarContinents()">← ← Qaaradaha</button><h3 id="seminarSelectedContinent"></h3><div id="seminarCountryGrid" class="country-list"></div></div>
+<div id="seminarResults" style="display:none"><button class="back" onclick="backSeminarCountries()">← ← Wadamada</button><h3 id="seminarSelectedCountry"></h3><div id="seminarResultList" class="result-list"></div></div>
+</div></section>
+
+<section id="work" class="page section"><div class="wrap">
+<label>FURSADAHA SHAQO</label><h2>Fursadaha Shaqo</h2>
+<div class="choice-grid">
+<button class="choice-card" onclick="showWorkHome('Gudaha')"><span>📍</span><b>Gudaha</b><small>Fursadaha shaqo ee gudaha.</small></button>
+<button class="choice-card" onclick="showWorkHome('Caalami')"><span>🌎</span><b>Caalamka</b><small>Fursadaha shaqo ee dalalka iyo qaaradaha kala duwan.</small></button>
+</div>
+<div id="workInternational" style="display:none"><button class="back" onclick="backWorkHome()">← ← Fursadaha Shaqo</button><h3>Qaaradaha</h3><div id="workContinents" class="choice-grid"></div></div>
+<div id="workCountries" style="display:none"><button class="back" onclick="backWorkContinents()">← ← Qaaradaha</button><h3 id="workSelectedContinent"></h3><div id="workCountryGrid" class="country-list"></div></div>
+<div id="workList" class="result-list"></div>
+<div class="service-note"><b>💼 Caawinta Codsiga Shaqada:</b><br>Link-ga shaqada waan soo dhigi doonaa.<br>Haddii aad rabto in KULMIS HUB si gaar ah kuugu sameeyo codsiga, nala soo xiriir.<br><b>Ogow: adeeggan waa lacag.</b></div>
+</div></section>
+
+<section id="services" class="page section"><div class="wrap">
+<label>ADEEGYADA</label><h2>Adeegyada</h2>
+<div class="service-grid">
+<article><b>🎓 Scholarship Application Assistance</b><p>Waxaan kaa caawinaynaa fahamka shuruudaha iyo habka codsiga.</p></article>
+<article><b>🏫 University Admission Assistance</b><p>Waxaan kaa caawinaynaa doorashada jaamacadda iyo program-ka.</p></article>
+<article><b>📄 Application & Document Guidance</b><p>Waxaan ku siinaynaa hagitaan ku saabsan dukumentiyada loo baahan yahay.</p></article>
+<article><b>🌍 Study Abroad Guidance</b><p>Waxaan kaa caawinaynaa fahamka fursadaha waxbarasho ee dunida.</p></article>
+<article><b>💼 Job & Internship Application Guidance</b><p>Waxaan kaa caawinaynaa fahamka fursadaha shaqo iyo internship-ka.</p></article>
+<article><b>🎤 Seminar & Opportunity Guidance</b><p>Waxaan kuu soo gudbinaynaa seminars, workshops iyo conferences.</p></article>
+</div>
+<div class="service-note"><b>📩 Adeegyada Admission & Shaqo:</b><br>Link-ga jaamacadda ama shaqada waan soo dhigi doonaa.<br>Haddii aad rabto in KULMIS HUB si gaar ah kuugu sameeyo codsiga, nala soo xiriir.<br><b>Ogow: qaybta codsiga gaarka ah waa adeeg lacag leh.</b></div>
+<p style="margin-top:24px"><b>Fiiro gaar ah:</b> KULMIS HUB ma dammaanad qaado admission, scholarship ama shaqo. Go'aanka ugu dambeeya waxaa leh jaamacadda, hay'adda ama loo-shaqeeyaha.</p>
+</div></section>
+
+<section id="contact" class="page section"><div class="wrap">
+<label>NALA SOO XIRIIR</label><h2>Nala Soo Xiriir</h2><div class="contact-form">
+<form onsubmit="event.preventDefault();alert('Mahadsanid! Fariintaada waa la diyaariyey.');">
+<label for="name">Magaca qofka</label><input id="name" name="name" type="text" placeholder="Magacaaga" required>
+<label for="email">Email-kiisa</label><input id="email" name="email" type="email" placeholder="Email-kaaga" required>
+<label for="message">Message-kiisa</label><textarea id="message" name="message" rows="6" placeholder="Qor fariintaada..." required></textarea>
+<button type="submit">Dir Fariinta</button>
+</form></div>
+</div></section>
+
+<section id="privacy" class="page section"><div class="wrap"><label>ASTURNAANTA</label><h2>Qaanuunka Asturnaanta</h2><p>KULMIS HUB waxay ixtiraamaysaa asturnaanta dadka isticmaala website-kan.</p><p>Waxaan ururin karnaa xogta aad si toos ah noogu soo gudbiso, sida magaca, email-ka iyo fariinta.</p><p>Xogtaas waxaa loo isticmaalaa oo keliya in lagula soo xiriiro.</p></div></section>
+<section id="terms" class="page section"><div class="wrap"><label>SHURUUCDA ISTICMAALKA</label><h2>Shuruudaha iyo Xeerarka</h2><p>Markaad isticmaasho KULMIS HUB, waxaad oggolaanaysaa inaad u isticmaasho website-kan si sharci ah.</p><p>Shuruudaha, taariikhaha iyo fursadaha way is beddeli karaan. Had iyo jeer ka hubi bogga rasmiga ah.</p><p>KULMIS HUB ma dammaanad qaado scholarship, admission, shaqo ama internship.</p></div></section>
+
+</main>
+
+<footer>
+<div style="margin-bottom:10px"><a href="#privacy">Asturnaanta</a>&nbsp; | &nbsp;<a href="#terms">Shuruudaha iyo Xeerarka</a></div>
+<small>© 2026 KULMIS HUB. Dhammaan xuquuqdu way dhowran tahay.</small>
+</footer>
+
+<div id="postView" class="post-view">
+<div class="post-view-inner">
+<button class="post-view-back" onclick="closePost()">← Dib ugu noqo fursadaha</button>
+<div id="postViewContent"></div>
+</div>
+</div>
+
+<script>
+const SUPABASE_URL='https://wxamihjterffxrnpqxwt.supabase.co';
+const SUPABASE_KEY='sb_publishable_KXBcUODUGXrWUTY70jNPvw_2SwNy-A1';
+let dbRows=[];
+const $=id=>document.getElementById(id);
+
+const data={
+Asia:{'Saudi Arabia':['Waxbarasho Sacuudi Carabiya'],'Türkiye':['Türkiye Scholarships'],Qatar:['Qatar University Scholarships'],Japan:['MEXT Scholarships'],China:['Chinese Government Scholarship'],'South Korea':['GKS Scholarship'],Malaysia:['Malaysia Scholarships']},
+Europe:{'United Kingdom (UK)':['Chevening Scholarship'],Germany:['DAAD Scholarships'],Ireland:['Irish Government Scholarships'],France:['France Scholarships'],Netherlands:['Netherlands Scholarships'],Sweden:['Swedish Scholarships'],Norway:['Norway Scholarships'],Denmark:['Danish Scholarships'],Finland:['Finland Scholarships'],Belgium:['Belgium Scholarships'],Austria:['Austria Scholarships'],Switzerland:['Swiss Government Excellence Scholarships'],Poland:['Poland Scholarships'],Portugal:['Portugal Scholarships'],Spain:['Spain Scholarships'],Italy:['Italy Scholarships'],Greece:['Greece Scholarships'],Czechia:['Czech Scholarships'],Hungary:['Hungary Scholarships'],Romania:['Romania Scholarships'],Bulgaria:['Bulgaria Scholarships'],Slovakia:['Slovakia Scholarships'],Slovenia:['Slovenia Scholarships'],Croatia:['Croatia Scholarships'],Serbia:['Study in Serbia Opportunities'],Luxembourg:['Luxembourg Scholarships'],Malta:['Malta Scholarships'],Cyprus:['Cyprus Scholarships'],Iceland:['Iceland Scholarships']},
+Africa:{Somalia:['Gudaha Study Opportunities'],Kenya:['Scholarships in Kenya'],'South Africa':['Study in South Africa'],Egypt:['Egypt Scholarships'],Morocco:['Morocco Scholarships']},
+'North America':{USA:['Fulbright Opportunities'],Canada:['Canadian Scholarships']},
+'South America':{Brazil:['Brazil Scholarships'],Mexico:['Mexico Scholarships']}
+};
+
+const workData={
+Europe:Object.keys(data.Europe),
+Asia:['Saudi Arabia','Türkiye','Qatar','Japan','China','South Korea','Malaysia','UAE'],
+Africa:['Somalia','Kenya','South Africa','Egypt','Morocco'],
+'North America':['USA','Canada'],'South America':['Brazil','Mexico']
+};
+
+const seminarData={
+Europe:['United Kingdom (UK)','Ireland','Germany','France','Netherlands','Belgium','Luxembourg','Switzerland','Austria','Italy','Spain','Portugal','Poland','Czechia','Slovakia','Hungary','Romania','Bulgaria','Greece','Croatia','Slovenia','Serbia','Bosnia and Herzegovina','Montenegro','Albania','North Macedonia','Kosovo','Lithuania','Latvia','Estonia','Finland','Sweden','Norway','Denmark','Iceland','Malta','Cyprus','Moldova','Ukraine'],
+Asia:['Saudi Arabia','UAE','Qatar','Kuwait','Bahrain','Oman','Jordan','Türkiye','Israel','Iran','Iraq','India','Pakistan','Bangladesh','Sri Lanka','Nepal','Bhutan','China','Japan','South Korea','North Korea','Mongolia','Vietnam','Thailand','Malaysia','Singapore','Indonesia','Philippines','Cambodia','Laos','Myanmar','Brunei','Kazakhstan','Uzbekistan','Kyrgyzstan','Tajikistan','Turkmenistan','Afghanistan','Azerbaijan','Armenia','Georgia'],
+Africa:['Somalia','Kenya','Ethiopia','Djibouti','Eritrea','Sudan','South Sudan','Egypt','Uganda','Tanzania','Rwanda','Burundi','DR Congo','Republic of the Congo','Ghana','Nigeria','Senegal','Gambia','Guinea','Guinea-Bissau','Sierra Leone','Liberia','Ivory Coast','Burkina Faso','Mali','Niger','Benin','Togo','Cameroon','Chad','Central African Republic','Gabon','Equatorial Guinea','Angola','Zambia','Zimbabwe','Malawi','Mozambique','Namibia','Botswana','South Africa','Lesotho','Eswatini','Madagascar','Mauritius','Seychelles','Morocco','Algeria','Tunisia','Libya'],
+'North America':['United States','Canada','Mexico','Guatemala','Belize','El Salvador','Honduras','Nicaragua','Costa Rica','Panama','Cuba','Jamaica','Haiti','Dominican Republic','Bahamas','Barbados','Trinidad and Tobago','Grenada','Antigua and Barbuda','Dominica','Saint Lucia','Saint Vincent and the Grenadines','Saint Kitts and Nevis'],
+'South America':['Brazil','Argentina','Chile','Peru','Colombia','Ecuador','Bolivia','Paraguay','Uruguay','Venezuela','Guyana','Suriname'],
+Oceania:['Australia','New Zealand','Papua New Guinea','Fiji','Solomon Islands','Vanuatu','Samoa','Tonga','Kiribati','Tuvalu','Nauru','Palau','Micronesia','Marshall Islands']
+};
+
+function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));}
+function norm(v){return String(v||'').trim().toLowerCase().replace(/[–—]/g,'-');}
+
+function formatDescription(text){
+if(!text)return '';
+const blocks=String(text).replace(/\r\n/g,'\n').replace(/\r/g,'\n').trim().split(/\n\s*\n/).map(x=>x.trim()).filter(Boolean);
+return blocks.map(block=>{
+const clean=block.replace(/\n/g,' ').trim();
+const heading=clean.length<=100&&(clean===clean.toUpperCase()||/^(MAXAY|NOOCA|SHURUUDAHA|MAXAA|SIDEE|MUHIIM|DEADLINE|OFFICIAL|KULMIS HUB)/i.test(clean));
+if(heading)return `<div class="post-heading">${esc(clean)}</div>`;
+if(/^\d+[\.\)]\s/.test(clean))return `<p class="post-numbered"><strong>${esc(clean)}</strong></p>`;
+return `<p>${esc(clean)}</p>`;
+}).join('');
+}
+
+function countryMatch(row,country){
+const a=norm(row.country),b=norm(country);
+if(a===b)return true;
+const aliases={
+'united kingdom (uk)':['united kingdom','uk','great britain','england','uk (ingiriiska)'],
+'united states':['usa','united states','united states of america','us'],
+'uae':['united arab emirates','uae']
+};
+return (aliases[b]||[]).some(x=>a===x);
+}
+function rowText(row){return norm([row.category,row.program,row.title,row.description,row.company,row.location].join(' '));}
+function isScholarship(row){return /scholar|deeq|education|fellowship|grant|study/.test(rowText(row));}
+function isJob(row){return /job|work|employment|vacancy|career|internship|shaqo/.test(rowText(row));}
+function isSeminar(row){return /seminar|conference|webinar|workshop|event|training/.test(rowText(row));}
+
+async function loadDB(){
+try{
+const url=SUPABASE_URL+'/rest/v1/opportunities?select=*&published=eq.true&order=created_at.desc';
+const response=await fetch(url,{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});
+if(!response.ok)throw new Error('Supabase HTTP '+response.status);
+dbRows=await response.json();
+return dbRows;
+}catch(error){console.error(error);dbRows=[];return [];}
+}
+
+function postListButton(row,icon){
+const title=row.title||row.program||row.company||'Opportunity';
+return `<button class="post-list-item" onclick="openPostById('${esc(row.id)}')">${icon} ${esc(title)}</button>`;
+}
+
+function continentIcon(c){
+return c==='Europe'?'🇪🇺':c==='Asia'?'🌏':c==='Africa'?'🌍':c==='North America'?'🌎':'🌎';
+}
+
+/* SCHOLARSHIPS */
+function renderContinents(){
+$('scholarshipContinents').innerHTML=Object.keys(data).map(c=>`
+<button class="choice-card" onclick="showCountries('${esc(c)}')"><span>${continentIcon(c)}</span><b>${esc(c)}</b><small>Eeg wadamada iyo fursadaha</small></button>`).join('');
+}
+function showScholarshipInside(){
+$('scholarshipInside').style.display='block';$('scholarshipWorld').style.display='none';$('scholarshipCountries').style.display='none';$('scholarshipResults').style.display='none';
+const rows=dbRows.filter(row=>isScholarship(row)&&/gudaha|somalia|kenya|local/.test(norm([row.category,row.continent,row.country,row.location,row.description].join(' '))));
+$('scholarshipInsideList').innerHTML=rows.length?rows.map(r=>postListButton(r,'🎓')).join(''):`<div class="result-card"><b>🎓 Deeqaha Waxbarasho ee Gudaha</b><p>Deeqo cusub halkan ayay kasoo muuqan doonaan marka Admin Panel-ka lagu daabaco.</p></div>`;
+}
+function showScholarshipWorld(){
+$('scholarshipInside').style.display='none';$('scholarshipWorld').style.display='block';$('scholarshipCountries').style.display='none';$('scholarshipResults').style.display='none';renderContinents();
+}
+function showCountries(c){
+$('scholarshipWorld').style.display='none';$('scholarshipCountries').style.display='block';$('scholarshipResults').style.display='none';$('selectedContinent').textContent=c;
+$('countryGrid').innerHTML=Object.keys(data[c]||{}).map(country=>`<button class="country-btn" onclick="showScholarships('${esc(c)}','${esc(country)}')">🌐 ${esc(country)}</button>`).join('');
+}
+function showScholarships(c,country){
+$('scholarshipCountries').style.display='none';$('scholarshipResults').style.display='block';$('selectedCountry').textContent='🌐 '+country;
+const rows=dbRows.filter(r=>countryMatch(r,country)&&isScholarship(r));
+$('resultGrid').innerHTML=rows.length?rows.map(r=>postListButton(r,'🎓')).join(''):`<div class="result-card"><b>Weli fursad lama hayo hadda.</b><p>Fursadaha cusub halkan ayay kasoo muuqan doonaan.</p></div>`;
+}
+function backScholarshipHome(){$('scholarshipInside').style.display='none';$('scholarshipWorld').style.display='none';$('scholarshipCountries').style.display='none';$('scholarshipResults').style.display='none';}
+function backScholarshipContinents(){$('scholarshipCountries').style.display='none';$('scholarshipWorld').style.display='block';}
+function backScholarshipCountries(){$('scholarshipResults').style.display='none';$('scholarshipCountries').style.display='block';}
+
+/* SEMINARS */
+function renderSeminarContinents(){
+$('seminarContinents').innerHTML=Object.keys(seminarData).map(c=>`
+<button class="choice-card" onclick="showSeminarCountries('${esc(c)}')"><span>${continentIcon(c)}</span><b>${esc(c)}</b><small>${seminarData[c].length} dal iyo fursado seminars</small></button>`).join('');
+}
+function showSeminarWorld(){$('seminarInside').style.display='none';$('seminarWorld').style.display='block';$('seminarCountries').style.display='none';$('seminarResults').style.display='none';renderSeminarContinents();}
+function showSeminarInside(){
+$('seminarInside').style.display='block';$('seminarWorld').style.display='none';$('seminarCountries').style.display='none';$('seminarResults').style.display='none';
+const rows=dbRows.filter(row=>isSeminar(row)&&/gudaha|somalia|kenya|local/.test(norm([row.continent,row.country,row.location,row.category,row.description].join(' '))));
+$('seminarInsideList').innerHTML=rows.length?rows.map(r=>postListButton(r,'🎤')).join(''):`<div class="result-card"><b>📍 Seminars Gudaha</b><p>Seminars cusub oo gudaha ah halkan ayay kasoo muuqan doonaan marka Admin Panel-ka lagu daabaco.</p></div>`;
+}
+function backSeminarHome(){$('seminarInside').style.display='none';$('seminarWorld').style.display='none';$('seminarCountries').style.display='none';$('seminarResults').style.display='none';}
+function showSeminarCountries(c){
+$('seminarWorld').style.display='none';$('seminarCountries').style.display='block';$('seminarResults').style.display='none';$('seminarSelectedContinent').textContent='🌍 '+c;
+$('seminarCountryGrid').innerHTML=seminarData[c].map(country=>`<button class="country-btn" onclick="showSeminarCountry('${esc(c)}','${esc(country)}')">🌐 ${esc(country)}</button>`).join('');
+}
+function backSeminarContinents(){$('seminarCountries').style.display='none';$('seminarWorld').style.display='block';}
+function showSeminarCountry(c,country){
+$('seminarCountries').style.display='none';$('seminarResults').style.display='block';$('seminarSelectedCountry').textContent='🎤 '+country;
+const rows=dbRows.filter(row=>isSeminar(row)&&countryMatch(row,country));
+$('seminarResultList').innerHTML=rows.length?rows.map(r=>postListButton(r,'🎤')).join(''):`<div class="result-card"><b>🎤 Seminars — ${esc(country)}</b><p>Weli seminar la daabacay lagama helin ${esc(country)}.</p></div>`;
+}
+function backSeminarCountries(){$('seminarResults').style.display='none';$('seminarCountries').style.display='block';}
+
+/* JOBS */
+function showWorkHome(type){
+$('workList').innerHTML='';$('workCountries').style.display='none';
+if(type==='Gudaha'){
+$('workInternational').style.display='none';
+const rows=dbRows.filter(row=>isJob(row)&&/gudaha|somalia|kenya|local/.test(norm([row.category,row.continent,row.country,row.location].join(' '))));
+$('workList').innerHTML=rows.length?rows.map(r=>postListButton(r,'💼')).join(''):`<div class="result-card"><b>📍 Fursadaha Shaqo ee Gudaha</b><p>Fursadaha shaqo ee gudaha halkan ayay kasoo muuqan doonaan.</p></div>`;
+return;
+}
+$('workInternational').style.display='block';$('workContinents').innerHTML=Object.keys(workData).map(c=>`
+<button class="choice-card" onclick="showWorkCountries('${esc(c)}')"><span>${continentIcon(c)}</span><b>${esc(c)}</b><small>Eeg dalalka iyo fursadaha shaqo</small></button>`).join('');
+}
+function showWorkCountries(c){
+$('workInternational').style.display='none';$('workCountries').style.display='block';$('workSelectedContinent').textContent=c;
+$('workCountryGrid').innerHTML=(workData[c]||[]).map(country=>`<button class="country-btn" onclick="showWorkJobs('${esc(c)}','${esc(country)}')">🌐 ${esc(country)}</button>`).join('');
+}
+function showWorkJobs(c,country){
+$('workCountries').style.display='none';
+const rows=dbRows.filter(row=>isJob(row)&&countryMatch(row,country));
+$('workList').innerHTML=rows.length?rows.map(r=>postListButton(r,'💼')).join(''):`<div class="result-card"><b>💼 Shaqooyinka ${esc(country)}</b><p>Fursadaha shaqo ee ${esc(country)} halkan ayay kasoo muuqan doonaan marka Admin Panel-ka lagu daabaco.</p></div>`;
+}
+function backWorkHome(){$('workInternational').style.display='none';$('workCountries').style.display='none';$('workList').innerHTML='';}
+function backWorkContinents(){$('workCountries').style.display='none';$('workInternational').style.display='block';}
+
+/* FULL POST */
+async function openPostById(id){
+const row=dbRows.find(x=>String(x.id)===String(id));if(!row)return;
+const title=row.title||row.program||row.company||'Opportunity';
+$('postViewContent').innerHTML=`
+<article class="post-view-card">
+${row.image_url?`<img class="post-image-first" src="${esc(row.image_url)}" alt="${esc(title)}">`:''}
+<h1 class="post-view-title">${isScholarship(row)?'🎓':isSeminar(row)?'🎤':'💼'} ${esc(title)}</h1>
+${row.company?`<p class="post-meta"><strong>Company:</strong> ${esc(row.company)}</p>`:''}
+${row.location?`<p class="post-meta"><strong>Location:</strong> ${esc(row.location)}</p>`:''}
+${row.event_date?`<p class="post-meta"><strong>Date:</strong> ${esc(row.event_date)}</p>`:''}
+${row.deadline?`<p class="post-meta"><strong>Deadline:</strong> ${esc(row.deadline)}</p>`:''}
+${row.description?`<div class="post-description">${formatDescription(row.description)}</div>`:''}
+<div class="post-view-actions">
+${row.link?`<a class="post-action" href="${esc(row.link)}" target="_blank" rel="noopener noreferrer">🔗 Apply / Official Link</a>`:''}
+<button class="post-action secondary" onclick="copyPostLink('${esc(row.id)}')">🔗 Copy Link</button>
+</div>
+<div class="comments-box">
+<div class="comments-title">💬 Fariimaha</div>
+<form class="comment-form" onsubmit="submitComment(event,'${esc(row.id)}')">
+<textarea name="comment" placeholder="Qor fariintaada..." maxlength="1000" required></textarea>
+<button class="comment-submit" type="submit">Dir Fariinta</button>
+</form>
+<div id="comments-${esc(row.id)}" class="comment-list"><div class="comment-message">Fariimaha waa la soo dejinayaa...</div></div>
+</div>
+</article>`;
+$('postView').classList.add('active');document.body.style.overflow='hidden';await loadComments(row.id);
+}
+
+async function copyPostLink(id){
+const row=dbRows.find(x=>String(x.id)===String(id));if(!row)return;
+const url=window.location.origin+window.location.pathname+'#post-'+row.id;
+try{await navigator.clipboard.writeText(url);alert('🔗 Link-ga post-kan waa la koobiyeeyay.');}
+catch(e){const t=document.createElement('textarea');t.value=url;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();alert('🔗 Link-ga post-kan waa la koobiyeeyay.');}
+}
+
+function closePost(){$('postView').classList.remove('active');document.body.style.overflow='';$('postViewContent').innerHTML='';}
+
+async function loadComments(id){
+const box=$('comments-'+id);if(!box)return;
+try{
+const url=SUPABASE_URL+'/rest/v1/comments?select=id,comment,created_at&opportunity_id=eq.'+encodeURIComponent(id)+'&order=created_at.asc';
+const response=await fetch(url,{headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY}});
+if(!response.ok)throw new Error('Comments HTTP '+response.status);
+const comments=await response.json();
+if(!comments.length){box.innerHTML='<div class="comment-message">Weli fariin lama qorin.</div>';return;}
+box.innerHTML=comments.map(c=>`<div class="comment-item"><div class="comment-text">${esc(c.comment)}</div><div class="comment-date">${formatCommentDate(c.created_at)}</div></div>`).join('');
+}catch(e){console.error(e);box.innerHTML='<div class="comment-message">Fariimaha hadda lama soo dejin karin.</div>';}
+}
+
+async function submitComment(event,id){
+event.preventDefault();const form=event.target;const comment=String(new FormData(form).get('comment')||'').trim();
+if(!comment){alert('Fadlan qor fariintaada.');return;}
+const button=form.querySelector('button');button.disabled=true;button.textContent='La dirayaa...';
+try{
+const response=await fetch(SUPABASE_URL+'/rest/v1/comments',{method:'POST',headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+SUPABASE_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},body:JSON.stringify({opportunity_id:id,name:'Visitor',email:null,comment})});
+if(!response.ok)throw new Error(await response.text());
+form.reset();await loadComments(id);alert('Fariintaada waa la diray.');
+}catch(e){console.error(e);alert('Fariinta lama diri karin. Fadlan isku day mar kale.');}
+finally{button.disabled=false;button.textContent='Dir Fariinta';}
+}
+
+function formatCommentDate(v){try{return new Date(v).toLocaleDateString('en-GB',{year:'numeric',month:'short',day:'numeric'});}catch{return '';}}
+function renderHomeOngoing(){
+const box=document.getElementById('homeOngoingGrid'); if(!box)return;
+const rows=dbRows.slice(0,6);
+if(!rows.length){box.innerHTML='<div class="ongoing-empty">Weli fursado cusub lama daabicin.</div>';return;}
+box.innerHTML=rows.map(row=>{
+const title=row.title||row.program||row.company||'Fursad cusub';
+const type=isScholarship(row)?'🎓 Waxbarasho':isSeminar(row)?'🎤 Seminar':isJob(row)?'💼 Shaqo':'🌍 Fursad';
+const place=[row.country,row.continent].filter(Boolean).join(' • ');
+return `<button class="ongoing-card" onclick="openPostById('${esc(row.id)}')"><span class="tag">${type}</span><h3>${esc(title)}</h3><p>${esc(place||'KULMIS HUB')}${row.deadline?' • Deadline: '+esc(row.deadline):''}</p></button>`;
+}).join('');
+}
+function route(){
+const id=location.hash.slice(1)||'home';
+if(id.startsWith('post-')){if(dbRows.length)openPostById(id.substring(5));return;}
+document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));($(id)\vert{}\vert{}$('home')).classList.add('active');window.scrollTo({top:0,behavior:'smooth'});
+}
+
+const menuBtn=document.querySelector('.menu'),nav=document.querySelector('header nav');
+menuBtn.addEventListener('click',e=>{e.stopPropagation();nav.classList.toggle('open');});
+document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+document.addEventListener('click',e=>{if(nav.classList.contains('open')&&!nav.contains(e.target)&&!menuBtn.contains(e.target))nav.classList.remove('open');});
+window.addEventListener('hashchange',route);
+
+(async()=>{renderContinents();renderSeminarContinents();route();await loadDB();renderHomeOngoing();route();})();
+</script>
+</body>
+</html>
