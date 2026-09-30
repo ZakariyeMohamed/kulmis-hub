@@ -1,0 +1,2045 @@
+<!DOCTYPE html>  <html lang="so">  
+<head>  <meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>KULMIS HUB — Admin Panel</title>  <link  
+  rel="icon"  
+  href="https://kulmishub.com/logo.svg"  
+>  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>  <style>  
+  
+/* =========================  
+   RESET  
+========================= */  
+  
+*{  
+  box-sizing:border-box;  
+}  
+  
+html{  
+  scroll-behavior:smooth;  
+}  
+  
+body{  
+  margin:0;  
+  font-family:Arial,Helvetica,sans-serif;  
+  background:#f5f7fc;  
+  color:#182338;  
+}  
+  
+button,  
+input,  
+select,  
+textarea{  
+  font-family:inherit;  
+}  
+  
+  
+/* =========================  
+   HEADER  
+========================= */  
+  
+.header{  
+  background:#fff;  
+  border-bottom:1px solid #e5e7eb;  
+  position:sticky;  
+  top:0;  
+  z-index:1000;  
+}  
+  
+.header-inner{  
+  width:min(1180px,calc(100% - 30px));  
+  min-height:76px;  
+  margin:auto;  
+  
+  display:flex;  
+  align-items:center;  
+  justify-content:space-between;  
+}  
+  
+.brand{  
+  display:flex;  
+  align-items:center;  
+  gap:12px;  
+}  
+  
+.logo{  
+  width:50px;  
+  height:50px;  
+  object-fit:contain;  
+}  
+  
+.brand-name{  
+  font-size:21px;  
+  font-weight:900;  
+}  
+  
+.brand-name span{  
+  color:#6548df;  
+}  
+  
+.brand-small{  
+  margin-top:3px;  
+  color:#8a93a3;  
+  font-size:11px;  
+}  
+  
+.logout{  
+  padding:11px 18px;  
+  border:1px solid #dfe3ea;  
+  border-radius:12px;  
+  background:#fff;  
+  color:#344054;  
+  font-weight:800;  
+  cursor:pointer;  
+}  
+  
+.logout:hover{  
+  background:#f7f7fa;  
+}  
+  
+  
+/* =========================  
+   GENERAL  
+========================= */  
+  
+.container{  
+  width:min(1180px,calc(100% - 30px));  
+  margin:32px auto 70px;  
+}  
+  
+.hidden{  
+  display:none !important;  
+}  
+  
+  
+/* =========================  
+   LOGIN  
+========================= */  
+  
+.login-wrapper{  
+  min-height:calc(100vh - 76px);  
+  
+  display:flex;  
+  justify-content:center;  
+  align-items:center;  
+  
+  padding:30px 15px;  
+}  
+  
+.login-card{  
+  width:min(470px,100%);  
+  
+  background:#fff;  
+  
+  border:1px solid #e3e7ee;  
+  
+  border-radius:24px;  
+  
+  padding:35px;  
+  
+  box-shadow:  
+    0 20px 60px rgba(20,30,60,.10);  
+}  
+  
+.login-logo{  
+  width:68px;  
+  height:68px;  
+  object-fit:contain;  
+  margin-bottom:18px;  
+}  
+  
+.login-card h1{  
+  margin:0 0 8px;  
+  font-size:30px;  
+}  
+  
+.login-card p{  
+  margin:0 0 25px;  
+  color:#7b8494;  
+  line-height:1.6;  
+}  
+  
+  
+/* =========================  
+   DASHBOARD  
+========================= */  
+  
+.dashboard-title{  
+  margin-bottom:25px;  
+}  
+  
+.dashboard-title h1{  
+  margin:0 0 6px;  
+  font-size:36px;  
+}  
+  
+.dashboard-title p{  
+  margin:0;  
+  color:#7b8494;  
+  font-size:16px;  
+}  
+  
+  
+/* =========================  
+   STATS  
+========================= */  
+  
+.stats{  
+  display:grid;  
+  grid-template-columns:repeat(4,1fr);  
+  gap:16px;  
+  margin-bottom:24px;  
+}  
+  
+.stat{  
+  background:#fff;  
+  
+  border:1px solid #e3e7ee;  
+  
+  border-radius:20px;  
+  
+  padding:25px;  
+  
+  box-shadow:  
+    0 8px 28px rgba(20,30,60,.04);  
+}  
+  
+.stat-number{  
+  display:block;  
+  font-size:34px;  
+  font-weight:900;  
+  margin-bottom:6px;  
+}  
+  
+.stat-label{  
+  color:#7b8494;  
+  font-size:15px;  
+}  
+  
+  
+/* =========================  
+   GRID  
+========================= */  
+  
+.admin-grid{  
+  display:grid;  
+  
+  grid-template-columns:  
+    minmax(0,1fr)  
+    360px;  
+  
+  gap:22px;  
+  
+  align-items:start;  
+}  
+  
+.panel{  
+  background:#fff;  
+  
+  border:1px solid #e3e7ee;  
+  
+  border-radius:22px;  
+  
+  padding:26px;  
+  
+  box-shadow:  
+    0 8px 28px rgba(20,30,60,.04);  
+    
+  margin-bottom: 25px;  
+}  
+  
+.panel h2{  
+  margin:0 0 7px;  
+  font-size:25px;  
+}  
+  
+.panel-subtitle{  
+  margin:0 0 25px;  
+  color:#7b8494;  
+  line-height:1.6;  
+}  
+  
+  
+/* =========================  
+   FORM  
+========================= */  
+  
+.field{  
+  margin-bottom:20px;  
+}  
+  
+.field label{  
+  display:block;  
+  margin-bottom:9px;  
+  
+  color:#344054;  
+  
+  font-size:15px;  
+  font-weight:800;  
+}  
+  
+.field input,  
+.field select,  
+.field textarea{  
+  width:100%;  
+  
+  padding:14px 15px;  
+  
+  border:1px solid #d8dde6;  
+  
+  border-radius:13px;  
+  
+  background:#fff;  
+  
+  color:#182338;  
+  
+  font-size:16px;  
+  
+  outline:none;  
+  
+  transition:.2s;  
+}  
+  
+.field input:focus,  
+.field select:focus,  
+.field textarea:focus{  
+  border-color:#6548df;  
+  
+  box-shadow:  
+    0 0 0 4px rgba(101,72,223,.10);  
+}  
+  
+.field textarea{  
+  min-height:330px;  
+  
+  resize:vertical;  
+  
+  line-height:1.8;  
+  
+  white-space:pre-wrap;  
+}  
+  
+  
+/* =========================  
+   RICH TEXT EDITOR  
+========================= */  
+  
+.rich-editor{  
+  border:1px solid #d8dde6;  
+  
+  border-radius:13px;  
+  
+  background:#fff;  
+  
+  overflow:hidden;  
+  
+  transition:.2s;  
+}  
+  
+.rich-editor:focus-within{  
+  border-color:#6548df;  
+  
+  box-shadow:  
+    0 0 0 4px rgba(101,72,223,.10);  
+}  
+  
+  
+/* TOOLBAR */  
+  
+.rich-toolbar{  
+  display:flex;  
+  
+  align-items:center;  
+  
+  flex-wrap:wrap;  
+  
+  gap:7px;  
+  
+  padding:10px;  
+  
+  background:#f8f9fc;  
+  
+  border-bottom:1px solid #e1e5ec;  
+}  
+  
+  
+/* TOOLBAR BUTTON */  
+  
+.rich-toolbar button{  
+  min-width:38px;  
+  
+  height:36px;  
+  
+  padding:0 10px;  
+  
+  border:1px solid #d8dde6;  
+  
+  border-radius:8px;  
+  
+  background:#fff;  
+  
+  color:#182338;  
+  
+  font-weight:800;  
+  
+  cursor:pointer;  
+  
+  transition:.15s;  
+}  
+  
+.rich-toolbar button:hover{  
+  background:#eef2ff;  
+  
+  border-color:#6548df;  
+}  
+  
+.rich-toolbar button:active{  
+  transform:scale(.96);  
+}  
+  
+  
+/* BOLD */  
+  
+.rich-toolbar .bold-btn{  
+  font-size:17px;  
+  
+  font-weight:900;  
+}  
+  
+  
+/* ITALIC */  
+  
+.rich-toolbar .italic-btn{  
+  font-size:17px;  
+  
+  font-style:italic;  
+  
+  font-family:Georgia,serif;  
+}  
+  
+  
+/* COLOR GROUP */  
+  
+.color-group{  
+  display:flex;  
+  
+  align-items:center;  
+  
+  gap:7px;  
+  
+  margin-left:3px;  
+}  
+  
+  
+/* COLOR BUTTON */  
+  
+.color-btn{  
+  width:28px !important;  
+  
+  min-width:28px !important;  
+  
+  height:28px !important;  
+  
+  padding:0 !important;  
+  
+  border-radius:50% !important;  
+  
+  border:2px solid #fff !important;  
+  
+  box-shadow:  
+    0 0 0 1px #d8dde6;  
+}  
+  
+  
+/* COLORS */  
+  
+.color-black{  
+  background:#182338 !important;  
+}  
+  
+.color-blue{  
+  background:#2563eb !important;  
+}  
+  
+.color-red{  
+  background:#dc2626 !important;  
+}  
+  
+.color-green{  
+  background:#16a34a !important;  
+}  
+  
+.color-purple{  
+  background:#7c3aed !important;  
+}  
+  
+.color-orange{  
+  background:#ea580c !important;  
+}  
+  
+  
+/* EDITOR */  
+  
+.rich-content{  
+  min-height:330px;  
+  
+  max-height:650px;  
+  
+  overflow-y:auto;  
+  
+  padding:15px;  
+  
+  outline:none;  
+  
+  font-size:16px;  
+  
+  line-height:1.8;  
+  
+  color:#182338;  
+  
+  background:#fff;  
+}  
+  
+.rich-content:focus{  
+  outline:none;  
+}  
+  
+.rich-content:empty:before{  
+  content:attr(data-placeholder);  
+  
+  color:#98a2b3;  
+  
+  pointer-events:none;  
+}  
+  
+.rich-content p{  
+  margin:0 0 12px;  
+}  
+  
+.rich-content strong{  
+  font-weight:900;  
+}  
+  
+.rich-content em{  
+  font-style:italic;  
+}  
+  
+.rich-content u{  
+  text-decoration:underline;  
+}  
+  
+  
+/* =========================  
+   IMAGE  
+========================= */  
+  
+.upload-box{  
+  padding:17px;  
+  
+  border:2px dashed #d9d3ff;  
+  
+  border-radius:15px;  
+  
+  background:#faf9ff;  
+}  
+  
+.upload-box input{  
+  width:100%;  
+}  
+  
+.image-preview{  
+  display:none;  
+  
+  width:100%;  
+  
+  max-height:450px;  
+  
+  object-fit:cover;  
+  
+  margin-top:16px;  
+  
+  border-radius:13px;  
+  
+  border:1px solid #e1e5ec;  
+}  
+  
+.image-preview.show{  
+  display:block;  
+}  
+  
+  
+/* =========================  
+   PUBLISH  
+========================= */  
+  
+.publish-row{  
+  display:flex;  
+  
+  align-items:center;  
+  
+  justify-content:space-between;  
+  
+  padding:15px;  
+  
+  border-radius:13px;  
+  
+  background:#f8f9fc;  
+}  
+  
+.publish-label{  
+  font-weight:800;  
+}  
+  
+.publish-row input{  
+  width:21px;  
+  
+  height:21px;  
+  
+  accent-color:#6548df;  
+}  
+  
+  
+/* =========================  
+   BUTTONS  
+========================= */  
+  
+.form-actions{  
+  display:flex;  
+  
+  gap:10px;  
+  
+  margin-top:22px;  
+}  
+  
+.primary{  
+  border:0;  
+  
+  padding:14px 20px;  
+  
+  border-radius:12px;  
+  
+  background:  
+    linear-gradient(  
+      135deg,  
+      #704cf6,  
+      #4f46e5  
+    );  
+  
+  color:#fff;  
+  
+  font-size:15px;  
+  
+  font-weight:900;  
+  
+  cursor:pointer;  
+}  
+  
+.primary:hover{  
+  opacity:.94;  
+}  
+  
+.primary:disabled{  
+  opacity:.55;  
+  
+  cursor:not-allowed;  
+}  
+  
+.secondary{  
+  padding:14px 20px;  
+  
+  border:1px solid #dfe3ea;  
+  
+  border-radius:12px;  
+  
+  background:#fff;  
+  
+  color:#344054;  
+  
+  font-weight:800;  
+  
+  cursor:pointer;  
+}  
+  
+  
+/* =========================  
+   MESSAGE  
+========================= */  
+  
+.message{  
+  padding:14px 16px;  
+  
+  margin-bottom:20px;  
+  
+  border-radius:13px;  
+  
+  font-size:14px;  
+  
+  line-height:1.6;  
+}  
+  
+.message.error{  
+  background:#fff1f2;  
+  
+  border:1px solid #fecdd3;  
+  
+  color:#b42318;  
+}  
+  
+.message.success{  
+  background:#ecfdf3;  
+  
+  border:1px solid #bbf7d0;  
+  
+  color:#027a48;  
+}  
+  
+  
+/* =========================  
+   POSTS  
+========================= */  
+  
+.posts-list{  
+  display:flex;  
+  
+  flex-direction:column;  
+  
+  gap:13px;  
+}  
+  
+.post-item{  
+  display:flex;  
+  
+  gap:12px;  
+  
+  padding:13px;  
+  
+  border:1px solid #e5e8ee;  
+  
+  border-radius:14px;  
+}  
+  
+.post-thumb{  
+  width:70px;  
+  
+  height:70px;  
+  
+  flex:0 0 70px;  
+  
+  object-fit:cover;  
+  
+  border-radius:10px;  
+  
+  background:#eef1f6;  
+}  
+  
+.post-info{  
+  min-width:0;  
+  
+  flex:1;  
+}  
+  
+.post-title{  
+  font-size:14px;  
+  
+  font-weight:900;  
+  
+  line-height:1.4;  
+  
+  margin-bottom:5px;  
+}  
+  
+.post-meta{  
+  color:#7b8494;  
+  
+  font-size:11px;  
+  
+  line-height:1.5;  
+}  
+  
+.post-status{  
+  display:inline-block;  
+  
+  margin-top:6px;  
+  
+  padding:4px 8px;  
+  
+  border-radius:999px;  
+  
+  background:#ecfdf3;  
+  
+  color:#027a48;  
+  
+  font-size:9px;  
+  
+  font-weight:900;  
+}  
+  
+.post-status.draft{  
+  background:#fff7ed;  
+  
+  color:#c2410c;  
+}  
+  
+.post-actions-row{  
+  display:flex;  
+  
+  gap:8px;  
+  
+  margin-top:8px;  
+}  
+  
+.edit-btn{  
+  padding:7px 10px;  
+  
+  border:0;  
+  
+  border-radius:8px;  
+  
+  background:#eff6ff;  
+  
+  color:#1d4ed8;  
+  
+  font-size:11px;  
+  
+  font-weight:800;  
+  
+  cursor:pointer;  
+}  
+  
+.delete-btn{  
+  padding:7px 10px;  
+  
+  border:0;  
+  
+  border-radius:8px;  
+  
+  background:#fff1f2;  
+  
+  color:#b42318;  
+  
+  font-size:11px;  
+  
+  font-weight:800;  
+  
+  cursor:pointer;  
+}  
+  
+  
+/* =========================  
+   SUBSCRIBERS TABLE STYLES  
+========================= */  
+  
+.table-responsive{  
+  width: 100%;  
+  overflow-x: auto;  
+  margin-top: 15px;  
+}  
+  
+.sub-table{  
+  width: 100%;  
+  border-collapse: collapse;  
+  text-align: left;  
+}  
+  
+.sub-table th, .sub-table td{  
+  padding: 12px 15px;  
+  border-bottom: 1px solid #e5e8ee;  
+  font-size: 14px;  
+}  
+  
+.sub-table th{  
+  background-color: #f8f9fc;  
+  color: #344054;  
+  font-weight: 800;  
+}  
+  
+  
+/* =========================  
+   MOBILE  
+========================= */  
+  
+@media(max-width:850px){  
+  
+  .admin-grid{  
+    grid-template-columns:1fr;  
+  }  
+  
+  .stats{  
+    grid-template-columns:repeat(2, 1fr);  
+  }  
+  
+}  
+  
+@media(max-width:600px){  
+  
+  .stats{  
+    grid-template-columns:1fr;  
+  }  
+  
+  .header-inner{  
+    min-height:68px;  
+  }  
+  
+  .logo{  
+    width:44px;  
+  
+    height:44px;  
+  }  
+  
+  .brand-name{  
+    font-size:17px;  
+  }  
+  
+  .brand-small{  
+    font-size:9px;  
+  }  
+  
+  .logout{  
+    padding:9px 13px;  
+  
+    font-size:12px;  
+  }  
+  
+  .container{  
+    width:calc(100% - 20px);  
+  
+    margin-top:22px;  
+  }  
+  
+  .panel{  
+    padding:20px;  
+  }  
+  
+  .dashboard-title h1{  
+    font-size:30px;  
+  }  
+  
+  .form-actions{  
+    flex-direction:column;  
+  }  
+  
+  .form-actions button{  
+    width:100%;  
+  }  
+  
+  .login-card{  
+    padding:27px 20px;  
+  }  
+  
+  .rich-toolbar{  
+    gap:5px;  
+  
+    padding:8px;  
+  }  
+  
+  .rich-toolbar button{  
+    min-width:34px;  
+  
+    height:34px;  
+  
+    padding:0 8px;  
+  }  
+  
+}  
+  
+</style>  </head>  <body>  <!-- =====================================================  
+     HEADER  
+===================================================== -->  <header class="header">    <div class="header-inner">  <div class="brand">  
+
+  <img  
+    src="https://kulmishub.com/logo.svg"  
+    class="logo"  
+    alt="KULMIS HUB"  
+  >  
+
+  <div>  
+
+    <div class="brand-name">  
+      KULMIS <span>HUB</span>  
+    </div>  
+
+    <div class="brand-small">  
+      Admin Panel  
+    </div>  
+
+  </div>  
+
+</div>  
+
+
+<button  
+  id="logoutBtn"  
+  class="logout hidden"  
+  type="button"  
+>  
+  Logout  
+</button>
+
+  </div>  </header>  <!-- =====================================================  
+     LOGIN  
+===================================================== -->  <section  
+  id="loginSection"  
+  class="login-wrapper"  
+>    <div class="login-card">  <img  
+  src="https://kulmishub.com/logo.svg"  
+  class="login-logo"  
+  alt="KULMIS HUB"  
+>  
+
+<h1>  
+  Admin Login  
+</h1>  
+
+<p>  
+  Geli email-ka iyo password-ka maamulka.  
+</p>  
+
+
+<div  
+  id="loginMessage"  
+  class="message error hidden"  
+></div>  
+
+
+<div class="field">  
+
+  <label>  
+    Email  
+  </label>  
+
+  <input  
+    id="email"  
+    type="email"  
+    autocomplete="username"  
+    placeholder="Email-ka admin-ka"  
+  >  
+
+</div>  
+
+
+<div class="field">  
+
+  <label>  
+    Password  
+  </label>  
+
+  <input  
+    id="password"  
+    type="password"  
+    autocomplete="current-password"  
+    placeholder="Password"  
+  >  
+
+</div>  
+
+
+<button  
+  id="loginBtn"  
+  class="primary"  
+  type="button"  
+  style="width:100%;"  
+>  
+  Login  
+</button>
+
+  </div>  </section>  <!-- =====================================================  
+     ADMIN PANEL  
+===================================================== -->  <section  
+  id="adminSection"  
+  class="hidden"  
+>  <main class="container">    <div class="dashboard-title">  <h1>  
+  Dashboard  
+</h1>  
+
+<p>  
+  Maamul fursadaha KULMIS HUB iyo xogta dadka is-diiwaangeliyay.  
+</p>
+
+  </div>    <!-- STATS -->    <div class="stats">  <div class="stat">  
+
+  <span  
+    id="totalPosts"  
+    class="stat-number"  
+  >  
+    0  
+  </span>  
+
+  <span class="stat-label">  
+    Total Posts  
+  </span>  
+
+</div>  
+
+
+<div class="stat">  
+
+  <span  
+    id="publishedPosts"  
+    class="stat-number"  
+  >  
+    0  
+  </span>  
+
+  <span class="stat-label">  
+    Published  
+  </span>  
+
+</div>  
+
+
+<div class="stat">  
+
+  <span  
+    id="draftPosts"  
+    class="stat-number"  
+  >  
+    0  
+  </span>  
+
+  <span class="stat-label">  
+    Drafts  
+  </span>  
+
+</div>  
+
+<div class="stat">  
+
+  <span  
+    id="totalSubscribersStat"  
+    class="stat-number"  
+  >  
+    0  
+  </span>  
+
+  <span class="stat-label">  
+    Subscribers  
+  </span>  
+
+</div>
+
+  </div>    <div  
+    id="adminMessage"  
+    class="message hidden"  
+  ></div>    <div class="admin-grid">  <!-- =================================================  
+     ADD / EDIT POST  
+================================================== -->  
+
+<section class="panel">  
+
+  <h2 id="formHeading">  
+    Ku dar Fursad Cusub  
+  </h2>  
+
+  <p id="formSubHeading" class="panel-subtitle">  
+    Geli xogta scholarship, shaqo ama seminar.  
+  </p>  
+
+
+  <form id="postForm">  
+
+    <!-- EDIT ID -->  
+
+    <input  
+      type="hidden"  
+      id="editPostId"  
+      value=""  
+    >  
+
+    <input  
+      type="hidden"  
+      id="existingImageUrl"  
+      value=""  
+    >  
+
+
+    <!-- TITLE -->  
+
+    <div class="field">  
+
+      <label>  
+        Title *  
+      </label>  
+
+      <input  
+        id="title"  
+        type="text"  
+        required  
+        placeholder="Chevening Scholarship 2027–28"  
+      >  
+
+    </div>  
+
+
+
+    <!-- TYPE -->  
+
+    <div class="field">  
+
+      <label>  
+        Type *  
+      </label>  
+
+      <select  
+        id="type"  
+        required  
+      >  
+
+        <option value="Waxbarasho">  
+          Waxbarasho  
+        </option>  
+
+        <option value="Shaqo">  
+          Shaqo  
+        </option>  
+
+        <option value="Seminar">  
+          Seminar  
+        </option>  
+
+      </select>  
+
+    </div>  
+
+
+
+    <!-- COUNTRY -->  
+
+    <div class="field">  
+
+      <label>  
+        Dalka (Ikhtiyaari)  
+      </label>  
+
+      <input  
+        id="country"  
+        type="text"  
+        placeholder="UK (Ingiriiska)"  
+      >  
+
+    </div>  
+
+
+
+    <!-- DEADLINE -->  
+
+    <div class="field">  
+
+      <label>  
+        Deadline (Ikhtiyaari)  
+      </label>  
+
+      <input  
+        id="deadline"  
+        type="date"  
+      >  
+
+    </div>  
+
+
+
+    <!-- IMAGE -->  
+
+    <div class="field">  
+
+      <label>  
+        Sawirka Fursadda  
+      </label>  
+
+      <div class="upload-box">  
+
+        <input  
+          id="imageFile"  
+          type="file"  
+          accept="image/*"  
+        >  
+
+        <img  
+          id="imagePreview"  
+          class="image-preview"  
+          alt="Sawirka fursadda"  
+        >  
+
+      </div>  
+
+    </div>  
+
+
+
+    <!-- =================================================  
+         DESCRIPTION / RICH TEXT  
+    ================================================== -->  
+
+    <div class="field">  
+
+      <label>  
+        Qoraalka *  
+      </label>  
+
+
+      <div class="rich-editor">  
+
+
+        <!-- TOOLBAR -->  
+
+        <div class="rich-toolbar">  
+
+
+          <!-- BOLD -->  
+
+          <button  
+            type="button"  
+            class="bold-btn"  
+            onclick="formatText('bold')"  
+            title="Bold"  
+          >  
+            B  
+          </button>  
+
+
+          <!-- ITALIC -->  
+
+          <button  
+            type="button"  
+            class="italic-btn"  
+            onclick="formatText('italic')"  
+            title="Italic"  
+          >  
+            I  
+          </button>  
+
+
+          <!-- COLORS -->  
+
+          <div class="color-group">  
+
+
+            <button  
+              type="button"  
+              class="color-btn color-black"  
+              onclick="changeTextColor('#182338')"  
+              title="Black"  
+              aria-label="Black"  
+            ></button>  
+
+
+            <button  
+              type="button"  
+              class="color-btn color-blue"  
+              onclick="changeTextColor('#2563eb')"  
+              title="Blue"  
+              aria-label="Blue"  
+            ></button>  
+
+
+            <button  
+              type="button"  
+              class="color-btn color-red"  
+              onclick="changeTextColor('#dc2626')"  
+              title="Red"  
+              aria-label="Red"  
+            ></button>  
+
+
+            <button  
+              type="button"  
+              class="color-btn color-green"  
+              onclick="changeTextColor('#16a34a')"  
+              title="Green"  
+              aria-label="Green"  
+            ></button>  
+
+
+            <button  
+              type="button"  
+              class="color-btn color-purple"  
+              onclick="changeTextColor('#7c3aed')"  
+              title="Purple"  
+              aria-label="Purple"  
+            ></button>  
+
+
+            <button  
+              type="button"  
+              class="color-btn color-orange"  
+              onclick="changeTextColor('#ea580c')"  
+              title="Orange"  
+              aria-label="Orange"  
+            ></button>  
+
+
+          </div>  
+
+
+        </div>  
+
+
+        <!-- EDITABLE AREA -->  
+
+        <div  
+          id="descriptionEditor"  
+          class="rich-content"  
+          contenteditable="true"  
+          data-placeholder="Geli qoraalka fursadda..."  
+        ></div>  
+
+
+      </div>  
+
+
+      <!-- HIDDEN DESCRIPTION FIELD -->  
+
+      <textarea  
+        id="description"  
+        class="hidden"  
+        required  
+      ></textarea>  
+
+
+    </div>  
+
+
+
+    <!-- OFFICIAL LINK -->  
+
+    <div class="field">  
+
+      <label>  
+        Official Link (Ikhtiyaari)  
+      </label>  
+
+      <input  
+        id="link"  
+        type="url"  
+        placeholder="https://www.example.com"  
+      >  
+
+    </div>  
+
+
+
+    <!-- PUBLISH -->  
+
+    <div class="publish-row">  
+
+      <span class="publish-label">  
+        Publish hadda  
+      </span>  
+
+      <input  
+        id="published"  
+        type="checkbox"  
+        checked  
+      >  
+
+    </div>  
+
+
+
+    <!-- BUTTONS -->  
+
+    <div class="form-actions">  
+
+      <button  
+        id="saveBtn"  
+        class="primary"  
+        type="submit"  
+      >  
+        Publish Post  
+      </button>  
+
+
+      <button  
+        id="clearBtn"  
+        class="secondary"  
+        type="button"  
+      >  
+        Clear  
+      </button>  
+
+    </div>  
+
+  </form>  
+
+</section>  
+
+
+
+<!-- =================================================  
+     POSTS  
+================================================== -->  
+
+<aside class="panel">  
+
+  <h2>  
+    Posts-ka  
+  </h2>  
+
+  <p class="panel-subtitle">  
+    Fursadaha aad hore u gelisay.  
+  </p>  
+
+  <div  
+    id="postsList"  
+    class="posts-list"  
+  >  
+    Loading...  
+  </div>  
+
+</aside>
+
+  </div>    <!-- =================================================  
+       SUBSCRIBERS PANEL  
+  ================================================== -->    <section class="panel" style="margin-top: 25px;">  <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 20px;">  
+  <div>  
+    <h2 style="margin: 0 0 5px;">Newsletter Subscribers</h2>  
+    <p class="panel-subtitle" style="margin: 0;">Liiska email-ada ee dadka is-diiwaangeliyay.</p>  
+  </div>  
+  <button class="primary" type="button" onclick="downloadJSON()" style="padding: 10px 16px; font-size: 14px;">  
+    📥 Soo Degso Subscribers (JSON)  
+  </button>  
+</div>  
+
+<div class="table-responsive">  
+  <table class="sub-table">  
+    <thead>  
+      <tr>  
+        <th style="width: 60px;">#</th>  
+        <th>Email-ka</th>  
+        <th>Taariikhda uu is-diiwaangeliyay</th>  
+      </tr>  
+    </thead>  
+    <tbody id="subscriberTableBody">  
+      <tr>  
+        <td colspan="3" style="text-align: center; color: #7b8494; padding: 25px;">Xogta waa la soo wadaa...</td>  
+      </tr>  
+    </tbody>  
+  </table>  
+</div>
+
+  </section>  </main>  </section>  <script>  
+  
+/* =====================================================  
+   SUPABASE CONFIG  
+===================================================== */  
+  
+const SUPABASE_URL =  
+  "https://wxamihjterffxrnpqxwt.supabase.co";  
+  
+const SUPABASE_KEY =  
+  "sb_publishable_KXBcUODUGXrWUTY70jNPvw_2SwNy-A1";  
+  
+const STORAGE_BUCKET =  
+  "opportunity-images";  
+  
+  
+const client =  
+  window.supabase.createClient(  
+    SUPABASE_URL,  
+    SUPABASE_KEY  
+  );  
+  
+  
+/* =====================================================  
+   HELPERS  
+===================================================== */  
+  
+function $(id){  
+  return document.getElementById(id);  
+}  
+  
+  
+function escapeHtml(value){  
+  return String(value ?? "")  
+    .replace(/&/g,"&amp;")  
+    .replace(/</g,"&lt;")  
+    .replace(/>/g,"&gt;")  
+    .replace(/"/g,"&quot;")  
+    .replace(/'/g,"&#039;");  
+}  
+  
+  
+function showMessage(element, message, type){  
+  element.textContent = message;  
+  element.className = "message " + type;  
+}  
+  
+  
+function hideMessage(element){  
+  element.classList.add("hidden");  
+}  
+  
+  
+/* =====================================================  
+   RICH TEXT EDITOR  
+===================================================== */  
+  
+let savedSelection = null;  
+  
+function saveSelection(){  
+  const editor = $("descriptionEditor");  
+  const selection = window.getSelection();  
+  if(selection.rangeCount > 0 && editor.contains(selection.anchorNode)){  
+    savedSelection = selection.getRangeAt(0);  
+  }  
+}  
+  
+function restoreSelection(){  
+  if(!savedSelection) return;  
+  const editor = $("descriptionEditor");  
+  if(!editor.contains(savedSelection.commonAncestorContainer)) return;  
+  const selection = window.getSelection();  
+  selection.removeAllRanges();  
+  selection.addRange(savedSelection);  
+}  
+  
+window.formatText = function(command){  
+  $("descriptionEditor").focus();  
+  restoreSelection();  
+  document.execCommand(command, false, null);  
+  saveSelection();  
+  syncDescription();  
+};  
+  
+window.changeTextColor = function(color){  
+  $("descriptionEditor").focus();  
+  restoreSelection();  
+  document.execCommand("foreColor", false, color);  
+  saveSelection();  
+  syncDescription();  
+};  
+  
+$("descriptionEditor").addEventListener("mouseup", () => saveSelection());  
+$("descriptionEditor").addEventListener("keyup", () => saveSelection());  
+  
+function syncDescription(){  
+  $("description").value = $("descriptionEditor").innerHTML;  
+}  
+  
+function loadDescription(html){  
+  $("descriptionEditor").innerHTML = html || "";  
+  syncDescription();  
+}  
+  
+  
+/* =====================================================  
+   LOGIN  
+===================================================== */  
+  
+$("loginBtn").addEventListener("click", async function(){  
+  const email = $("email").value.trim();  
+  const password = $("password").value;  
+  
+  hideMessage($("loginMessage"));  
+  
+  if(!email || !password){  
+    showMessage($("loginMessage"), "Fadlan geli email iyo password.", "error");  
+    return;  
+  }  
+  
+  const button = $("loginBtn");  
+  button.disabled = true;  
+  button.textContent = "Logging in...";  
+  
+  try{  
+    const { data, error } = await client.auth.signInWithPassword({  
+      email: email,  
+      password: password  
+    });  
+  
+    if(error) throw error;  
+    if(!data.session) throw new Error("Login lama dhamaystirin.");  
+  
+    const admin = await checkAdmin();  
+    if(!admin) throw new Error("Account-kan ma laha Admin access.");  
+  }  
+  catch(error){  
+    console.error("LOGIN ERROR:", error);  
+    showMessage($("loginMessage"), error.message || "Login failed.", "error");  
+  }  
+  finally{  
+    button.disabled = false;  
+    button.textContent = "Login";  
+  }  
+});  
+  
+  
+/* =====================================================  
+   CHECK ADMIN  
+===================================================== */  
+  
+async function checkAdmin(){  
+  try{  
+    const { data, error } = await client.auth.getSession();  
+    if(error) throw error;  
+  
+    if(!data.session){  
+      $("loginSection").classList.remove("hidden");  
+      $("adminSection").classList.add("hidden");  
+      $("logoutBtn").classList.add("hidden");  
+      return false;  
+    }  
+  
+    const { data:isAdmin, error:adminError } = await client.rpc("is_admin");  
+    if(adminError) throw adminError;  
+  
+    if(isAdmin !== true){  
+      await client.auth.signOut();  
+      throw new Error("Account-kan ma aha Admin.");  
+    }  
+  
+    $("loginSection").classList.add("hidden");  
+    $("adminSection").classList.remove("hidden");  
+    $("logoutBtn").classList.remove("hidden");  
+  
+    await loadPosts();  
+    await loadSubscribers();  
+  
+    return true;  
+  }  
+  catch(error){  
+    console.error("ADMIN ERROR:", error);  
+    $("loginSection").classList.remove("hidden");  
+    $("adminSection").classList.add("hidden");  
+    $("logoutBtn").classList.add("hidden");  
+  
+    if(error.message){  
+      showMessage($("loginMessage"), error.message, "error");  
+    }  
+    return false;  
+  }  
+}  
+  
+  
+/* =====================================================  
+   LOGOUT  
+===================================================== */  
+  
+$("logoutBtn").addEventListener("click", async function(){  
+  await client.auth.signOut();  
+  location.reload();  
+});  
+  
+  
+/* =====================================================  
+   IMAGE PREVIEW & UPLOAD  
+===================================================== */  
+  
+$("imageFile").addEventListener("change", function(){  
+  const file = this.files[0];  
+  const preview = $("imagePreview");  
+  
+  if(!file){  
+    preview.src = "";  
+    preview.classList.remove("show");  
+    return;  
+  }  
+  
+  if(!file.type.startsWith("image/")){  
+    this.value = "";  
+    preview.src = "";  
+    preview.classList.remove("show");  
+    showMessage($("adminMessage"), "Fadlan dooro sawir sax ah.", "error");  
+    return;  
+  }  
+  
+  preview.src = URL.createObjectURL(file);  
+  preview.classList.add("show");  
+});  
+  
+async function uploadImage(file){  
+  if(!file) return null;  
+  const extension = file.name.split(".").pop().toLowerCase().replace(/[^a-z0-9]/g, "");  
+  const filename = "opportunities/" + Date.now() + "-" + Math.random().toString(36).substring(2,10) + "." + (extension || "jpg");  
+  
+  const { error } = await client.storage.from(STORAGE_BUCKET).upload(filename, file, {  
+    cacheControl: "3600",  
+    upsert: false,  
+    contentType: file.type  
+  });  
+  
+  if(error) throw new Error("Sawirka lama upload-gareyn: " + error.message);  
+  
+  const { data } = client.storage.from(STORAGE_BUCKET).getPublicUrl(filename);  
+  return data.publicUrl;  
+}  
+  
+  
+/* =====================================================  
+   SAVE / UPDATE POST  
+===================================================== */  
+  
+$("postForm").addEventListener("submit", async function(event){  
+  event.preventDefault();  
+  hideMessage($("adminMessage"));  
+  
+  const saveButton = $("saveBtn");  
+  saveButton.disabled = true;  
+  saveButton.textContent = "Saving...";  
+  
+  try{  
+    const editId = $("editPostId").value;  
+    const title = $("title").value.trim();  
+    const selectedType = $("type").value.trim();  
+    const country = $("country").value.trim();  
+    const deadline = $("deadline").value;  
+  
+    syncDescription();  
+    const description = $("description").value.trim();  
+    const link = $("link").value.trim();  
+    const published = $("published").checked;  
+  
+    if(!title || !selectedType || !description){  
+      throw new Error("Fadlan buuxi Title, Type iyo Qoraalka.");  
+    }  
+  
+    let databaseType = "Scholarship";  
+    if(selectedType === "Shaqo") databaseType = "Job";  
+    else if(selectedType === "Seminar") databaseType = "Seminar";  
+  
+    let automaticCategory = "Deeqo Waxbarasho";  
+    if(selectedType === "Shaqo") automaticCategory = "Shaqo";  
+    if(selectedType === "Seminar") automaticCategory = "Seminars";  
+  
+    let imageUrl = $("existingImageUrl").value || null;  
+    const imageFile = $("imageFile").files[0];  
+  
+    if(imageFile){  
+      saveButton.textContent = "Uploading image...";  
+      imageUrl = await uploadImage(imageFile);  
+    }  
+  
+    saveButton.textContent = editId ? "Updating post..." : "Saving post...";  
+  
+    const postData = {  
+      title,  
+      type: databaseType,  
+      category: automaticCategory,  
+      country: country || null,  
+      image_url: imageUrl,  
+      deadline: deadline || null,  
+      description,  
+      link: link || null,  
+      published  
+    };  
+  
+    let error;  
+    if(editId){  
+      const res = await client.from("opportunities").update(postData).eq("id", editId);  
+      error = res.error;  
+    } else {  
+      const res = await client.from("opportunities").insert(postData);  
+      error = res.error;  
+    }  
+  
+    if(error) throw error;  
+  
+    showMessage($("adminMessage"), editId ? "Post-ka si guul leh ayaa loo beddelay." : "Post-ka si guul leh ayaa loo daabacay.", "success");  
+    clearForm();  
+    await loadPosts();  
+  }  
+  catch(error){  
+    console.error("SAVE ERROR:", error);  
+    showMessage($("adminMessage"), error.message || "Post-ka lama kaydin.", "error");  
+  }  
+  finally{  
+    saveButton.disabled = false;  
+    saveButton.textContent = $("editPostId").value ? "Update Post" : "Publish Post";  
+  }  
+});  
+  
+function clearForm(){  
+  $("postForm").reset();  
+  $("editPostId").value = "";  
+  $("existingImageUrl").value = "";  
+  $("type").value = "Waxbarasho";  
+  $("published").checked = true;  
+  $("descriptionEditor").innerHTML = "";  
+  $("description").value = "";  
+  $("imagePreview").src = "";  
+  $("imagePreview").classList.remove("show");  
+  $("formHeading").textContent = "Ku dar Fursad Cusub";  
+  $("formSubHeading").textContent = "Geli xogta scholarship, shaqo ama seminar.";  
+  $("saveBtn").textContent = "Publish Post";  
+  savedSelection = null;  
+}  
+  
+$("clearBtn").addEventListener("click", function(){  
+  clearForm();  
+  hideMessage($("adminMessage"));  
+});  
+  
+  
+/* =====================================================  
+   LOAD POSTS  
+===================================================== */  
+  
+async function loadPosts(){  
+  try{  
+    const { data, error } = await client  
+      .from("opportunities")  
+      .select("id,title,type,category,country,image_url,deadline,description,link,published,created_at")  
+      .order("created_at", { ascending: false });  
+  
+    if(error) throw error;  
+  
+    const posts = data || [];  
+    const published = posts.filter(post => post.published === true);  
+    const drafts = posts.filter(post => post.published !== true);  
+  
+    $("totalPosts").textContent = posts.length;  
+    $("publishedPosts").textContent = published.length;  
+    $("draftPosts").textContent = drafts.length;  
+  
+    renderPosts(posts);  
+  }  
+  catch(error){  
+    console.error("LOAD POSTS ERROR:", error);  
+    $("postsList").innerHTML = `<div class="message error">Posts-ka lama soo dejin karin.<br><br>${escapeHtml(error.message)}</div>`;  
+  }  
+}  
+  
+function renderPosts(posts){  
+  if(!posts.length){  
+    $("postsList").innerHTML = `<div style="padding:25px; text-align:center; color:#7b8494;">Weli post lama gelin.</div>`;  
+    return;  
+  }  
+  window.allPostsData = posts;  
+  $("postsList").innerHTML = posts.map(post => `  
+    <div class="post-item">  
+      ${post.image_url ? `<img class="post-thumb" src="${escapeHtml(post.image_url)}" alt="">` : `<div class="post-thumb" style="display:flex; align-items:center; justify-content:center; font-size:26px;">📄</div>`}  
+      <div class="post-info">  
+        <div class="post-title">${escapeHtml(post.title)}</div>  
+        <div class="post-meta">${escapeHtml(post.type || "")}${post.country ? " • " + escapeHtml(post.country) : ""}</div>  
+        <span class="post-status ${post.published ? "" : "draft"}">${post.published ? "Published" : "Draft"}</span>  
+        <div class="post-actions-row">  
+          <button class="edit-btn" type="button" onclick="editPost('${post.id}')">Edit</button>  
+          <button class="delete-btn" type="button" onclick="deletePost('${post.id}')">Delete</button>  
+        </div>  
+      </div>  
+    </div>  
+  `).join("");  
+}  
+  
+window.editPost = function(id){  
+  const posts = window.allPostsData || [];  
+  const post = posts.find(p => p.id === id);  
+  if(!post) return;  
+  
+  $("editPostId").value = post.id;  
+  $("title").value = post.title || "";  
+    
+  let uiType = "Waxbarasho";  
+  if(post.type === "Job") uiType = "Shaqo";  
+  if(post.type === "Seminar") uiType = "Seminar";  
+  $("type").value = uiType;  
+  
+  $("country").value = post.country || "";  
+  $("deadline").value = post.deadline || "";  
+  loadDescription(post.description || "");  
+  $("link").value = post.link || "";  
+  $("published").checked = !!post.published;  
+  $("existingImageUrl").value = post.image_url || "";  
+  
+  if(post.image_url){  
+    $("imagePreview").src = post.image_url;  
+    $("imagePreview").classList.add("show");  
+  } else {  
+    $("imagePreview").src = "";  
+    $("imagePreview").classList.remove("show");  
+  }  
+  
+  $("formHeading").textContent = "Wax ka beddel Post-ka";  
+  $("formSubHeading").textContent = "Halkan wax ka beddel xogta fursadda.";  
+  $("saveBtn").textContent = "Update Post";  
+  
+  window.scrollTo({ top: 0, behavior: "smooth" });  
+};  
+  
+window.deletePost = async function(id){  
+  if(!confirm("Ma hubtaa inaad tirtirayso post-kan?")) return;  
+  try{  
+    const { error } = await client.from("opportunities").delete().eq("id", id);  
+    if(error) throw error;  
+    showMessage($("adminMessage"), "Post-ka waa la tirtiray.", "success");  
+    await loadPosts();  
+  }  
+  catch(error){  
+    showMessage($("adminMessage"), error.message || "Post-ka lama tirtiri karin.", "error");  
+  }  
+};  
+  
+  
+/* =====================================================  
+   LOAD SUBSCRIBERS  
+===================================================== */  
+  
+let allSubscribers = [];  
+  
+async function loadSubscribers(){  
+  try {  
+    const { data, error } = await client  
+      .from('subscribers')  
+      .select('*')  
+      .order('created_at', { ascending: false });  
+  
+    const tableBody = $('subscriberTableBody');  
+    const statCounter = $('totalSubscribersStat');  
+  
+    if (error) {  
+      throw error;  
+    }  
+  
+    allSubscribers = data || [];  
+    statCounter.textContent = allSubscribers.length;  
+  
+    if (allSubscribers.length === 0) {  
+      tableBody.innerHTML = `<tr><td colspan="3" style="text-align: center; color: #7b8494; padding: 25px;">Weli ma jiraan dad is-diiwaangeliyay.</td></tr>`;  
+      return;  
+    }  
+  
+    tableBody.innerHTML = allSubscribers.map((sub, index) => {  
+      let dateFormatted = sub.created_at ? new Date(sub.created_at).toLocaleString() : '-';  
+      return `  
+        <tr>  
+          <td>${index + 1}</td>  
+          <td>${escapeHtml(sub.email)}</td>  
+          <td>${escapeHtml(dateFormatted)}</td>  
+        </tr>  
+      `;  
+    }).join('');  
+  
+  } catch (err) {  
+    console.error("LOAD SUBSCRIBERS ERROR:", err);  
+    // Halkan waxaa hadda ka soo muuqan doona Error-ka dhabta ah ee Supabase soo celiso  
+    $('subscriberTableBody').innerHTML = `<tr><td colspan="3" style="text-align: center; color: #b42318; padding: 15px; font-size: 13px;"><b>Error:</b> ${escapeHtml(err.message || JSON.stringify(err))}</td></tr>`;  
+  }  
+}  
+  
+  
+/* =====================================================  
+   DOWNLOAD SUBSCRIBERS JSON  
+===================================================== */  
+  
+function downloadJSON(){  
+  if (allSubscribers.length === 0) {  
+    alert('Ma jiro wax xog ah oo la soo dejiyo!');  
+    return;  
+  }  
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(allSubscribers, null, 2));  
+  const downloadAnchor = document.createElement('a');  
+  downloadAnchor.setAttribute("href", dataStr);  
+  downloadAnchor.setAttribute("download", "kulmishub_subscribers.json");  
+  document.body.appendChild(downloadAnchor);  
+  downloadAnchor.click();  
+  downloadAnchor.remove();  
+}  
+  
+  
+/* =====================================================  
+   START  
+===================================================== */  
+  
+(async function(){  
+  await checkAdmin();  
+})();  
+  
+</script>  </body>  
+</html>
