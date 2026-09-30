@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KULMIS HUB — Fursadaha Caalamiga ah</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:#172033;
+  background:#fff;
+}
+
+.wrap{
+  width:min(1120px,calc(100% - 30px));
+  margin:auto;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.nav{
+  min-height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color:#102a56;
+}
+
+.brand img{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+.brand-text strong{
+  display:block;
+  font-size:23px;
+}
+
+.brand-text small{
+  display:block;
+  color:#64748b;
+  font-size:12px;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+
+nav a{
+  color:#172033;
+  text-decoration:none;
+  padding:10px 12px;
+  border-radius:9px;
+  font-weight:700;
+}
+
+nav a:hover{
+  background:#eff6ff;
+  color:#2563eb;
+}
+
+.menu{
+  display:none;
+  border:0;
+  background:#2563eb;
+  color:white;
+  font-size:24px;
+  padding:7px 12px;
+  border-radius:9px;
+}
+
+/* HOME */
+.hero{
+  background:#0d47a1;
+  color:#fff;
+  padding:75px 0;
+}
+
+.hero h1{
+  font-size:48px;
+  line-height:1.15;
+  margin:20px 0;
+}
+
+.hero h1 span{
+  display:block;
+}
+
+.hero p{
+  max-width:760px;
+  font-size:18px;
+  line-height:1.8;
+}
+
+.badge{
+  display:inline-block;
+  background:#ffffff22;
+  border:1px solid #ffffff55;
+  padding:9px 14px;
+  border-radius:30px;
+  font-weight:700;
+}
+
+.hero-actions{
+  margin-top:28px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
+
+.hero-btn{
+  display:inline-block;
+  text-decoration:none;
+  padding:13px 18px;
+  border-radius:10px;
+  font-weight:800;
+}
+
+.hero-btn.primary{
+  background:#fff;
+  color:#0d47a1;
+}
+
+.hero-btn.secondary{
+  border:1px solid #ffffff80;
+  color:#fff;
+}
+
+/* SECTIONS */
+.section{
+  padding:65px 0;
+}
+
+.section label{
+  color:#2563eb;
+  font-weight:900;
+}
+
+.section h2{
+  font-size:38px;
+  color:#102a56;
+}
+
+.section p{
+  line-height:1.8;
+}
+
+/* CARDS */
+.choice-grid,
+.ongoing-grid,
+.service-grid,
+.social-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.choice-card,
+.service-card,
+.post-card{
+  background:#fff;
+  border:1px solid #dce4ef;
+  border-radius:16px;
+  padding:22px;
+  box-shadow:0 8px 25px #102a560b;
+}
+
+.choice-card{
+  border:0;
+  text-align:left;
+  cursor:pointer;
+}
+
+.choice-card span{
+  font-size:32px;
+}
+
+.choice-card b{
+  display:block;
+  font-size:20px;
+  margin:10px 0;
+}
+
+.choice-card small{
+  color:#64748b;
+  line-height:1.6;
+}
+
+/* POSTS */
+.post-card h3{
+  color:#102a56;
+}
+
+.post-card p{
+  color:#64748b;
+  line-height:1.6;
+}
+
+.post-action{
+  display:inline-block;
+  background:#2563eb;
+  color:#fff;
+  text-decoration:none;
+  border:0;
+  padding:10px 14px;
+  border-radius:9px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.post-action.secondary{
+  background:#eef4ff;
+  color:#2563eb;
+}
+
+/* SUBSCRIBE */
+.subscribe-section{
+  background:#eef5ff;
+  padding:55px 0;
+  border-top:1px solid #dbe8fb;
+  border-bottom:1px solid #dbe8fb;
+}
+
+.subscribe-card{
+  max-width:760px;
+  margin:auto;
+  background:#fff;
+  border:1px solid #d9e5f5;
+  border-radius:22px;
+  padding:32px;
+  box-shadow:0 12px 30px #102a5610;
+  text-align:center;
+}
+
+.subscribe-card h2{
+  margin:0 0 10px;
+  color:#102a56;
+  font-size:34px;
+}
+
+.subscribe-card p{
+  color:#687386;
+  line-height:1.7;
+}
+
+.subscribe-form{
+  display:flex;
+  gap:10px;
+  max-width:620px;
+  margin:22px auto 0;
+}
+
+.subscribe-form input{
+  flex:1;
+  min-width:0;
+  border:1px solid #cfd9e8;
+  border-radius:12px;
+  padding:14px;
+  font-size:16px;
+  outline:none;
+}
+
+.subscribe-form input:focus{
+  border-color:#2563eb;
+}
+
+.subscribe-form button{
+  border:0;
+  border-radius:12px;
+  background:#2563eb;
+  color:#fff;
+  padding:14px 23px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.subscribe-form button:disabled{
+  opacity:.6;
+}
+
+.subscribe-message{
+  margin-top:14px;
+  font-weight:800;
+  min-height:22px;
+}
+
+.subscribe-note{
+  font-size:13px!important;
+  color:#7b8798!important;
+}
+
+/* SOCIAL */
+.social-section{
+  padding:55px 0;
+  background:#f8fafc;
+}
+
+.social-section h2{
+  text-align:center;
+  color:#102a56;
+}
+
+.social-link{
+  text-decoration:none;
+  color:#172033;
+  background:#fff;
+  border:1px solid #dce4ef;
+  padding:18px;
+  border-radius:13px;
+  font-weight:800;
+  text-align:center;
+}
+
+/* FOOTER */
+footer{
+  background:#0b1f3a;
+  color:#fff;
+  padding:35px 0;
+  text-align:center;
+}
+
+footer p{
+  margin:7px;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+  nav{
+    display:none;
+    position:absolute;
+    right:15px;
+    top:75px;
+    width:250px;
+    background:#fff;
+    padding:10px;
+    border:1px solid #dce4ef;
+    border-radius:14px;
+    box-shadow:0 15px 35px #0002;
+    flex-direction:column;
+    align-items:stretch;
+  }
+
+  nav.open{
+    display:flex;
+  }
+
+  nav a{
+    padding:14px;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .choice-grid,
+  .ongoing-grid,
+  .service-grid,
+  .social-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .wrap{
+    width:min(100% - 24px,1120px);
+  }
+
+  .hero{
+    padding:50px 0;
+  }
+
+  .hero h1{
+    font-size:38px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .choice-grid,
+  .ongoing-grid,
+  .service-grid,
+  .social-grid{
+    grid-template-columns:1fr;
+  }
+
+  .section h2{
+    font-size:32px;
+  }
+
+  .subscribe-card{
+    padding:25px 18px;
+  }
+
+  .subscribe-card h2{
+    font-size:29px;
+  }
+
+  .subscribe-form{
+    flex-direction:column;
+  }
+
+  .subscribe-form button{
+    width:100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+<div class="wrap nav">
+
+<a class="brand" href="#home">
+<img src="assets/logo.svg" alt="KULMIS HUB">
+<span class="brand-text">
+<strong>KULMIS HUB</strong>
+<small>Fursado waxbarasho, Seminars & shaqooyin</small>
+</span>
+</a>
+
+<button class="menu" id="menuBtn">☰</button>
+
+<nav id="mainNav">
+<a href="#home">Bogga Hore</a>
+<a href="#about">Nagu Saabsan</a>
+<a href="#scholarships">Deeqo Waxbarasho</a>
+<a href="#seminars">Seminars</a>
+<a href="#work">Fursadaha Shaqo</a>
+<a href="#services">Adeegyadeena</a>
+<a href="#contact">Nala Soo Xiriir</a>
+</nav>
+
+</div>
+</header>
+
+
+<main>
+
+<!-- HOME -->
+<section id="home">
+
+<div class="hero">
+<div class="wrap">
+
+<span class="badge">
+🌍 KULMIS HUB • Fursadaha Caalamiga ah
+</span>
+
+<h1>
+KULMIS HUB — Waa Hoyga
+<span>Fursadaha Caalamiga ah.</span>
+</h1>
+
+<p>
+Hal meel ka hel deeqaha waxbarasho, seminars,
+shaqooyin iyo fursado kale oo ka socda Soomaaliya,
+Afrika iyo dunida inteeda kale.
+</p>
+
+<div class="hero-actions">
+
+<a class="hero-btn primary" href="#scholarships">
+🎓 Eeg Deeqaha Waxbarasho
+</a>
+
+<a class="hero-btn secondary" href="#seminars">
+🎤 Seminars
+</a>
+
+<a class="hero-btn secondary" href="#work">
+💼 Fursadaha Shaqo
+</a>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" class="section">
+<div class="wrap">
+
+<label>NAGU SAABSAN</label>
+
+<h2>KULMIS HUB</h2>
+
+<p>
+<b>
+KULMIS HUB waa madal dijitaal ah oo bulshada u soo gudbisa
+fursadaha waxbarasho, seminars, shaqooyin iyo fursado kale
+oo gudaha iyo caalamka ah.
+</b>
+</p>
+
+<p>
+Ujeeddadeennu waa inaan fursadaha muhiimka ah hal meel ku
+soo ururinno, isla markaana dadka ku hagno bogagga rasmiga ah
+ee codsiga.
+</p>
+
+<h3>Waxaan baahinnaa:</h3>
+
+<ul>
+<li>🎓 Deeqo Waxbarasho</li>
+<li>🎤 Seminars, workshops & conferences</li>
+<li>💼 Fursadaha Shaqo & internships</li>
+<li>🌍 Fursadaha Caalamiga ah</li>
+</ul>
+
+</div>
+</section>
+
+
+<!-- SCHOLARSHIPS -->
+<section id="scholarships" class="section">
+<div class="wrap">
+
+<label>DEEGO WAXBARASHO</label>
+
+<h2>Deeqo Waxbarasho</h2>
+
+<div class="choice-grid">
+
+<button class="choice-card">
+<span>📍</span>
+<b>Gudaha</b>
+<small>
+Fursadaha waxbarasho ee gudaha Soomaaliya.
+</small>
+</button>
+
+<button class="choice-card">
+<span>🌍</span>
+<b>Caalamka</b>
+<small>
+Fursadaha waxbarasho ee caalamka.
+</small>
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- SEMINARS -->
+<section id="seminars" class="section">
+<div class="wrap">
+
+<label>SEMINARS</label>
+
+<h2>Seminars & Events</h2>
+
+<div class="post-card">
+<h3>🎤 Seminars, Workshops & Conferences</h3>
+<p>
+Halkan waxaa lagu soo bandhigi doonaa seminars,
+workshops iyo conferences cusub.
+</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- JOBS -->
+<section id="work" class="section">
+<div class="wrap">
+
+<label>FURSADAHA SHAQO</label>
+
+<h2>Fursadaha Shaqo</h2>
+
+<div class="post-card">
+
+<h3>💼 Jobs & Internships</h3>
+
+<p>
+Halkan ka hel fursadaha shaqo, internships iyo
+work opportunities gudaha iyo dibadda.
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" class="section">
+<div class="wrap">
+
+<label>ADEEGYADA</label>
+
+<h2>Adeegyadeena</h2>
+
+<div class="service-grid">
+
+<div class="service-card">
+<h3>🎓 Scholarships</h3>
+<p>
+Macluumaad ku saabsan deeqaha waxbarasho.
+</p>
+</div>
+
+<div class="service-card">
+<h3>💼 Jobs</h3>
+<p>
+Fursadaha shaqo iyo internships.
+</p>
+</div>
+
+<div class="service-card">
+<h3>🌍 Opportunities</h3>
+<p>
+Fursadaha caalamiga ah.
+</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+<div class="wrap">
+
+<label>NALA SOO XIRIIR</label>
+
+<h2>Nala Soo Xiriir</h2>
+
+<div class="post-card">
+
+<p>
+📧 Email:
+<strong>info@kulmishub.com</strong>
+</p>
+
+<p>
+🌐 Website:
+<strong>www.kulmishub.com</strong>
+</p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- SUBSCRIBE -->
+<section class="subscribe-section">
+
+<div class="wrap">
+
+<div class="subscribe-card">
+
+<h2>📩 Hel Fursadaha Cusub</h2>
+
+<p>
+Ku biir KULMIS HUB si aad uga hesho ogeysiisyada
+ku saabsan deeqaha waxbarasho, shaqooyinka,
+seminars-ka iyo fursadaha cusub.
+</p>
+
+<form
+class="subscribe-form"
+onsubmit="subscribeVisitor(event)"
+>
+
+<input
+id="subscriberEmail"
+type="email"
+placeholder="Geli email-kaaga"
+autocomplete="email"
+required
+maxlength="254"
+>
+
+<button
+id="subscribeBtn"
+type="submit"
+>
+Subscribe
+</button>
+
+</form>
+
+<div
+id="subscribeMessage"
+class="subscribe-message"
+aria-live="polite">
+</div>
+
+<p class="subscribe-note">
+Email-kaaga waxaa loo isticmaali doonaa oo keliya
+ogeysiisyada KULMIS HUB. Waad ka bixi kartaa mar kasta.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- SOCIAL MEDIA -->
+<section class="social-section">
+
+<div class="wrap">
+
+<h2>Baraha Bulshada</h2>
+
+<div class="social-grid">
+
+<a
+class="social-link"
+href="https://www.tiktok.com/@kulmismedia1"
+target="_blank"
+>
+TikTok
+</a>
+
+<a
+class="social-link"
+href="https://youtube.com/@kulmishub"
+target="_blank"
+>
+YouTube
+</a>
+
+<a
+class="social-link"
+href="https://www.facebook.com/share/1bGUvUsggt/"
+target="_blank"
+>
+Facebook
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+<strong>KULMIS HUB</strong>
+</p>
+
+<p>
+Scholarships • Jobs • Seminars • Opportunities
+</p>
+
+<p>
+© 2026 KULMIS HUB. All rights reserved.
+</p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   SUPABASE
+========================= */
+
+const SUPABASE_URL =
+'https://wxamihjterffxrnpqxwt.supabase.co';
+
+const SUPABASE_KEY =
+'sb_publishable_KXBcUODUGXrWUTY70jNPvw_2SwNy-A1';
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn =
+document.getElementById('menuBtn');
+
+const mainNav =
+document.getElementById('mainNav');
+
+menuBtn.addEventListener('click',function(){
+
+mainNav.classList.toggle('open');
+
+});
+
+
+document.querySelectorAll('#mainNav a')
+.forEach(function(link){
+
+link.addEventListener('click',function(){
+
+mainNav.classList.remove('open');
+
+});
+
+});
+
+
+/* =========================
+   SUBSCRIBE
+========================= */
+
+async function subscribeVisitor(event){
+
+event.preventDefault();
+
+const input =
+document.getElementById('subscriberEmail');
+
+const button =
+document.getElementById('subscribeBtn');
+
+const message =
+document.getElementById('subscribeMessage');
+
+const email =
+String(input.value || '')
+.trim()
+.toLowerCase();
+
+if(!email){
+
+return;
+
+}
+
+button.disabled = true;
+
+button.textContent =
+'La diiwaangelinayo...';
+
+message.textContent = '';
+
+
+try{
+
+const response = await fetch(
+
+SUPABASE_URL +
+'/rest/v1/subscribers',
+
+{
+
+method:'POST',
+
+headers:{
+
+apikey:SUPABASE_KEY,
+
+Authorization:
+'Bearer ' + SUPABASE_KEY,
+
+'Content-Type':
+'application/json',
+
+Prefer:
+'return=minimal'
+
+},
+
+body:JSON.stringify({
+
+email:email
+
+})
+
+});
+
+
+/* EMAIL HORAY U JIRA */
+
+if(response.status === 409){
+
+message.textContent =
+'Email-kan hore ayuu Subscribe u sameeyay.';
+
+message.style.color =
+'#2563eb';
+
+}
+
+
+/* SUCCESS */
+
+else if(response.ok){
+
+input.value = '';
+
+message.textContent =
+'✅ Waad ku guuleysatay! Email-kaaga waa la diiwaangeliyay.';
+
+message.style.color =
+'#15803d';
+
+}
+
+
+/* ERROR */
+
+else{
+
+throw new Error(
+'HTTP ' + response.status
+);
+
+}
+
+}
+
+catch(error){
+
+console.error(error);
+
+message.textContent =
+'❌ Subscribe-ku hadda ma shaqayn. Fadlan mar kale isku day.';
+
+message.style.color =
+'#dc2626';
+
+}
+
+
+finally{
+
+button.disabled = false;
+
+button.textContent =
+'Subscribe';
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
