@@ -17,29 +17,30 @@ function createPostSlug(title) {
 
 module.exports = async function handler(req, res) {
   try {
-    const response = await fetch(
-      ${SUPABASE_URL}/rest/v1/opportunities?select=title,created_at,published&published=eq.true&order=created_at.desc,
-      {
-        headers: {
-          apikey: SUPABASE_KEY,
-          Authorization: Bearer ${SUPABASE_KEY}
-        }
+    const supabaseEndpoint =
+      SUPABASE_URL +
+      "/rest/v1/opportunities?select=title,created_at&published=eq.true&order=created_at.desc";
+
+    const response = await fetch(supabaseEndpoint, {
+      headers: {
+        apikey: SUPABASE_KEY,
+        Authorization: "Bearer " + SUPABASE_KEY
       }
-    );
+    });
 
     if (!response.ok) {
-      throw new Error("Supabase request failed");
+      throw new Error("Supabase request failed: " + response.status);
     }
 
     const posts = await response.json();
 
-    const urls = [
-      
+    const urls = [];
+
+    urls.push(`
       <url>
         <loc>${SITE_URL}/</loc>
       </url>
-      
-    ];
+    `);
 
     for (const post of posts) {
       const slug = createPostSlug(post.title);
@@ -50,22 +51,28 @@ module.exports = async function handler(req, res) {
         ? new Date(post.created_at).toISOString()
         : new Date().toISOString();
 
-      urls.push(
-      <url>
-        <loc>${SITE_URL}/${encodeURIComponent(slug)}</loc>
-        <lastmod>${lastmod}</lastmod>
-      </url>
-      );
+      urls.push(`
+        <url>
+          <loc>${SITE_URL}/${encodeURIComponent(slug)}</loc>
+          <lastmod>${lastmod}</lastmod>
+        </url>
+      `);
     }
 
-    const xml = <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.join("")}
-</urlset>;
+</urlset>`;
 
-    res.setHeader("Content-Type", "application/xml; charset=utf-8");
-    res.setHeader("Cache-Control", "s-maxage=3600, stale-while-revalidate=86400");
+    res.setHeader(
+      "Content-Type",
+      "application/xml; charset=utf-8"
+    );
+
+    res.setHeader(
+      "Cache-Control",
+      "s-maxage=3600, stale-while-revalidate=86400"
+    );
 
     return res.status(200).send(xml);
 
@@ -73,8 +80,8 @@ ${urls.join("")}
     console.error(error);
 
     return res.status(500).send(
-      <?xml version="1.0" encoding="UTF-8"?>
-<error>Sitemap generation failed</error>
+      `<?xml version="1.0" encoding="UTF-8"?>
+<error>Sitemap generation failed</error>`
     );
   }
 };
