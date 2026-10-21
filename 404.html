@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fadlan sug — KULMIS HUB</title>
+  <script>
+    // GitHub Pages SPA fallback: preserve the requested path and send it to index.html.
+    (function () {
+      var location = window.location;
+      var path = location.pathname;
+      var search = location.search || '';
+      var hash = location.hash || '';
+
+      // Do not redirect real root requests or the fallback itself.
+      if (path === '/' || path === '/404.html') {
+        location.replace('/');
+        return;
+      }
+
+      // Encode ampersands so the index.html URL-rewrite script can restore the path.
+      var route = path.replace(/^\//, '').replace(/&/g, '~and~');
+      var query = search ? search.slice(1).replace(/&/g, '~and~') : '';
+      var destination = '/?/' + route;
+      if (query) destination += '&' + query;
+      destination += hash;
+      location.replace(destination);
+    })();
+  </script>
+</head>
+<body>
+  <p>Fadlan sug, KULMIS HUB ayaa furaya bogga aad codsatay…</p>
+  <noscript>Fadlan awood sii JavaScript ama ku noqo <a href="/">bogga hore ee KULMIS HUB</a>.</noscript>
+</body>
+</html>
