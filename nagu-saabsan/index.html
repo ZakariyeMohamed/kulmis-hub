@@ -3,15 +3,111 @@
 <html lang="so">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Baro KulmisHub, himiladiisa iyo sida uu dadka ugu xiro deeqaha waxbarasho, shaqooyinka iyo seminars-ka caalamiga ah.">
   <title>Nagu Saabsan | KulmisHub</title>
-  <meta name="description" content="Baro KulmisHub, madasha isku keenta deeqaha waxbarasho, fursadaha shaqo, seminars iyo fursadaha caalamiga ah.">
-  <link rel="canonical" href="https://kulmishub.com/nagu-saabsan/">
   <link rel="stylesheet" href="/style.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; color: #fff; background: #0c2d68; }
+    .topbar {
+      background: #fff; color: #102b59; padding: 15px 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .logo {
+      width: 65px; height: 65px; object-fit: contain;
+      border-radius: 14px;
+    }
+    .brand h2 { margin: 0; font-family: Georgia, serif; font-size: 26px; }
+    .brand p { margin: 3px 0 0; color: #667085; font-size: 13px; }
+    .hero {
+      background: linear-gradient(145deg, #0a2458, #154b91);
+      padding: 42px 22px 60px; min-height: 80vh;
+    }
+    .content { max-width: 900px; margin: auto; }
+    .eyebrow {
+      color: #ffd633; font-weight: bold; letter-spacing: 2px;
+      text-transform: uppercase; font-size: 13px;
+    }
+    h1 {
+      font-family: Georgia, serif; font-size: clamp(34px, 7vw, 52px);
+      line-height: 1.15; margin: 15px 0 22px;
+    }
+    h1 span, h2 span { color: #ffd633; }
+    .intro { font-size: 19px; line-height: 1.8; color: #f1f5ff; }
+    .cards {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px; margin: 35px 0;
+    }
+    .card {
+      padding: 22px; border-radius: 16px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.22);
+    }
+    .card h3 { color: #ffd633; margin-top: 0; font-size: 21px; }
+    .card p { line-height: 1.7; color: #f1f5ff; }
+    .cta {
+      display: inline-block; padding: 14px 22px; margin: 8px 8px 0 0;
+      border-radius: 30px; background: #ffd633; color: #102b59;
+      text-decoration: none; font-weight: bold;
+    }
+    .cta.secondary { background: #fff; }
+    footer { text-align: center; padding: 22px; background: #071b42; color: #dbeafe; }
+  </style>
 </head>
 <body>
-  <h1>Nagu Saabsan — KulmisHub</h1>
-  <p>KulmisHub waa madal isku keenta deeqaha waxbarasho, fursadaha shaqo, seminars iyo fursadaha caalamiga ah.</p>
-  <p><a href="/">Ku noqo bogga hore</a></p>
+  <header class="topbar">
+    <img class="logo" src="/logo.svg" alt="KulmisHub logo">
+    <div class="brand">
+      <h2>KULMIS HUB</h2>
+      <p>Fursado waxbarasho, Seminars & shaqooyin</p>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="content">
+      <div class="eyebrow">Nagu Saabsan</div>
+      <h1>KULMIS HUB — <span>Hoyga Fursadaha Caalamiga ah.</span></h1>
+
+      <p class="intro">
+        KulmisHub waa madal loogu talagalay in dadka lagu xiro
+        fursadaha waxbarasho, deeqaha waxbarasho, shaqooyinka,
+        seminars-ka iyo fursadaha kale ee horumarinta xirfadaha.
+      </p>
+
+      <p class="intro">
+        Waxaan hiigsanaynaa in macluumaadka fursadaha muhiimka ahi
+        noqdo mid si fudud loo heli karo, si dadka Soomaaliyeed iyo
+        bulshada kale ee danaynaysa ay u ogaadaan fursadaha u furan.
+      </p>
+
+      <div class="cards">
+        <section class="card">
+          <h3>🎓 Waxbarasho iyo Deeqo</h3>
+          <p>Waxaan soo bandhignaa macluumaad ku saabsan deeqaha waxbarasho iyo fursadaha jaamacadeed.</p>
+        </section>
+        <section class="card">
+          <h3>💼 Fursadaha Shaqo</h3>
+          <p>Waxaad ka heli kartaa ogeysiisyo shaqo iyo fursado kaa caawin kara horumarinta xirfaddaada.</p>
+        </section>
+        <section class="card">
+          <h3>🌍 Seminars iyo Shirar</h3>
+          <p>Waxaan kuu soo bandhignaa seminars, shirar iyo fursado aqoon-kororsi.</p>
+        </section>
+      </div>
+
+      <h2>Himiladeenna <span>iyo Ujeeddadeenna</span></h2>
+      <p class="intro">
+        Himiladeennu waa inaan fududeyno helitaanka macluumaadka
+        fursadaha, isla markaana aan dadka ku dhiirrigelinno inay
+        raadiyaan waxbarasho, shaqo iyo horumar xirfadeed.
+      </p>
+
+      <a class="cta" href="/">Ku noqo KulmisHub</a>
+      <a class="cta secondary" href="/nala-soo-xiriir">Nala Soo Xiriir</a>
+    </div>
+  </main>
+
+  <footer>© KulmisHub — Hoyga Fursadaha Caalamiga ah.</footer>
 </body>
 </html>
