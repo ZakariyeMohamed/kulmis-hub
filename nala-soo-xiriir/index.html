@@ -4,36 +4,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Nala Soo Xiriir | KulmisHub</title>
-
-  <meta name="description" content="La xiriir KulmisHub wixii su'aalo, talooyin, iskaashi iyo macluumaad ku saabsan deeqaha waxbarasho, shaqooyinka iyo seminars-ka.">
-
+  <meta name="description" content="La xiriir KulmisHub wixii su'aalo, talooyin iyo iskaashi ah.">
   <link rel="canonical" href="https://kulmishub.com/nala-soo-xiriir/">
-
   <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #f5f7fc;
+      color: #172f55;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .contact-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 48px 20px 70px;
+    }
+
+    .section-label {
+      color: #376ac0;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      color: #122c52;
+      font-size: 38px;
+      margin: 0 0 30px;
+    }
+
+    .intro {
+      color: #454545;
+      font-size: 23px;
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .contact-form {
+      background: #fff;
+      border: 1px solid #d8e0e8;
+      border-radius: 27px;
+      padding: 42px;
+      box-shadow: 0 10px 30px rgba(16, 40, 80, .06);
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: bold;
+      font-size: 21px;
+      margin: 5px 0 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 19px 21px;
+      border: 1px solid #cbd3dc;
+      border-radius: 15px;
+      background: #fff;
+      color: #222;
+      font-family: inherit;
+      font-size: 20px;
+      margin-bottom: 23px;
+    }
+
+    .contact-form textarea {
+      min-height: 190px;
+      resize: vertical;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: 2px solid #315f9f;
+      border-color: #315f9f;
+    }
+
+    .contact-form button {
+      border: 0;
+      border-radius: 15px;
+      padding: 19px 32px;
+      background: #142f58;
+      color: #fff;
+      font-family: inherit;
+      font-size: 23px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #234c83;
+    }
+
+    @media (max-width: 600px) {
+      .contact-page { padding: 35px 18px 50px; }
+      h1 { font-size: 34px; }
+      .intro { font-size: 20px; }
+      .contact-form { padding: 25px 20px; border-radius: 23px; }
+      .contact-form label { font-size: 19px; }
+      .contact-form input,
+      .contact-form textarea { font-size: 18px; padding: 17px; }
+      .contact-form button { font-size: 21px; width: auto; }
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <a href="https://kulmishub.com/">← Ku noqo KulmisHub</a>
-    <h1>Nala Soo Xiriir</h1>
-    <p>
-      Ma qabtaa su'aal ku saabsan deeqaha waxbarasho,
-      fursadaha shaqo ama seminars-ka? Waxaan ku soo dhoweynaynaa
-      inaad nala soo xiriirto.
-    </p>
+    <!-- Header-ka guud ee KulmisHub waxaa bixiya style.css haddii uu ku jiro. -->
   </header>
 
-  <main>
-    <h2>La xiriir KulmisHub</h2>
-    <p>
-      Wixii su'aalo, talooyin ama iskaashi ah, booqo
-      bogga rasmiga ah ee KulmisHub si aad uga hesho
-      macluumaadka xiriirka ee ugu dambeeya.
+  <main class="contact-page">
+    <div class="section-label">NALA SOO XIRIIR</div>
+    <h1>Nala Soo Xiriir</h1>
+
+    <p class="intro">
+      Haddii aad qabto su'aal ku saabsan deeqaha waxbarasho,
+      jaamacadaha, shaqooyinka ama adeegyada KulmisHub,
+      fariin noogu soo dir foomkan.
     </p>
 
-    <a href="https://kulmishub.com/">Booqo KulmisHub</a>
+    <div class="contact-form">
+      <form action="https://formsubmit.co/info@kulmishub.com" method="POST">
+        <input type="hidden" name="_subject" value="Fariin cusub oo ka timid KulmisHub">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://kulmishub.com/mahadsanid.html">
+
+        <label for="contactName">Magaca</label>
+        <input id="contactName" type="text" name="name"
+          placeholder="Magacaaga oo buuxa" required>
+
+        <label for="contactEmail">Email-kaaga</label>
+        <input id="contactEmail" type="email" name="email"
+          placeholder="magac@example.com" required>
+
+        <label for="contactMessage">Fariinta</label>
+        <textarea id="contactMessage" name="message" rows="6"
+          placeholder="Halkan ku qor fariintaada..." required></textarea>
+
+        <button type="submit">Dir Fariinta</button>
+      </form>
+    </div>
   </main>
 </body>
 </html>
+
