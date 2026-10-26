@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Mahadsanid | KulmisHub</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f3f6fb;
+      color: #172554;
+    }
+    .card {
+      max-width: 460px;
+      width: 100%;
+      padding: 38px 24px;
+      text-align: center;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+    .check {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #dcfce7;
+      color: #15803d;
+      font-size: 42px;
+    }
+    h1 { margin: 0 0 14px; font-size: 27px; }
+    p { color: #475569; line-height: 1.7; }
+    a {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      background: #173f8a;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover { background: #102e68; }
+    .brand { margin-bottom: 24px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="brand">KulmisHub</div>
+    <div class="check">✓</div>
+    <h1>Mahadsanid!</h1>
+    <p>Fariintaada si guul leh ayaa loo diray.</p>
+    <p>Kooxda KulmisHub way ku mahadsan tahay inaad nala soo xiriirtay. Waan kula soo xiriiri doonnaa haddii loo baahdo.</p>
+    <a href="https://kulmishub.com/">Ku noqo KulmisHub</a>
+  </main>
+</body>
+</html>
