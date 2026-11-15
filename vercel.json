@@ -7,6 +7,10 @@
       "destination": "/api/sitemap"
     },
     {
+      "source": "/:slug((?!nagu-saabsan|deeqo-waxbarasho|seminars|fursadaha-shaqo|adeegyadeena|nala-soo-xiriir|privacy|terms|api|sitemap\\.xml)[^/]+)",
+      "destination": "/api/article?slug=:slug"
+    },
+    {
       "source": "/((?!api/).*)",
       "destination": "/index.html"
     }
